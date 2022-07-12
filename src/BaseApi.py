@@ -10,6 +10,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class BaseApi():
 
+    headers =  {}             
     STATE = {"Informational": range(100,200),
              "Successful":    range(200,300),
              "Redirection":   range(300,400),
@@ -17,12 +18,12 @@ class BaseApi():
              "Server_Error":  range(500,600)
              }
 
-    def __init__(self, hostname, port='80', roo_url='/ubi-etsi-mano/'):
+    def __init__(self, hostname, port='80', root_url='/ubi-etsi-mano/', sol_version='2.6.1'):
         self.hostname = hostname
         self.port     = port
-        self.base_url = "http://" + hostname + ":" + port + roo_url
+        self.base_url = "http://" + hostname + ":" + port + root_url
         self.state    = ""
-    
+        self.sol_version    = sol_version
     def do_get(self, _url):
         _url     = self.base_url + _url
         response = requests.request("GET", url=_url, headers=self.headers,
@@ -41,7 +42,6 @@ class BaseApi():
     def do_post_return_location(self, _url, _payload):
         _url     = self.base_url + _url
         _payload = json.dumps(_payload)
-        #f = open('/opt/fmc_repository/Process/Telekom_Malaysia/src/debug.log', 'w')
         response = requests.request("POST", url=_url, headers=self.headers,
                                     data=_payload, verify=False)
         return self.r_check(response)
@@ -99,9 +99,8 @@ class BaseApi():
             userpass = self._get_token_from_keycloak(username, password, keycloak_url)
             authorization  = f'Bearer {userpass}'
         
-        self.headers   = {'Content-Type': 'application/json',
-                          'Authorization': authorization
-                          }
+        self.headers['Content-Type'] = 'application/json'
+        self.headers.update(Authorization=authorization)
 
     def r_check(self, _response):
         if _response.status_code in self.STATE["Informational"]:

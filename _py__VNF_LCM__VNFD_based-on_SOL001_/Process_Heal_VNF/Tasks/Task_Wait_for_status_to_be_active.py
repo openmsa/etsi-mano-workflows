@@ -58,13 +58,8 @@ if __name__ == "__main__":
 	nfvo_device_ref = context.get('nfvo_device')
 	
 	## Get list of VNFC vdu.
-	vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
-	
-	auth_mode = context["auth_mode"]
-	if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-		vnfLcm.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
-	else:
-		vnfLcm.set_parameters(context['mano_user'], context['mano_pass'])
+	vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"])
+	vnfLcm.set_parameters(context['mano_user'], context['mano_pass'])
 	
 	r = vnfLcm.vnf_lcm_get_vnf_instance_details(context["vnf_instance_id"])
 	

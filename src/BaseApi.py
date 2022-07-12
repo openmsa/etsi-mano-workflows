@@ -10,6 +10,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class BaseApi():
 
+    headers =  {}
     STATE = {"Informational": range(100,200),
              "Successful":    range(200,300),
              "Redirection":   range(300,400),
@@ -17,12 +18,13 @@ class BaseApi():
              "Server_Error":  range(500,600)
              }
 
-    def __init__(self, hostname, port='80', roo_url='/ubi-etsi-mano/'):
+    def __init__(self, hostname, port='80', sol_version='2.6.1'):
         self.hostname = hostname
         self.port     = port
-        self.base_url = "http://" + hostname + ":" + port + roo_url
+        self.base_url = "http://" + hostname + ":" + port + "/ubi-etsi-mano/"
         self.state    = ""
-    
+        self.sol_version    = sol_version 
+
     def do_get(self, _url):
         _url     = self.base_url + _url
         response = requests.request("GET", url=_url, headers=self.headers,
@@ -41,7 +43,6 @@ class BaseApi():
     def do_post_return_location(self, _url, _payload):
         _url     = self.base_url + _url
         _payload = json.dumps(_payload)
-        #f = open('/opt/fmc_repository/Process/Telekom_Malaysia/src/debug.log', 'w')
         response = requests.request("POST", url=_url, headers=self.headers,
                                     data=_payload, verify=False)
         return self.r_check(response)
@@ -78,30 +79,17 @@ class BaseApi():
                                     data={}, verify=False)
         return self.r_check(response)
 
-    def _get_token_from_keycloak(self, username, password, keycloak_url):
-        _headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-        _data_urlencode = {'grant_type': 'client_credentials', 'client_id': username, 'client_secret': password}
-        
-        response = requests.request("POST", url=keycloak_url, headers=_headers, data=_data_urlencode, verify=False)
-        r_json = response.json()
-
-        return r_json.get('access_token')
-
-    def set_parameters(self, username, password, auth_mode='basic', keycloak_url='http://mano-auth:8080/auth/realms/mano-realm/protocol/openid-connect/token', data={}):
+    def set_parameters(self, username, password, data={}):
         self.username  = username
         self.password  = password
         userpass       = f"{username}:{password}"
         base64userpass = base64.b64encode(userpass.encode()).decode()
-        authorization  = f'Basic {base64userpass}'
-        	
-        if auth_mode == 'oauth_v2' or auth_mode == 'oauth2':
-            #Get token from keycloak server.
-            userpass = self._get_token_from_keycloak(username, password, keycloak_url)
-            authorization  = f'Bearer {userpass}'
-        
-        self.headers   = {'Content-Type': 'application/json',
-                          'Authorization': authorization
-                          }
+        #self.headers   = {'Content-Type': 'application/json',
+        #                  'Authorization': f'Basic {base64userpass}'
+        #                  }
+        authorization = f'Basic {base64userpass}'
+        self.headers['Content-Type'] = 'application/json'
+        self.headers.update(Authorization=authorization)
 
     def r_check(self, _response):
         if _response.status_code in self.STATE["Informational"]:

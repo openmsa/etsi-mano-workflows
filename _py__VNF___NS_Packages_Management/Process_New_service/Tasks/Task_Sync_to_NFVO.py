@@ -20,16 +20,10 @@ if __name__ == "__main__":
     context["mano_user"] = mano_user
     context["mano_pass"] = mano_pass
     
-    #Get Authentication mode ('basic' or 'oauth2').
-    auth_mode_var   = Device(device_id=mano_me_id).get_configuration_variable("AUTH_MODE")
-    auth_mode  = auth_mode_var.get("value")
-    context["auth_mode"] = auth_mode
-    
-    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-        #Get keycloak server URL.
-        keycloak_url_var   = Device(device_id=mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
-        keycloak_server_url  = keycloak_url_var.get("value")
-        context["keycloak_server_url"] = keycloak_server_url
+    #Get SOL005 version.
+    sol005_version_var   = Device(device_id=mano_me_id).get_configuration_variable("SOL005_VERSION")
+    sol005_version  = sol005_version_var.get("value")
+    context.update(sol005_version=sol005_version)
     
     ret = MSA_API.process_content('ENDED', f'Task OK', context, True)
     print(ret)

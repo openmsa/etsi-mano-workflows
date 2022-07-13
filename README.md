@@ -35,8 +35,8 @@ chown -R ncuser:ncuser etsi-mano-workflows
 
 ```sh
 cd /opt/fmc_repository/Process/PythonReference/custom
-ln -s /opt/fmc_repository/etsi-mano-workflows/Python/src/ etsi-mano-sdk
-chown -R ncuser:ncuser etsi-mano-sdk
+ln -s /opt/fmc_repository/etsi-mano-workflows/Python/src/ ETSI 
+chown -R ncuser:ncuser ETSI
 ```
 
 

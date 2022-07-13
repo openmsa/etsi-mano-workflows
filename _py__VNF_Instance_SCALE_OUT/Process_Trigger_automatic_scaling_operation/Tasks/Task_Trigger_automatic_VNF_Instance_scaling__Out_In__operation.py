@@ -65,8 +65,8 @@ if __name__ == "__main__":
     device = Device(device_id=device_id)
     
     #Static Routing Management WF service name constant variable.
-    SERVICE_NAME = 'Process/Telekom_Malaysia/_py__VNF_LCM__VNFD_based-on_SOL001_/_py__VNF_LCM__VNFD_based-on_SOL001_'
-    SCALE_OUT_PROCESS_NAME = 'Process/Telekom_Malaysia/_py__VNF_LCM__VNFD_based-on_SOL001_/Process_Scale-out_VNF'
+    SERVICE_NAME = 'Process/etsi-mano-workflows/_py__VNF_LCM__VNFD_based-on_SOL001_/_py__VNF_LCM__VNFD_based-on_SOL001_'
+    SCALE_OUT_PROCESS_NAME = 'Process/etsi-mano-workflows/_py__VNF_LCM__VNFD_based-on_SOL001_/Process_Scale-out_VNF'
     service_id = ''
     service_ext_ref = ''
     

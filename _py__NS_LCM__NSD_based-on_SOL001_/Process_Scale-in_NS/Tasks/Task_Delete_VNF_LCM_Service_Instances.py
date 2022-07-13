@@ -77,8 +77,8 @@ if __name__ == "__main__":
     context.update(vnfInstance_list=vnfInstance_list)
     
     #Static Routing Management WF service name constant variable.
-    SERVICE_NAME = 'Process/Telekom_Malaysia/_py__VNF_LCM__VNFD_based-on_SOL001_/_py__VNF_LCM__VNFD_based-on_SOL001_'
-    VNF_LCM_INSTANTIATE_PROCESS_NAME = 'Process/Telekom_Malaysia/_py__VNF_LCM__VNFD_based-on_SOL001_/Process_Delete_VNF_Instance'
+    SERVICE_NAME = 'Process/etsi-mano-workflows/_py__VNF_LCM__VNFD_based-on_SOL001_/_py__VNF_LCM__VNFD_based-on_SOL001_'
+    VNF_LCM_INSTANTIATE_PROCESS_NAME = 'Process/etsi-mano-workflows/_py__VNF_LCM__VNFD_based-on_SOL001_/Process_Delete_VNF_Instance'
     
     #Get from context VNF LCM service instances dict.
     vnf_lcm_services_list = ''

@@ -176,7 +176,7 @@
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <name>[py] VNF / NS Packages Management</name>
+    <name>VNF / NS Packages Management</name>
     <group>ETSI|Python|VNF|NS</group>
   </information>
 </ObjectDefinition>

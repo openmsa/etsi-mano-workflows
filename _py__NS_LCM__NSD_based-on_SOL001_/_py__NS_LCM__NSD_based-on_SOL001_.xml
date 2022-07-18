@@ -167,12 +167,12 @@
   </process>
   <information>
     <icon/>
-    <description/>
+    <description>NS LCM (NSD based-on SOL001)</description>
     <displayField>service_id</displayField>
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <name>[py] NS LCM (NSD based-on SOL001)</name>
+    <name>NS LifeCycle Management</name>
     <group>ETSI|PYTHON|NS</group>
   </information>
 </ObjectDefinition>

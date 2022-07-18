@@ -367,12 +367,12 @@
   </process>
   <information>
     <icon/>
-    <description/>
+    <description>VNF LCM (VNFD based-on SOL001)</description>
     <displayField>vnf_instance_name</displayField>
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <name>[py] VNF LCM (VNFD based-on SOL001)</name>
+    <name>VNF LifeCycle Management</name>
     <group>ETSI|PYTHON|VNF</group>
   </information>
 </ObjectDefinition>

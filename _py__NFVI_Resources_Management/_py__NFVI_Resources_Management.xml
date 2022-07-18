@@ -76,7 +76,7 @@
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <name>[py] MANO &amp; NFVI Resources Management</name>
+    <name>MANO &amp; NFVI Resources Management</name>
     <group>ETSI|PYTHON|VNFM|VIM</group>
   </information>
 </ObjectDefinition>

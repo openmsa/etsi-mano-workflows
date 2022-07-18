@@ -25,6 +25,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>VNF Instance SCALE IN</name>
-    <group>ETSI|PYTHON|VNF</group>
+    <group>MANO|VNFM|LCM</group>
   </information>
 </ObjectDefinition>

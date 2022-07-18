@@ -23,6 +23,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>VNF Instance Healing</name>
-    <group>ETSI|PYTHON|VNF</group>
+    <group>MANO|VNF|LCM</group>
   </information>
 </ObjectDefinition>

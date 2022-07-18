@@ -173,6 +173,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>NS LifeCycle Management</name>
-    <group>ETSI|PYTHON|NS</group>
+    <group>MANO|NS|LCM</group>
   </information>
 </ObjectDefinition>

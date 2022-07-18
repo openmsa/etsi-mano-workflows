@@ -373,6 +373,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>VNF LifeCycle Management</name>
-    <group>ETSI|PYTHON|VNF</group>
+    <group>MANO|LCM|VNF</group>
   </information>
 </ObjectDefinition>

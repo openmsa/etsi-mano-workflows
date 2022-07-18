@@ -23,6 +23,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>NS Instance SCALE OUT</name>
-    <group/>
+    <group>MANO|VNFM|LCM</group>
   </information>
 </ObjectDefinition>

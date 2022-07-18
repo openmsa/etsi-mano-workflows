@@ -3,11 +3,19 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
+<<<<<<< HEAD
             <value>NFVI_Resources_Management.xml</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
             <value>1658151566249</value>
+=======
+            <value>_py__NFVI_Resources_Management.xml</value>
+        </entry>
+        <entry>
+            <key>DATE_MODIFICATION</key>
+            <value>1658148151855</value>
+>>>>>>> b969c17ea34ce2cac3e69b575727edd3e6f672a0
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +23,11 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
+<<<<<<< HEAD
             <value>1658151566242</value>
+=======
+            <value>1658148151846</value>
+>>>>>>> b969c17ea34ce2cac3e69b575727edd3e6f672a0
         </entry>
         <entry>
             <key>MODEL</key>

@@ -68,6 +68,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>NS Descriptor Editor </name>
-    <group/>
+    <group>MANO|NSD</group>
   </information>
 </ObjectDefinition>

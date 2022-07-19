@@ -68,6 +68,6 @@
     <order>10000</order>
     <visibility>5</visibility>
     <name>VNF Descriptor Editor </name>
-    <group/>
+    <group>MANO|VNFD</group>
   </information>
 </ObjectDefinition>

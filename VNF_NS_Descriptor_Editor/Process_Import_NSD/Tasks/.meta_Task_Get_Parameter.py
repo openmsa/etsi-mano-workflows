@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>VNF_NS_Descriptor_Editor.xml</value>
+            <value>Task_Get_Parameter.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1658500628773</value>
+            <value>1658496099719</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,11 +15,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1658500628762</value>
-        </entry>
-        <entry>
-            <key>MODEL</key>
-            <value>0</value>
+            <value>1658496099716</value>
         </entry>
         <entry>
             <key>TAG</key>
@@ -29,12 +25,8 @@
             <value>text</value>
         </entry>
         <entry>
-            <key>MANUFACTURER</key>
-            <value>0</value>
-        </entry>
-        <entry>
             <key>TYPE</key>
-            <value>FILE</value>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>

@@ -1,6 +1,85 @@
 <ObjectDefinition>
-  <variables frozen="0"/>
+  <variables frozen="0">
+    <variable displayName="csar_file" name="params.csar_file" startIncrement="0" type="File" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories>
+        <repositories>Datafiles</repositories>
+      </repositories>
+    </variable>
+    <variable displayName="package_name" name="params.package_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.tosca_files.0.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="content" name="params.tosca_files.0.content" startIncrement="0" type="Code" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="1200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" codeLanguage="yaml" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="topology_view" name="params.topology_view" startIncrement="0" type="Link" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="csar_file_link" name="params.csar_file_link" startIncrement="0" type="Link" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
   <example/>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Import_VNFD">
+    <displayName>Import VNFD</displayName>
+    <type>CREATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Get_Parameter.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Import_VNFD/Tasks</processPath>
+      <displayName>Get Parameter</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Import_NSD">
+    <displayName>Import NSD</displayName>
+    <type>CREATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Get_Parameter.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Import_NSD/Tasks</processPath>
+      <displayName>Get Parameter</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_New_VNFD">
+    <displayName>New VNFD</displayName>
+    <type>CREATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Get_Parameter.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_New_VNFD/Tasks</processPath>
+      <displayName>Get Parameter</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_New_NSD">
+    <displayName>New NSD</displayName>
+    <type>CREATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Edit_Descriptor">
+    <displayName>Edit</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Get_Parameter.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Edit_Descriptor/Tasks</processPath>
+      <displayName>Get_Parameter</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Onboard">
+    <displayName>Onboard</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_View_Topology">
+    <displayName>View Topology</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Delete">
+    <displayName>Delete</displayName>
+    <type>DELETE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_delete_warning.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Descriptor_Editor/Process_Delete/Tasks</processPath>
+      <displayName>delete warning</displayName>
+    </task>
+  </process>
   <information>
     <icon/>
     <description/>
@@ -8,7 +87,7 @@
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <name>VNF/NS Descriptor Editor</name>
+    <name>VNF/NS Descriptor Editor (Prototype)</name>
     <group/>
   </information>
 </ObjectDefinition>

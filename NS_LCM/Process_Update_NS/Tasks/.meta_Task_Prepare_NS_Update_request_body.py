@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>NS_LCM.xml</value>
+            <value>Task_Prepare_NS_Update_request_body.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1658475709891</value>
+            <value>1658475709139</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,26 +15,18 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1658475709878</value>
-        </entry>
-        <entry>
-            <key>MODEL</key>
-            <value>0</value>
+            <value>1658475709137</value>
         </entry>
         <entry>
             <key>TAG</key>
         </entry>
         <entry>
             <key>FILE_TYPE</key>
-            <value>unknown</value>
-        </entry>
-        <entry>
-            <key>MANUFACTURER</key>
-            <value>0</value>
+            <value>text</value>
         </entry>
         <entry>
             <key>TYPE</key>
-            <value>FILE</value>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>

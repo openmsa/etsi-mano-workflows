@@ -71,14 +71,16 @@ def _updateVnffg_content_builder(updateVnffgs):
     if isinstance(updateVnffgs, list):
         for vnffg in updateVnffgs:
             nfp_content = json.loads(vnffg.get('nfp'))
-            vnffg.update(nfp=nfp_content)
-            content.append(vnffg)
+            vnffg_copy = vnffg.copy()
+            vnffg_copy.update(nfp=nfp_content)
+            content.append(vnffg_copy)
     elif isinstance(updateVnffgs, dict):
         for index in updateVnffgs:
             vnffg = updateVnffgs.get(index)
             nfp_content = json.loads(vnffg.get('nfp'))
-            vnffg.update(nfp=nfp_content)
-            content.append(vnffg)
+            vnffg_copy = vnffg.copy()
+            vnffg_copy.update(nfp=nfp_content)
+            content.append(vnffg_copy)
             
     return content
 

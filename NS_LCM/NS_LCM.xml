@@ -223,6 +223,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
       <displayName>Update NS Instance</displayName>
     </task>
+    <task name="Task_Get_NS_Operation_Occurrence_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
+      <displayName>Get NS Operation Occurrence State</displayName>
+    </task>
   </process>
   <process name="Process/etsi-mano-workflows/NS_LCM/Process_Scale-out_NS">
     <displayName>Scale-out NS</displayName>

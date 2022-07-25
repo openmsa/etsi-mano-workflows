@@ -184,6 +184,16 @@
     </variable>
   </variables>
   <example/>
+  <process name="Process/KUBERNETES/CNF_Mgmt_Yaml_Based/Process_Create_Instance">
+    <displayName>Create Instance</displayName>
+    <type>CREATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Create.php">
+      <processPath>/opt/fmc_repository/Process/KUBERNETES/CNF_Mgmt_Yaml_Based/Process_Create_Instance/Tasks</processPath>
+      <displayName>Create</displayName>
+    </task>
+  </process>
   <process name="Process/KUBERNETES/CNF_Mgmt_Yaml_Based/Process_Pods_Deployments">
     <displayName>CNF Deployments</displayName>
     <type>UPDATE</type>
@@ -335,12 +345,6 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/CNF/CNF_Mgmt_Yaml_Based/Process_Delete_Docker_Private_Registry_Secret/Tasks/</processPath>
       <displayName>Delete Private Registry Secret</displayName>
     </task>
-  </process>
-  <process name="Process/KUBERNETES/CNF_Mgmt_Yaml_Based/Process_Create_Instance">
-    <displayName>Create Instance</displayName>
-    <type>CREATE</type>
-    <visibility>5</visibility>
-    <allowSchedule>false</allowSchedule>
   </process>
   <process name="Process/KUBERNETES/CNF_Mgmt_Yaml_Based/Process_CNF_External_Remote_Access_">
     <displayName>MSA Managed Entity Creation</displayName>

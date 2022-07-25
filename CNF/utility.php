@@ -87,5 +87,4 @@ function kubernetes_apply_yaml ($operation, $kubernetes_rest_api, $auth_token = 
         return $curl_cmd;
 }
 
-
 ?>

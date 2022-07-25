@@ -187,58 +187,58 @@
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
     <task name="Task_Fetch_Mano_Data.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Get VNFD from VNF Catalog (NFVO)</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Synchronize_to_VIM_tenant.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Synchronize_to_VIM_tenant.php">
       <processPath/>
       <displayName>Sync VIM services inventories</displayName>
     </task>
     <task name="Task_Launch_Stack.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Instantiate VNF based on VNFD (Stack)</displayName>
     </task>
     <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Get VIM authentification token</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Get_stack_resources.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Get_stack_resources.php">
       <processPath/>
       <displayName>Get VNF details from the VIM</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Create_MSA_devices_from_stacks_resources.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Create_MSA_devices_from_stacks_resources.php">
       <processPath/>
       <displayName>Create MSA devices corresponding to the VNF</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/Tasks/Task_Add_Service_instance_ref_config_var.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/Tasks/Task_Add_Service_instance_ref_config_var.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Add Service instance_ref config var</displayName>
     </task>
     <task name="Task_.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Add VNFi ID var config</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_provision.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_provision.php">
       <processPath/>
       <displayName>VNF provision</displayName>
     </task>
     <task name="Task_Configure_net.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Configure_net</displayName>
     </task>
     <task name="Task_Attach_MON_profile_to_device.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Attach MON profile to device</displayName>
     </task>
     <task name="Task_Get_network_interfaces_details.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Get network interfaces details</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_reachability_check.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_reachability_check.php">
       <processPath/>
       <displayName>VNF reachability check</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_Ping_Check.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_Ping_Check.php">
       <processPath/>
       <displayName>VNF Ping Check</displayName>
     </task>
@@ -253,31 +253,31 @@
       <displayName>Get VIM authentification token</displayName>
     </task>
     <task name="Task_Scale_Out.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>Scale Out</displayName>
     </task>
     <task name="Task_Create_MSA_device.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>Create MSA device</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/Tasks/Task_Add_Service_instance_ref_config_var.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/Tasks/Task_Add_Service_instance_ref_config_var.php">
       <processPath/>
       <displayName>Add Service instance_ref config var</displayName>
     </task>
     <task name="Task_VNF_provision.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>VNF provision</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Attach_MON_profile_to_device.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Attach_MON_profile_to_device.php">
       <processPath/>
       <displayName>Attach MON profile to device</displayName>
     </task>
     <task name="Task_VNF_reachability_check.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>VNF reachability check</displayName>
     </task>
     <task name="Task_VNF_Ping_Check.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>VNF Ping Check</displayName>
     </task>
   </process>
@@ -291,11 +291,11 @@
       <displayName>Get VIM authentification token</displayName>
     </task>
     <task name="Task_Scale_In.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
       <displayName>Scale In</displayName>
     </task>
     <task name="Task_Delete_MSA_device.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
       <displayName>Delete MSA device</displayName>
     </task>
   </process>
@@ -305,14 +305,14 @@
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
     <task name="Task_Delete_Scaled_VNF.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
       <displayName>Delete Scaled VNF</displayName>
     </task>
     <task name="Task_Delete_Stack.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
       <displayName>Delete VNF from VIM</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/Task_Delete_on_OpenMSA.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/Task_Delete_on_OpenMSA.php">
       <processPath/>
       <displayName>Delete MSA devices (VNF corresponding devices)</displayName>
     </task>
@@ -328,7 +328,7 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Start.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Start.php">
       <processPath/>
       <displayName>Start VNF Instance</displayName>
     </task>
@@ -338,7 +338,7 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Stop.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Stop.php">
       <processPath/>
       <displayName>Stop VNF instance</displayName>
     </task>
@@ -348,7 +348,7 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Suspend.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Suspend.php">
       <processPath/>
       <displayName>Suspend VNF Instance</displayName>
     </task>
@@ -358,7 +358,7 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Resume.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Resume.php">
       <processPath/>
       <displayName>Resume VNF Instance</displayName>
     </task>
@@ -373,7 +373,7 @@
       <displayName>Get VIM authentification token</displayName>
     </task>
     <task name="Task_Attach_Interface.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Attach_Interface/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Attach_Interface/Tasks/</processPath>
       <displayName>Attach Interface</displayName>
     </task>
   </process>
@@ -387,19 +387,19 @@
       <displayName>Get VIM authentification token</displayName>
     </task>
     <task name="Task_Get_VNF_instance_current_flavor.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
       <displayName>Get VNF instance current flavor</displayName>
     </task>
     <task name="Task_Calcul_higher_flavor.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
       <displayName>Calcul higher flavor</displayName>
     </task>
     <task name="Task_Scale_VNF_Flavor.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
       <displayName>Scale VNF Flavor</displayName>
     </task>
     <task name="Task_Clean_up.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
       <displayName>Clean up</displayName>
     </task>
   </process>
@@ -413,11 +413,11 @@
       <displayName>Get VIM authentification token</displayName>
     </task>
     <task name="Task_Get_host_name_from_ID.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF/Tasks/</processPath>
       <displayName>Get hypervisor name by ID</displayName>
     </task>
     <task name="Task_Live-Migrate_VNF.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF/Tasks/</processPath>
       <displayName>Live-Migrate VNF</displayName>
     </task>
   </process>
@@ -431,19 +431,19 @@
       <displayName>Get VIM authentification token</displayName>
     </task>
     <task name="Task_Get_VNF_instance_details.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
       <displayName>Get VNF instance details</displayName>
     </task>
     <task name="Task_Rebuild_VNF_instance.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
       <displayName>Rebuild VNF instance</displayName>
     </task>
     <task name="Task_VNF_reachability_check.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
       <displayName>VNF reachability check</displayName>
     </task>
     <task name="Task_VNF_Ping_Check.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
       <displayName>VNF Ping Check</displayName>
     </task>
   </process>
@@ -453,11 +453,11 @@
     <visibility>5</visibility>
     <allowSchedule>false</allowSchedule>
     <task name="Task_Update_device_config_variables.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
       <displayName>Update device config variables</displayName>
     </task>
     <task name="Task_Push_device_configuration.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
       <displayName>Update device configuration</displayName>
     </task>
   </process>
@@ -470,19 +470,19 @@
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_Get_VNF_instance_details.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_Get_VNF_instance_details.php">
       <processPath/>
       <displayName>Get VNF instance details</displayName>
     </task>
     <task name="Task_Upgrade_VNF_instance.php">
-      <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Upgrade_VNF/Tasks/</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Upgrade_VNF/Tasks/</processPath>
       <displayName>Upgrade VNF instance</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_VNF_reachability_check.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_VNF_reachability_check.php">
       <processPath/>
       <displayName>VNF reachability check</displayName>
     </task>
-    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_VNF_Ping_Check.php">
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_VNF_Ping_Check.php">
       <processPath/>
       <displayName>VNF Ping Check</displayName>
     </task>

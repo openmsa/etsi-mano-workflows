@@ -7,5 +7,4 @@ function list_args()
 }
 
 task_success('Task OK');
-task_error('Task FAILED');
 ?>

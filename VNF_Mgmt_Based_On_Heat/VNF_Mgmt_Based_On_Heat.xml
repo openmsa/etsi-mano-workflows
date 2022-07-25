@@ -491,7 +491,7 @@
     <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
     <description/>
     <displayField>stackname</displayField>
-    <serviceTaskType>PHP</serviceTaskType>
+    <serviceTaskType>php</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
     <name>VNF Lifecycle Management (based-on HEAT)</name>

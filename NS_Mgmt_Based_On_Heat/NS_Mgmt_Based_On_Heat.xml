@@ -234,7 +234,7 @@
     <icon>/images/repository/CommandDefinition/icons/Network.png</icon>
     <description/>
     <displayField>stackname</displayField>
-    <serviceTaskType>PHP</serviceTaskType>
+    <serviceTaskType>php</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
     <name>NSD Lifecycle Management (based-on HEAT)</name>

@@ -2,41 +2,34 @@
 <metadata>
     <map>
         <entry>
-            <key>MODEL</key>
+            <key>DISPLAYNAME</key>
+            <value>Task_VNF_Resume.php</value>
+        </entry>
+        <entry>
+            <key>DATE_MODIFICATION</key>
+            <value>1658751417263</value>
+        </entry>
+        <entry>
+            <key>REPOSITORY</key>
+            <value>Process</value>
+        </entry>
+        <entry>
+            <key>DATE_CREATION</key>
+            <value>1658751417221</value>
+        </entry>
+        <entry>
+            <key>TAG</key>
         </entry>
         <entry>
             <key>FILE_TYPE</key>
             <value>text</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1562252888882</value>
+            <key>TYPE</key>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>
-            <value></value>
-        </entry>
-        <entry>
-            <key>REPOSITORY</key>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1562249273666</value>
-        </entry>
-        <entry>
-            <key>MANUFACTURER</key>
-        </entry>
-        <entry>
-            <key>CONFIGURATION_FILTER</key>
-            <value></value>
-        </entry>
-        <entry>
-            <key>TAG</key>
-            <value></value>
-        </entry>
-        <entry>
-            <key>TYPE</key>
-            <value>UPLOAD</value>
         </entry>
     </map>
 </metadata>

@@ -1,192 +1,141 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
-    <allowLaunchOnFailedProcess>true</allowLaunchOnFailedProcess>
-    <description/>
-    <displayField>stackname</displayField>
-    <executionDetailsVisibility>5</executionDetailsVisibility>
-    <executionMode>TRANSACTION</executionMode>
-    <group>NFV|Network Service|Heat descriptor-based</group>
-    <icon>/images/repository/CommandDefinition/icons/Network.png</icon>
-    <name>NSD deployment based-on heat </name>
-    <order>10000</order>
-    <poolId>0</poolId>
-    <readVariableVisibility>5</readVariableVisibility>
-    <showDetailedServiceInstances>true</showDetailedServiceInstances>
-    <showProcessExecConsole>true</showProcessExecConsole>
-    <showVariables>true</showVariables>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Device Id" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.deviceid" numberOfRowMax="0" startIncrement="0" type="Device" visible="false">
+<ObjectDefinition>
+  <variables frozen="0">
+    <variable displayName="Device Id" name="params.deviceid" startIncrement="0" type="Device" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
       <sdTypes>
-        <sdType manId="17010303" modId="17010305"/>
+        <sdTypes manId="17010303" modId="17010305"/>
       </sdTypes>
     </variable>
-    <variable cols="50" default="VNF" displayName="Stack Name" displayOrder="1" editable="false" isMandatory="true" maxLength="100" name="params.stackname" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Stack Name" name="params.stackname" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="VNF" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
     </variable>
-    <variable cols="50" default="http://10.30.19.77/tech_report/heat/Simulator_VNF.yaml" displayName="Template Url" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.template_url" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Template Url" name="params.template_url" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="http://10.30.19.77/tech_report/heat/Simulator_VNF.yaml" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
     </variable>
-    <variable cols="50" displayName="Stack Id" displayOrder="3" isUserLocked="true" maxLength="100" name="params.stackid" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Stack Id" name="params.stackid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Delete Stack</section>
+        <sections>Delete Stack</sections>
       </sections>
     </variable>
-    <variable displayName="Floatingip Id" displayOrder="4" maxLength="100" name="params.floatingip_id" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Floatingip Id" name="params.floatingip_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Disassociate floating IP</section>
+        <sections>Disassociate floating IP</sections>
       </sections>
     </variable>
-    <variable default="root" displayName="Device Login" displayOrder="5" maxLength="100" name="params.device_login" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Device Login" name="params.device_login" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="root" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Create MSA devices from stacks resources</section>
+        <sections>Create MSA devices from stacks resources</sections>
       </sections>
     </variable>
-    <variable default="$ubiqube" displayName="Device Password" displayOrder="6" maxLength="100" name="params.device_password" numberOfRowMax="0" startIncrement="0" type="Password" visible="false">
+    <variable displayName="Device Password" name="params.device_password" startIncrement="0" type="Password" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="$ubiqube" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Create MSA devices from stacks resources</section>
+        <sections>Create MSA devices from stacks resources</sections>
       </sections>
     </variable>
-    <variable default="default" displayName="user_domain_id" displayOrder="7" maxLength="100" name="params.user_domain_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable default="Default" displayName="project_domain_id" displayOrder="8" maxLength="100" name="params.project_domain_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable default="admin" displayName="admin_username" displayOrder="9" maxLength="100" name="params.admin_username" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable default="openstack" displayName="admin_password" displayOrder="10" maxLength="100" name="params.admin_password" numberOfRowMax="0" startIncrement="0" type="Password" visible="false"/>
-    <variable default="a63453acff0a46968d3f256b2df0321e" displayName="tenant_id" displayOrder="11" maxLength="100" name="params.tenant_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable default="http://eosphoros.ubiqube.com:5000/v3/" displayName="keystone_public_endpoint" displayOrder="12" maxLength="100" name="params.keystone_public_endpoint" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="Nfvodevice" displayOrder="13" maxLength="100" name="params.nfvoDevice" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Device">
+    <variable displayName="user_domain_id" name="params.user_domain_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="default" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="project_domain_id" name="params.project_domain_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="Default" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="admin_username" name="params.admin_username" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="admin" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="admin_password" name="params.admin_password" startIncrement="0" type="Password" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="openstack" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="tenant_id" name="params.tenant_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="a63453acff0a46968d3f256b2df0321e" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="keystone_public_endpoint" name="params.keystone_public_endpoint" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="http://eosphoros.ubiqube.com:5000/v3/" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Nfvodevice" name="params.nfvoDevice" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Get NSD from NS Catalog (NVFO)</section>
+        <sections>Get NSD from NS Catalog (NVFO)</sections>
       </sections>
       <sdTypes>
-        <sdType manId="17010303" modId="17010305"/>
+        <sdTypes manId="17010303" modId="17010305"/>
       </sdTypes>
     </variable>
-    <variable displayName="Nspkgid" displayOrder="14" maxLength="100" name="params.nsPkgId" numberOfRowMax="0" refDeviceIdVar="params.nfvoDevice" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="Nspkgid" name="params.nsPkgId" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" refDeviceIdVar="params.nfvoDevice" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Fetch Mano Data</section>
+        <sections>Fetch Mano Data</sections>
       </sections>
       <classes>
         <class>ns_catalogs</class>
       </classes>
     </variable>
-    <variable displayName="Router Name" displayOrder="15" maxLength="100" name="params.router_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Router Name" name="params.router_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
     </variable>
-    <variable default="false" displayName="Router Admin State Up" displayOrder="16" maxLength="100" name="params.router_admin_state_up" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Router Admin State Up" name="params.router_admin_state_up" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
     </variable>
-    <variable displayName="External Gateway Network" displayOrder="17" maxLength="100" name="params.external_gateway_network" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="External Gateway Network" name="params.external_gateway_network" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="17" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
       <classes>
         <class>networks</class>
       </classes>
     </variable>
-    <variable displayName="Networks.0.network Name" displayOrder="18" maxLength="100" name="params.networks.0.network_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Networks.0.network Name" name="params.networks.0.network_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
     </variable>
-    <variable default="false" displayName="Networks.0.admin State Up" displayOrder="19" maxLength="100" name="params.networks.0.admin_state_up" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Networks.0.admin State Up" name="params.networks.0.admin_state_up" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
     </variable>
-    <variable default="false" displayName="Networks.0.router External" displayOrder="20" maxLength="100" name="params.networks.0.router_external" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Networks.0.router External" name="params.networks.0.router_external" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
     </variable>
-    <variable default="false" displayName="Networks.0.port Security Enabled" displayOrder="21" maxLength="100" name="params.networks.0.port_security_enabled" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Networks.0.port Security Enabled" name="params.networks.0.port_security_enabled" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Router Config</section>
+        <sections>Router Config</sections>
       </sections>
     </variable>
-    <variable displayName="Networks.0.subnet Name" displayOrder="22" maxLength="100" name="params.networks.0.subnet_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Networks.0.subnet Name" name="params.networks.0.subnet_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>SubnetConfig</section>
+        <sections>SubnetConfig</sections>
       </sections>
     </variable>
-    <variable displayName="Networks.0.subnet Cidr" displayOrder="23" maxLength="100" name="params.networks.0.subnet_cidr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Networks.0.subnet Cidr" name="params.networks.0.subnet_cidr" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="23" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>SubnetConfig</section>
+        <sections>SubnetConfig</sections>
       </sections>
     </variable>
-    <variable default="false" displayName="Networks.0.subnet Enable Dhcp" displayOrder="24" maxLength="100" name="params.networks.0.subnet_enable_dhcp" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Networks.0.subnet Enable Dhcp" name="params.networks.0.subnet_enable_dhcp" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>SubnetConfig</section>
+        <sections>SubnetConfig</sections>
       </sections>
     </variable>
-    <variable default="false" displayName="Networks.0.subnet Attached To Router" displayOrder="25" maxLength="100" name="params.networks.0.subnet_attached_to_router" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Networks.0.subnet Attached To Router" name="params.networks.0.subnet_attached_to_router" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="25" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>SubnetConfig</section>
+        <sections>SubnetConfig</sections>
       </sections>
     </variable>
-    <variable displayName="Vnfpkgs.0.vnfpkgid" displayOrder="26" isUserLocked="true" maxLength="100" name="params.vnfPkgs.0.vnfPkgId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Vnfpkgs.0.vnfpkgid" name="params.vnfPkgs.0.vnfPkgId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="26" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Get NSD from NS Catalog (NVFO)</section>
+        <sections>Get NSD from NS Catalog (NVFO)</sections>
       </sections>
     </variable>
-    <variable displayName="Vnfpkgid" displayOrder="27" maxLength="100" name="params.vnfPkgId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Vnfpkgid" name="params.vnfPkgId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="27" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Scale Out</section>
+        <sections>Scale Out</sections>
       </sections>
     </variable>
-  </variables>  <example>    <content/>  </example>
+  </variables>
+  <example/>
   <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack">
-    <visibility>5</visibility>
     <displayName>Instantiate NS</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>CREATE</type>
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-  
-    
-    
-    
-  
-  
-    
-    
-    
-    
-  
-    
-    
-    
-  
-  
-    
-    
-    
-    
-  <task name="Task_Fetch_Mano_Data.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Fetch_Mano_Data.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Get NSD from NS Catalog (NVFO)</displayName>
     </task>
@@ -210,47 +159,23 @@
       <processPath/>
       <displayName>Sync</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out">
-    <visibility>5</visibility>
     <displayName>Scale out</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-  
-  
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-  
-  <task name="Task_Scale_Out.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Scale_Out.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>Scale Out</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Scale_In">
-    <visibility>5</visibility>
     <displayName>Scale In</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-  <task name="Task_Scale_In.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Scale_In.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
       <displayName>Scale In</displayName>
     </task>
@@ -258,32 +183,13 @@
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
       <displayName>Delete MSA device</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack">
-    <visibility>5</visibility>
     <displayName>Terminate NS</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-  
-  
-    
-  
-  
-  
-  
-  
-  
-    
-  
-  
-    
-  
-  
-    
-  
-  <task name="Task_GET_VIM_Token.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_GET_VIM_Token.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
       <displayName>GET VIM Token</displayName>
     </task>
@@ -295,29 +201,19 @@
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
       <displayName>Delete Stack</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Move_To_Trash">
-    <visibility>5</visibility>
     <displayName>Move To Trash</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>DELETE</type>
-  <compensation/>
-  </process>
-<process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Add_Network">
     <visibility>5</visibility>
-    <displayName>Add Network</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
     <allowSchedule>false</allowSchedule>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Add_Network">
+    <displayName>Add Network</displayName>
     <type>UPDATE</type>
-    
-    
-    
-    
-  <task name="Task_Router_Config.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Router_Config.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Add_Network/Tasks/</processPath>
       <displayName>Router Config</displayName>
     </task>
@@ -334,4 +230,14 @@
       <displayName>Sync</displayName>
     </task>
   </process>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/Network.png</icon>
+    <description/>
+    <displayField>stackname</displayField>
+    <serviceTaskType>python</serviceTaskType>
+    <order>10000</order>
+    <visibility>5</visibility>
+    <name>NSD Lifecycle Management (based-on HEAT)</name>
+    <group>NFV|Network Service|Heat descriptor-based</group>
+  </information>
 </ObjectDefinition>

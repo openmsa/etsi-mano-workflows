@@ -1,343 +1,192 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
-    <allowLaunchOnFailedProcess>true</allowLaunchOnFailedProcess>
-    <description/>
-    <displayField>stackname</displayField>
-    <executionDetailsVisibility>5</executionDetailsVisibility>
-    <executionMode>TRANSACTION</executionMode>
-    <group>NFV|Virtual Network Function|Heat descriptor-based</group>
-    <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
-    <name>IFA008 Ve-Vnfm-vnf | IFA006 Vi-Vnfm: VNF Lifecycle Management (based-on heat)</name>
-    <order>10000</order>
-    <poolId>0</poolId>
-    <readVariableVisibility>5</readVariableVisibility>
-    <showDetailedServiceInstances>true</showDetailedServiceInstances>
-    <showProcessExecConsole>true</showProcessExecConsole>
-    <showVariables>false</showVariables>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="NFVO Device" displayOrder="0" maxLength="100" name="params.nfvoDevice" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Device">
+<ObjectDefinition>
+  <variables frozen="0">
+    <variable displayName="NFVO Device" name="params.nfvoDevice" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Get VNFD from VNF Catalog (NFVO)</section>
+        <sections>Get VNFD from VNF Catalog (NFVO)</sections>
       </sections>
       <sdTypes>
-        <sdType manId="17010303" modId="17010305"/>
+        <sdTypes manId="17010303" modId="17010305"/>
       </sdTypes>
     </variable>
-    <variable displayName="Vnfpkgid" displayOrder="1" maxLength="100" name="params.vnfPkgId" numberOfRowMax="0" refDeviceIdVar="params.nfvoDevice" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="Vnfpkgid" name="params.vnfPkgId" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" refDeviceIdVar="params.nfvoDevice" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Fetch Mano Data</section>
+        <sections>Fetch Mano Data</sections>
       </sections>
       <classes>
         <class>vnf_catalogs</class>
       </classes>
     </variable>
-    <variable displayName="Device Id" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.deviceid" numberOfRowMax="0" startIncrement="0" type="Device" visible="false">
+    <variable displayName="Device Id" name="params.deviceid" startIncrement="0" type="Device" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
       <sdTypes>
-        <sdType manId="14020603" modId="16051904"/>
+        <sdTypes manId="14020603" modId="16051904"/>
       </sdTypes>
     </variable>
-    <variable cols="50" default="VNF" displayName="Stack Name" displayOrder="3" editable="false" isMandatory="true" maxLength="100" name="params.stackname" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Stack Name" name="params.stackname" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="VNF" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
     </variable>
-    <variable cols="50" default="http://10.30.19.77/tech_report/heat/Simulator_VNF.yaml" displayName="Template Url" displayOrder="4" editable="false" isMandatory="true" maxLength="100" name="params.template_url" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Template Url" name="params.template_url" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="http://10.30.19.77/tech_report/heat/Simulator_VNF.yaml" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
     </variable>
-    <variable default="UBI-KEYPAIR" displayName="Key Name" displayOrder="5" editable="false" maxLength="100" name="params.key_name" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" type="OBMFRef" visible="false">
+    <variable displayName="Key Name" name="params.key_name" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="UBI-KEYPAIR" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
       <classes>
         <class>keypairs</class>
       </classes>
     </variable>
-    <variable default="false" displayName="Is Auto Scale" displayOrder="6" maxLength="100" name="params.is_auto_scale" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+    <variable displayName="Is Auto Scale" name="params.is_auto_scale" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Auto scale up</section>
+        <sections>Auto scale up</sections>
       </sections>
     </variable>
-    <variable displayName="Old Flavor" displayOrder="7" isUserLocked="true" maxLength="100" name="params.old_flavor" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Old Flavor" name="params.old_flavor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
     </variable>
-    <variable displayName="Flavor" displayOrder="8" maxLength="100" name="params.flavor" numberOfRowMax="0" selector="params.is_auto_scale" startIncrement="0" type="Composite">
-      <sections>
-        <section>Launch Stack</section>
-      </sections>
+    <variable displayName="Flavor" name="params.flavor" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.is_auto_scale" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="flavor" displayOrder="0" maxLength="100" name="params.flavor" numberOfRowMax="0" refDeviceIdVar="params.deviceid" selectorValue="false" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="flavor" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.flavor" selectorValue="false" startIncrement="0" type="OBMFRef">
           <classes>
             <class>flavors</class>
           </classes>
-        </behavior>
-        <behavior displayName="flavor" displayOrder="0" editable="false" maxLength="100" name="params.flavor" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="flavor" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.flavor" selectorValue="true" startIncrement="0" type="String"/>
       </behaviors>
-    </variable>
-    <variable displayName="Image Id" displayOrder="9" maxLength="100" name="params.simulator_image_id" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" type="OBMFRef">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
+      </sections>
+    </variable>
+    <variable displayName="Image Id" name="params.simulator_image_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
       </sections>
       <classes>
         <class>images</class>
       </classes>
     </variable>
-    <variable displayName="Public Network" displayOrder="10" maxLength="100" name="params.public_network" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" type="OBMFRef">
+    <variable displayName="Public Network" name="params.public_network" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Launch Stack</section>
+        <sections>Launch Stack</sections>
       </sections>
       <classes>
         <class>networks</class>
       </classes>
     </variable>
-    <variable displayName="Upgrade Image Id" displayOrder="11" isMandatory="true" maxLength="100" name="params.upgrade_image_id" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="Upgrade Image Id" name="params.upgrade_image_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="11" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Upgrade VNF instance</section>
+        <sections>Upgrade VNF instance</sections>
       </sections>
       <classes>
         <class>images</class>
       </classes>
     </variable>
-    <variable cols="50" displayName="Stack Id" displayOrder="12" isUserLocked="true" maxLength="100" name="params.stackid" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Stack Id" name="params.stackid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Delete Stack</section>
+        <sections>Delete Stack</sections>
       </sections>
     </variable>
-    <variable displayName="Sever Id" displayOrder="13" maxLength="100" name="params.scaled_out_device" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="Sever Id" name="params.scaled_out_device" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="13" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Scale Out</section>
-      </sections>
-      <classes>
-        <class>servers</class>
-      </classes>
-    </variable>
-    <variable displayName="Server Id" displayOrder="14" maxLength="100" name="params.server_id" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" type="OBMFRef">
-      <sections>
-        <section>Scale In</section>
+        <sections>Scale Out</sections>
       </sections>
       <classes>
         <class>servers</class>
       </classes>
     </variable>
-    <variable default="root" displayName="Device Login" displayOrder="15" editable="false" isUserLocked="true" maxLength="100" name="params.device_login" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Server Id" name="params.server_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Create MSA devices from stacks resources</section>
+        <sections>Scale In</sections>
+      </sections>
+      <classes>
+        <class>servers</class>
+      </classes>
+    </variable>
+    <variable displayName="Device Login" name="params.device_login" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="root" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Create MSA devices from stacks resources</sections>
       </sections>
     </variable>
-    <variable default="$ubiqube" displayName="Device Password" displayOrder="16" editable="false" isUserLocked="true" maxLength="100" name="params.device_password" numberOfRowMax="0" startIncrement="0" type="Password" visible="false">
+    <variable displayName="Device Password" name="params.device_password" startIncrement="0" type="Password" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="$ubiqube" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Create MSA devices from stacks resources</section>
+        <sections>Create MSA devices from stacks resources</sections>
       </sections>
     </variable>
-    <variable displayName="Current Image" displayOrder="17" editable="false" isUserLocked="true" maxLength="100" name="params.current_image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+    <variable displayName="Current Image" name="params.current_image" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Upgrade VNF instance</section>
+        <sections>Upgrade VNF instance</sections>
       </sections>
     </variable>
-    <variable displayName="Hypervisor ID" displayOrder="18" maxLength="100" name="params.host" numberOfRowMax="0" refDeviceIdVar="params.deviceid" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="Hypervisor ID" name="params.host" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="18" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Live-Migrate VNF</section>
+        <sections>Live-Migrate VNF</sections>
       </sections>
       <classes>
         <class>hosts</class>
       </classes>
     </variable>
-    <variable displayName="Network Id" displayOrder="19" maxLength="100" name="params.network_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Network Id" name="params.network_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Attach Interface</section>
+        <sections>Attach Interface</sections>
       </sections>
     </variable>
-    <variable displayName="Floatingip Id" displayOrder="20" editable="false" isUserLocked="true" maxLength="100" name="params.floatingip_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+    <variable displayName="Floatingip Id" name="params.floatingip_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Disassociate floating IP</section>
+        <sections>Disassociate floating IP</sections>
       </sections>
     </variable>
-    <variable default="true" displayName="Rollback On Failure" displayOrder="21" maxLength="100" name="params.rollback_on_failure" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable default="192.168.40.0" displayName="Left Centos Ip" displayOrder="22" maxLength="100" name="params.left_centos_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress">
+    <variable displayName="Rollback On Failure" name="params.rollback_on_failure" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Left Centos Ip" name="params.left_centos_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.40.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-    <variable default="192.168.40.0" displayName="Vsrx Inbound Ip" displayOrder="23" maxLength="100" name="params.vsrx_inbound_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress">
+    <variable displayName="Vsrx Inbound Ip" name="params.vsrx_inbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="23" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.40.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-    <variable default="192.168.30.0" displayName="Vsrx Outbound Ip" displayOrder="24" maxLength="100" name="params.vsrx_outbound_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress">
+    <variable displayName="Vsrx Outbound Ip" name="params.vsrx_outbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.30.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-    <variable default="192.168.30.0" displayName="Ims Inbound Ip" displayOrder="25" maxLength="100" name="params.ims_inbound_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress">
+    <variable displayName="Ims Inbound Ip" name="params.ims_inbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="25" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.30.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-    <variable default="192.168.20.0" displayName="Ims Outbound Ip" displayOrder="26" maxLength="100" name="params.ims_outbound_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress">
+    <variable displayName="Ims Outbound Ip" name="params.ims_outbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="26" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.20.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-    <variable default="192.168.20.0" displayName="Right Centos Ip" displayOrder="27" maxLength="100" name="params.right_centos_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress">
+    <variable displayName="Right Centos Ip" name="params.right_centos_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="27" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.20.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-    <variable default="LEFT" displayName="Location" displayOrder="28" editable="false" maxLength="100" name="params.location" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+    <variable displayName="Location" name="params.location" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="LEFT" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Push device configuration</section>
+        <sections>Push device configuration</sections>
       </sections>
     </variable>
-  </variables>  <example>    <content/>  </example>
+  </variables>
+  <example/>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack">
-    <visibility>5</visibility>
     <displayName>Instantiate VNF</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>CREATE</type>
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  <task name="Task_Fetch_Mano_Data.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Fetch_Mano_Data.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
       <displayName>Get VNFD from VNF Catalog (NFVO)</displayName>
     </task>
@@ -393,74 +242,13 @@
       <processPath/>
       <displayName>VNF Ping Check</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out">
-    <visibility>5</visibility>
     <displayName>Scale out</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-  
-  
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
@@ -492,27 +280,13 @@
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
       <displayName>VNF Ping Check</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_In">
-    <visibility>5</visibility>
     <displayName>Scale In</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-  
-    
-  
-  
-    
-    
-  
-  
-    
-    
-  
-  <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
@@ -524,25 +298,13 @@
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
       <displayName>Delete MSA device</displayName>
     </task>
-    <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack">
-    <visibility>5</visibility>
     <displayName>Terminate VNF</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-  
-  
-    
-  
-  
-    
-  
-  
-    
-    
-  <task name="Task_Delete_Scaled_VNF.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Delete_Scaled_VNF.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
       <displayName>Delete Scaled VNF</displayName>
     </task>
@@ -554,83 +316,59 @@
       <processPath/>
       <displayName>Delete MSA devices (VNF corresponding devices)</displayName>
     </task>
-  <compensation/>
   </process>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Move_To_Trash">
-    <visibility>5</visibility>
     <displayName>Move To Trash</displayName>
-    <icon/>
-    <allowSchedule>false</allowSchedule>
     <type>DELETE</type>
-  <compensation/>
-  </process>
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Start_VNF">
     <visibility>5</visibility>
-    <displayName>Start VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
     <allowSchedule>false</allowSchedule>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Start_VNF">
+    <displayName>Start VNF</displayName>
     <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
     <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Start.php">
       <processPath/>
       <displayName>Start VNF Instance</displayName>
     </task>
   </process>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Stop">
-    <visibility>5</visibility>
     <displayName>Stop VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
     <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Stop.php">
       <processPath/>
       <displayName>Stop VNF instance</displayName>
     </task>
   </process>
   <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Suspend">
-    <visibility>5</visibility>
     <displayName>Suspend VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
     <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Suspend.php">
       <processPath/>
       <displayName>Suspend VNF Instance</displayName>
     </task>
   </process>
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Resume_VNF">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Resume_VNF">
     <displayName>Resume VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-  <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Resume.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/ETSI-MANO/NFV/Common/VNF_Operations/Tasks/Task_VNF_Resume.php">
       <processPath/>
       <displayName>Resume VNF Instance</displayName>
     </task>
   </process>
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Attach_Interface">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Attach_Interface">
     <displayName>Attach Interface</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-  
-    
-  
-    
-  <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
@@ -639,22 +377,12 @@
       <displayName>Attach Interface</displayName>
     </task>
   </process>
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor">
     <displayName>Scale VNF Flavor</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-  
-    
-  
-    
-    
-    
-  <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
@@ -675,18 +403,12 @@
       <displayName>Clean up</displayName>
     </task>
   </process>
-
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF">
     <displayName>Live-Migrate VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-    
-  <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
@@ -699,26 +421,12 @@
       <displayName>Live-Migrate VNF</displayName>
     </task>
   </process>
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF">
     <displayName>Heal VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-  
-  
-    
-    
-  
-    
-    
-    
-  
-    
-    
-  <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
     </task>
@@ -739,18 +447,12 @@
       <displayName>VNF Ping Check</displayName>
     </task>
   </process>
-
-
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config">
     <displayName>Push Routing Config</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
-    
-  <task name="Task_Update_device_config_variables.php">
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Update_device_config_variables.php">
       <processPath>/opt/fmc_repository/Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
       <displayName>Update device config variables</displayName>
     </task>
@@ -759,14 +461,11 @@
       <displayName>Update device configuration</displayName>
     </task>
   </process>
-<process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Upgrade_VNF">
-    <visibility>5</visibility>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Upgrade_VNF">
     <displayName>Upgrade VNF</displayName>
-    <icon/>
-    <poolId>0</poolId>
-    <compensation/>
-    <allowSchedule>false</allowSchedule>
     <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
     <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
       <processPath/>
       <displayName>Get VIM authentification token</displayName>
@@ -788,4 +487,14 @@
       <displayName>VNF Ping Check</displayName>
     </task>
   </process>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
+    <description/>
+    <displayField>stackname</displayField>
+    <serviceTaskType>python</serviceTaskType>
+    <order>10000</order>
+    <visibility>5</visibility>
+    <name>VNF Lifecycle Management (based-on HEAT)</name>
+    <group>NFV|Virtual Network Function|Heat descriptor-based</group>
+  </information>
 </ObjectDefinition>

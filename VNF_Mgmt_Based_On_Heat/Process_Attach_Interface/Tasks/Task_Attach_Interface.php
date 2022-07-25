@@ -15,8 +15,6 @@ $server_id = $context['$server_id']['instance_id'];
 
 _nova_interface_attach($context['endpoints'][NOVA][PUBLIC_URL], $context['token_id'], $server_id, "", $network_id);
 
-
-
 task_exit(ENDED, "Task OK");
 
 ?>

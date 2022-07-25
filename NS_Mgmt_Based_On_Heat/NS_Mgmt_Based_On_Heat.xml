@@ -202,12 +202,6 @@
       <displayName>Delete Stack</displayName>
     </task>
   </process>
-  <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Move_To_Trash">
-    <displayName>Move To Trash</displayName>
-    <type>DELETE</type>
-    <visibility>5</visibility>
-    <allowSchedule>false</allowSchedule>
-  </process>
   <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Add_Network">
     <displayName>Add Network</displayName>
     <type>UPDATE</type>
@@ -229,6 +223,12 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_Mgmt_Based_On_Heat/Process_Add_Network/Tasks/</processPath>
       <displayName>Sync</displayName>
     </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/NS_Mgmt_Based_On_Heat/Process_Move_To_Trash">
+    <displayName>Move To Trash</displayName>
+    <type>DELETE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
   </process>
   <information>
     <icon>/images/repository/CommandDefinition/icons/Network.png</icon>

@@ -1,0 +1,500 @@
+<ObjectDefinition>
+  <variables frozen="0">
+    <variable displayName="NFVO Device" name="params.nfvoDevice" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Get VNFD from VNF Catalog (NFVO)</sections>
+      </sections>
+      <sdTypes>
+        <sdTypes manId="17010303" modId="17010305"/>
+      </sdTypes>
+    </variable>
+    <variable displayName="Vnfpkgid" name="params.vnfPkgId" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" refDeviceIdVar="params.nfvoDevice" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Fetch Mano Data</sections>
+      </sections>
+      <classes>
+        <class>vnf_catalogs</class>
+      </classes>
+    </variable>
+    <variable displayName="Device Id" name="params.deviceid" startIncrement="0" type="Device" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+      <sdTypes>
+        <sdTypes manId="14020603" modId="16051904"/>
+      </sdTypes>
+    </variable>
+    <variable displayName="Stack Name" name="params.stackname" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="VNF" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+    </variable>
+    <variable displayName="Template Url" name="params.template_url" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="http://10.30.19.77/tech_report/heat/Simulator_VNF.yaml" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+    </variable>
+    <variable displayName="Key Name" name="params.key_name" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="UBI-KEYPAIR" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+      <classes>
+        <class>keypairs</class>
+      </classes>
+    </variable>
+    <variable displayName="Is Auto Scale" name="params.is_auto_scale" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Auto scale up</sections>
+      </sections>
+    </variable>
+    <variable displayName="Old Flavor" name="params.old_flavor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+    </variable>
+    <variable displayName="Flavor" name="params.flavor" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.is_auto_scale" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="flavor" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.flavor" selectorValue="false" startIncrement="0" type="OBMFRef">
+          <classes>
+            <class>flavors</class>
+          </classes>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="flavor" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.flavor" selectorValue="true" startIncrement="0" type="String"/>
+      </behaviors>
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+    </variable>
+    <variable displayName="Image Id" name="params.simulator_image_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+      <classes>
+        <class>images</class>
+      </classes>
+    </variable>
+    <variable displayName="Public Network" name="params.public_network" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Launch Stack</sections>
+      </sections>
+      <classes>
+        <class>networks</class>
+      </classes>
+    </variable>
+    <variable displayName="Upgrade Image Id" name="params.upgrade_image_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="11" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Upgrade VNF instance</sections>
+      </sections>
+      <classes>
+        <class>images</class>
+      </classes>
+    </variable>
+    <variable displayName="Stack Id" name="params.stackid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Delete Stack</sections>
+      </sections>
+    </variable>
+    <variable displayName="Sever Id" name="params.scaled_out_device" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="13" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Scale Out</sections>
+      </sections>
+      <classes>
+        <class>servers</class>
+      </classes>
+    </variable>
+    <variable displayName="Server Id" name="params.server_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Scale In</sections>
+      </sections>
+      <classes>
+        <class>servers</class>
+      </classes>
+    </variable>
+    <variable displayName="Device Login" name="params.device_login" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="root" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Create MSA devices from stacks resources</sections>
+      </sections>
+    </variable>
+    <variable displayName="Device Password" name="params.device_password" startIncrement="0" type="Password" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="$ubiqube" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Create MSA devices from stacks resources</sections>
+      </sections>
+    </variable>
+    <variable displayName="Current Image" name="params.current_image" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Upgrade VNF instance</sections>
+      </sections>
+    </variable>
+    <variable displayName="Hypervisor ID" name="params.host" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="18" increment="0" refServiceURI="" refDeviceIdVar="params.deviceid" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Live-Migrate VNF</sections>
+      </sections>
+      <classes>
+        <class>hosts</class>
+      </classes>
+    </variable>
+    <variable displayName="Network Id" name="params.network_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Attach Interface</sections>
+      </sections>
+    </variable>
+    <variable displayName="Floatingip Id" name="params.floatingip_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Disassociate floating IP</sections>
+      </sections>
+    </variable>
+    <variable displayName="Rollback On Failure" name="params.rollback_on_failure" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Left Centos Ip" name="params.left_centos_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.40.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+    <variable displayName="Vsrx Inbound Ip" name="params.vsrx_inbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="23" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.40.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+    <variable displayName="Vsrx Outbound Ip" name="params.vsrx_outbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.30.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+    <variable displayName="Ims Inbound Ip" name="params.ims_inbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="25" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.30.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+    <variable displayName="Ims Outbound Ip" name="params.ims_outbound_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="26" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.20.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+    <variable displayName="Right Centos Ip" name="params.right_centos_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="27" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="192.168.20.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+    <variable displayName="Location" name="params.location" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="LEFT" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Push device configuration</sections>
+      </sections>
+    </variable>
+  </variables>
+  <example/>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack">
+    <displayName>Instantiate VNF</displayName>
+    <type>CREATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Fetch_Mano_Data.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Get VNFD from VNF Catalog (NFVO)</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Synchronize_to_VIM_tenant.php">
+      <processPath/>
+      <displayName>Sync VIM services inventories</displayName>
+    </task>
+    <task name="Task_Launch_Stack.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Instantiate VNF based on VNFD (Stack)</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Get_stack_resources.php">
+      <processPath/>
+      <displayName>Get VNF details from the VIM</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Create_MSA_devices_from_stacks_resources.php">
+      <processPath/>
+      <displayName>Create MSA devices corresponding to the VNF</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/Tasks/Task_Add_Service_instance_ref_config_var.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Add Service instance_ref config var</displayName>
+    </task>
+    <task name="Task_.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Add VNFi ID var config</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_provision.php">
+      <processPath/>
+      <displayName>VNF provision</displayName>
+    </task>
+    <task name="Task_Configure_net.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Configure_net</displayName>
+    </task>
+    <task name="Task_Attach_MON_profile_to_device.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Attach MON profile to device</displayName>
+    </task>
+    <task name="Task_Get_network_interfaces_details.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/</processPath>
+      <displayName>Get network interfaces details</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_reachability_check.php">
+      <processPath/>
+      <displayName>VNF reachability check</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNFDescriptor_generic/Process_Instantiate_VNF/Tasks/Task_VNFC_Ping_Check.php">
+      <processPath/>
+      <displayName>VNF Ping Check</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out">
+    <displayName>Scale out</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="Task_Scale_Out.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <displayName>Scale Out</displayName>
+    </task>
+    <task name="Task_Create_MSA_device.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <displayName>Create MSA device</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/Tasks/Task_Add_Service_instance_ref_config_var.php">
+      <processPath/>
+      <displayName>Add Service instance_ref config var</displayName>
+    </task>
+    <task name="Task_VNF_provision.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <displayName>VNF provision</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Execute_Heat_Stack/Tasks/Task_Attach_MON_profile_to_device.php">
+      <processPath/>
+      <displayName>Attach MON profile to device</displayName>
+    </task>
+    <task name="Task_VNF_reachability_check.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <displayName>VNF reachability check</displayName>
+    </task>
+    <task name="Task_VNF_Ping_Check.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale-in_Scale-out/Tasks/</processPath>
+      <displayName>VNF Ping Check</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_In">
+    <displayName>Scale In</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="Task_Scale_In.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
+      <displayName>Scale In</displayName>
+    </task>
+    <task name="Task_Delete_MSA_device.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_In/Tasks/</processPath>
+      <displayName>Delete MSA device</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack">
+    <displayName>Terminate VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Delete_Scaled_VNF.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
+      <displayName>Delete Scaled VNF</displayName>
+    </task>
+    <task name="Task_Delete_Stack.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/</processPath>
+      <displayName>Delete VNF from VIM</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Delete_Heat_Stack/Tasks/Task_Delete_on_OpenMSA.php">
+      <processPath/>
+      <displayName>Delete MSA devices (VNF corresponding devices)</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Move_To_Trash">
+    <displayName>Move To Trash</displayName>
+    <type>DELETE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Start_VNF">
+    <displayName>Start VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Start.php">
+      <processPath/>
+      <displayName>Start VNF Instance</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Stop">
+    <displayName>Stop VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Stop.php">
+      <processPath/>
+      <displayName>Stop VNF instance</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Suspend">
+    <displayName>Suspend VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Suspend.php">
+      <processPath/>
+      <displayName>Suspend VNF Instance</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Resume_VNF">
+    <displayName>Resume VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/Common/VNF_Operations/Tasks/Task_VNF_Resume.php">
+      <processPath/>
+      <displayName>Resume VNF Instance</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Attach_Interface">
+    <displayName>Attach Interface</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="Task_Attach_Interface.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Attach_Interface/Tasks/</processPath>
+      <displayName>Attach Interface</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor">
+    <displayName>Scale VNF Flavor</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="Task_Get_VNF_instance_current_flavor.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <displayName>Get VNF instance current flavor</displayName>
+    </task>
+    <task name="Task_Calcul_higher_flavor.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <displayName>Calcul higher flavor</displayName>
+    </task>
+    <task name="Task_Scale_VNF_Flavor.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <displayName>Scale VNF Flavor</displayName>
+    </task>
+    <task name="Task_Clean_up.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Scale_VNF_Flavor/Tasks/</processPath>
+      <displayName>Clean up</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF">
+    <displayName>Live-Migrate VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="Task_Get_host_name_from_ID.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF/Tasks/</processPath>
+      <displayName>Get hypervisor name by ID</displayName>
+    </task>
+    <task name="Task_Live-Migrate_VNF.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Live-Migrate_VNF/Tasks/</processPath>
+      <displayName>Live-Migrate VNF</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF">
+    <displayName>Heal VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="Task_Get_VNF_instance_details.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <displayName>Get VNF instance details</displayName>
+    </task>
+    <task name="Task_Rebuild_VNF_instance.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <displayName>Rebuild VNF instance</displayName>
+    </task>
+    <task name="Task_VNF_reachability_check.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <displayName>VNF reachability check</displayName>
+    </task>
+    <task name="Task_VNF_Ping_Check.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/</processPath>
+      <displayName>VNF Ping Check</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config">
+    <displayName>Push Routing Config</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="Task_Update_device_config_variables.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
+      <displayName>Update device config variables</displayName>
+    </task>
+    <task name="Task_Push_device_configuration.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Push_Routing_Config/Tasks/</processPath>
+      <displayName>Update device configuration</displayName>
+    </task>
+  </process>
+  <process name="Process/ETSI-MANO/NFV/VNF_Mgmt_Based_On_Heat/Process_Upgrade_VNF">
+    <displayName>Upgrade VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule>false</allowSchedule>
+    <task name="/opt/fmc_repository/Process/Reference/OPENSTACK/Tasks/REST/Keystone/Task_openstack_project_scoped_token_get.php">
+      <processPath/>
+      <displayName>Get VIM authentification token</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_Get_VNF_instance_details.php">
+      <processPath/>
+      <displayName>Get VNF instance details</displayName>
+    </task>
+    <task name="Task_Upgrade_VNF_instance.php">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Upgrade_VNF/Tasks/</processPath>
+      <displayName>Upgrade VNF instance</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_VNF_reachability_check.php">
+      <processPath/>
+      <displayName>VNF reachability check</displayName>
+    </task>
+    <task name="/opt/fmc_repository/Process/etsi-mano-workflows/VNF_Mgmt_Based_On_Heat/Process_Heal_VNF/Tasks/Task_VNF_Ping_Check.php">
+      <processPath/>
+      <displayName>VNF Ping Check</displayName>
+    </task>
+  </process>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
+    <description/>
+    <displayField>stackname</displayField>
+    <serviceTaskType>php</serviceTaskType>
+    <order>10000</order>
+    <visibility>5</visibility>
+    <name>VNF Lifecycle Management (based-on HEAT)</name>
+    <group>NFV|VNF|HEAT</group>
+  </information>
+</ObjectDefinition>

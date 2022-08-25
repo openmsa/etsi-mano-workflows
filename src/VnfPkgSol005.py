@@ -16,7 +16,7 @@ class VnfPkgSol005(BaseApi):
 
 
     def __init__(self, hostname, port, sol_version):
-       super().__init__(hostname, port, sol_version)
+       super().__init__(hostname=hostname, port=port, sol_version=sol_version)
        
        _mano_proto_version_obj = ManoProtocolsVersion()
        data = _mano_proto_version_obj.get_fragment_versions(self.NFV_API_PROTOCOL, self.sol_version, self.NFV_RESOURCE_FRAGMENT)

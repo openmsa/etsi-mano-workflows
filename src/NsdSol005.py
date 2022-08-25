@@ -11,6 +11,9 @@ class NsdSol005(BaseApi):
 
     NSD_URL = "sol005/nsd/v1/ns_descriptors"
 
+    def __init__(self, hostname, port, sol_version):
+        super().__init__(hostname=hostname, port=port, sol_version=sol_version)
+
     def nsd_descriptors_post(self, _payload):
         response = self.do_post(self.NSD_URL, _payload)
         return response

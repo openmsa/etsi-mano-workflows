@@ -1,52 +1,49 @@
-'''
-Visit http://[YOUR_MSA_URL]/msa_sdk/ to see what you can import.
-'''
+import json
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
-
-'''
-List all the parameters required by the task
-
-You can use var_name convention for your variables
-They will display automaticaly as "Var Name"
-The allowed types are:
-  'String', 'Boolean', 'Integer', 'Password', 'IpAddress',
-  'IpMask', 'Ipv6Address', 'Composite', 'OBMFRef', 'Device'
-
- Add as many variables as needed
-'''
-dev_var = Variables()
-
-'''
-context => Service Context variable per Service Instance
-All the user-inputs of Tasks are automatically stored in context
-Also, any new variables should be stored in context which are used across Service Instance
-The variables stored in context can be used across all the Tasks and Processes of a particular Service
-Update context array [add/update/delete variables] as per requirement
-
-ENTER YOUR CODE HERE
-'''
-context = Variables.task_call(dev_var)
+from msa_sdk import constants
+from msa_sdk.device import Device
+from custom.ETSI.DescriptorGraphGeneration import DescriptorGraphGeneration
 
 
-'''
-Format of the Task response :
-JSON format : {"wo_status":"status","wo_comment":"comment","wo_newparams":{json_body}}
-wo_status : ENDED [Green color] or FAILED [Red color] or WARNING [Orange color]
-			-> While the Task is Running [means no response returned yet], task status is RUNNING [Blue color]
-         -> When status is returned as FAILED, the Orchestration Engine stops the Process Execution from this Task
-wo_comment : Appropriate Comment to display as per the success/failure of the Task
-wo_newparams : json_body parameters returned from this Task
+if __name__ == "__main__":
 
-Function process_content() takes care of Creating a Json response from inputs
-This function definiton can be found at : http://[YOUR_MSA_URL]/msa_sdk/msa_api.html#msa_sdk.msa_api.MSA_API.process_content
-NOTE : For 'wo_newparams', always pass "context" [whether wo_status is ENDED/FAILED/WARNING to preserve it across Service Instance]
-    -> Last argument "true" mentions whether the json_response to be Logged in the logfile : /opt/jboss/latest/logs/process.log
-    -> If not passed, it's "false"
-
-The response "ret" should be echoed from the Task "print(ret)" which is read by Orchestration Engine
-In case of FAILURE/WARNING, the Task can be Terminated by calling "exit" as per Logic
-'''
-ret = MSA_API.process_content('ENDED', 'Task OK', context, True)
-print(ret)
-
+    dev_var = Variables()
+    dev_var.add('nfvo_me', var_type='String')
+    context = Variables.task_call(dev_var)
+    
+    mano_me_id = context["nfvo_me"][3:]
+    mano_ip    = Device(device_id=mano_me_id).management_address
+    mano_var   = Device(device_id=mano_me_id).get_configuration_variable("HTTP_PORT")
+    mano_port  = mano_var.get("value")
+    mano_user  = Device(device_id=mano_me_id).login
+    mano_pass  = Device(device_id=mano_me_id).password
+    
+    context["mano_ip"]   = mano_ip
+    context["mano_port"] = mano_port
+    context["mano_user"] = mano_user
+    context["mano_pass"] = mano_pass
+    
+    #Get Authentication mode ('basic' or 'oauth2').
+    auth_mode_var   = Device(device_id=mano_me_id).get_configuration_variable("AUTH_MODE")
+    auth_mode  = auth_mode_var.get("value")
+    context["auth_mode"] = auth_mode
+    
+    vnfGraph = DescriptorGraphGeneration(context["mano_ip"], context["mano_port"])
+    
+    auth_mode = context['auth_mode']
+    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+        #Get keycloak server URL.
+        keycloak_url_var   = Device(device_id=mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
+        keycloak_server_url  = keycloak_url_var.get("value")
+        context["keycloak_server_url"] = keycloak_server_url
+        
+        vnfGraph.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
+    else:
+        vnfGraph.set_parameters(context['mano_user'], context['mano_pass'])
+    
+    ### Check the response status. If status == 200:
+    ## Write response body in the repository data. 
+    
+    ret = MSA_API.task_success('New service is created successfully!', context, True)
+    

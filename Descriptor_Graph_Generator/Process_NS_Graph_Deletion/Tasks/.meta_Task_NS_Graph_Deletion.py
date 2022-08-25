@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Task_New_service.py</value>
+            <value>Task_NS_Graph_Deletion.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1661332934817</value>
+            <value>1661362461707</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +15,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1661332934815</value>
+            <value>1661362461704</value>
         </entry>
         <entry>
             <key>TAG</key>

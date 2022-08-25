@@ -28,6 +28,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/Descriptor_Graph_Generator/Process_Create_New_Service/Tasks</processPath>
       <displayName>New service</displayName>
     </task>
+    <task name="Task_Synchronize_NFVO.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/Descriptor_Graph_Generator/Process_Create_New_Service/Tasks</processPath>
+      <displayName>Synchronize NFVO</displayName>
+    </task>
   </process>
   <process name="Process/etsi-mano-workflows/Descriptor_Graph_Generator/Process_VNF_Graph_Generation">
     <displayName>VNF Graph Generation</displayName>

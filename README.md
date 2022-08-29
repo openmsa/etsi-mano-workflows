@@ -7,7 +7,7 @@ ETSI-MANO workflows
 
 #### NFVO
 | NAME | VALUE | DESCRIPTION | REQUIRED |
-| ------ | ------ | ----- | ------ |
+| ------ | ------ | ------ | ------ |
 | BASE_URL | /ubi-etsi-mano/ | | Yes |
 | HTTP_PORT | 8100 | | Yes |
 | PROTOCOL | http | | No (http by default)|
@@ -20,7 +20,7 @@ ETSI-MANO workflows
 
 #### VNFM
 | NAME | VALUE | DESCRIPTION | REQUIRED |
-| ------ | ------ | ----- | ------ |
+| ------ | ------ | ------ | ------ |
 | BASE_URL | /ubi-etsi-mano/ | |Yes |
 | HTTP_PORT | 8089 | |Yes |
 | AUTH_MODE | basic | Two possible values: 'basic' or 'oauth_v2'. If 'oauth_v2' setted as value, 'SIGNIN_REQ_PAH' and 'TOKEN_XPATH' configuration variables must be added as well (as in the next two rows). | Yes |

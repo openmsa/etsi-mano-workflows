@@ -19,10 +19,10 @@ ETSI-MANO workflows
 | VNF_PKG_FILTER_EXPRESSION | | This current filter value allows to get only the VNF Package where the attribute 'onboardingState' 'equals' 'ONBOARDED'. (e.g: '&filter=(eq,onboardingState,CREATED)') | No |
 
 #### VNFM
-| NAME | VALUE | DESCRIPTION |
-| ------ | ------ | ------ |
-| BASE_URL | /ubi-etsi-mano/ | |
-| HTTP_PORT | 8089 | |
+| NAME | VALUE | DESCRIPTION |Required|
+| ------ | ------ | ----- | ------ |
+| BASE_URL | /ubi-etsi-mano/ | |Yes |
+| HTTP_PORT | 8089 | |Yes |
 
 
 ### Workflows installation

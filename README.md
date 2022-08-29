@@ -7,7 +7,7 @@ ETSI-MANO workflows
 
 #### NFVO
 | NAME | VALUE | DESCRIPTION | Required|
-| ------ | ------ | ----- | ------ | Yes |
+| ------ | ------ | ----- | ------ |
 | BASE_URL | /ubi-etsi-mano/ | | Yes |
 | HTTP_PORT | 8100 | | Yes |
 | PROTOCOL | http | | No (http by default)|

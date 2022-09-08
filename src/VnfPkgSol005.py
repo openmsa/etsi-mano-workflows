@@ -15,7 +15,7 @@ class VnfPkgSol005(BaseApi):
     VNF_PKG_URL = NFV_API_PROTOCOL + "/" + NFV_RESOURCE_FRAGMENT + "/v1/vnf_packages"
 
 
-    def __init__(self, hostname, port, sol_version):
+    def __init__(self, hostname, port, sol_version='2.6.1'):
        super().__init__(hostname=hostname, port=port, sol_version=sol_version)
        
        _mano_proto_version_obj = ManoProtocolsVersion()

@@ -25,6 +25,6 @@ if __name__ == "__main__":
 
     r = nsdApi.nsd_descriptors_post(data)
 
-    r_details = r.json().get('detail')
+    r_details = str(r.json().get('detail'))
     ret = MSA_API.process_content(nsdApi.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

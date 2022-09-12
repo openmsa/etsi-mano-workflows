@@ -25,7 +25,7 @@ if __name__ == "__main__":
     pkg = {"userDefinedData": {"name": context['vnf_package_name']}}
     r = vnfPkgApi.vnf_packages_post(pkg)
    
-    r_details = r.json().get('detail')
+    r_details = str(r.json().get('detail'))
     ret = MSA_API.process_content(vnfPkgApi.state, f'{r}' + ': ' + r_details, context, True) 
     print(ret)
 

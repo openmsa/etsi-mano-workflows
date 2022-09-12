@@ -26,6 +26,6 @@ if __name__ == "__main__":
     r = nsdApi.ns_descriptors_nsdinfoid_nsd_file_put(context['ns_package_id'],
                                                      context['ns_pkg_content'])
 
-    r_details = r.json().get('detail')
+    r_details = str(r.json().get('detail'))
     ret = MSA_API.process_content(nsdApi.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

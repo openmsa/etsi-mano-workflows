@@ -34,12 +34,44 @@ if __name__ == "__main__":
     nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
     nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
     
+    #Get Authentication mode ('basic' or 'oauth2').
+    auth_mode_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("AUTH_MODE")
+    auth_mode  = auth_mode_var.get("value")
+    context["auth_mode"] = auth_mode
+    
+    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+        #Get keycloak server URL.
+        keycloak_url_var   = Device(device_id=vnfm_mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
+        keycloak_server_url  = keycloak_url_var.get("value")
+        context["keycloak_server_url"] = keycloak_server_url
+        
+        vnfmSubscription.set_parameters(vnfm_mano_user, vnfm_mano_pass, auth_mode, context['keycloak_server_url'])
+    else:
+        vnfmSubscription.set_parameters(vnfm_mano_user, vnfm_mano_pass)
+        
     #NFVO URL Variables.
     http_protocol = 'http'
     nfvo_url = http_protocol + '://' + nfvo_mano_ip +':' + nfvo_mano_port +'/ubi-etsi-mano/sol003'
     
     #NFVO authification type.
     authType = ['BASIC']
+    if auth_mode == 'basic':
+        authType = ['BASIC']
+        #Basic authentication parameters.
+        authParamBasic =  {
+            "userName": nfvo_username,
+            "password": nfvo_password
+            }
+        }
+    elif auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+        authType = ['OAUTH2_CLIENT_CREDENTIALS']
+        #Oauth2.0 authentication parameters.
+        authParamOauth2 = {
+            "clientId": nfvo_username,
+            "clientSecret": nfvo_password,
+            "tokenEndpoint": context["keycloak_server_url"],
+            "grantType": "client_credentials"
+        }
     
     #NFVO SOL003 version.
     nfvo_sol003_version = '2.6.1'
@@ -51,11 +83,6 @@ if __name__ == "__main__":
                 "name": nfvo_name,
                 "authentification": {
                 "authType": authType,
-                "authParamBasic": {
-                    "userName": nfvo_mano_user,
-                    "password": nfvo_mano_pass
-                    }
-                },
                 "url": nfvo_url,
                 "ignoreSsl": True,
                 "tlsCert": "",
@@ -63,7 +90,12 @@ if __name__ == "__main__":
                 "subscriptionType": "VNF",
                 "serverType": "NFVO"
                 }
-
+    #Insert authentication parameters into the content.
+    if auth_mode == 'basic':
+        context['authParamBasic'] = authParamBasic
+    elif auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+        context['authParamOauth2'] = authParamOauth2
+        
     r = vnfmSubscription.subscribe(content)
     
     location = r.headers["Location"]

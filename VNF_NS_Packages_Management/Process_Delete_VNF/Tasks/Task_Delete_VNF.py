@@ -23,6 +23,6 @@ if __name__ == "__main__":
 
     r = vnfPkgApi.vnf_packages_vnfpkgid_delete(context['vnf_package_id'])
    
-    r_details = r.json().get('detail')
+    r_details = str(r.json().get('detail'))
     ret = MSA_API.process_content(vnfPkgApi.state, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

@@ -25,9 +25,10 @@ if __name__ == "__main__":
     r = nsdApi.ns_descriptors_nsd_info_id_delete(context["ns_package_id"])
 
     r_details = ''
-    if '204' in vnfPkgApi.state:
-        r_details = 'Success!'
-    elif r.json().get('detail'):
+    status = vnfPkgApi.state
+    if status == 'ENDED':
+        r_details = 'Successful!'
+    else:
         r_details = str(r.json().get('detail'))
         
     ret = MSA_API.process_content(nsdApi.state, f'{r}' + ': ' + r_details, context, True)

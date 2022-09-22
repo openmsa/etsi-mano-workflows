@@ -26,9 +26,10 @@ if __name__ == "__main__":
     r = vnfPkgApi.set_operational_state(context['vnf_package_id'], _state)
     
     r_details = ''
-    if '200' in vnfPkgApi.state:
-        r_details = 'Success!'
-    elif r.json().get('detail'):
+    status = vnfPkgApi.state
+    if status == 'ENDED':
+        r_details = 'Successful!'
+    else:
         r_details = str(r.json().get('detail'))
         
     ret = MSA_API.process_content(vnfPkgApi.state, f'{r}' + ': ' + r_details, context, True)

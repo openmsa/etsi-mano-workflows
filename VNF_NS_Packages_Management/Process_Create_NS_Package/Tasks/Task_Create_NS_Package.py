@@ -22,9 +22,14 @@ if __name__ == "__main__":
         nsdApi.set_parameters(auth_mode, context['mano_user'], context['mano_pass'])
     
     data = {"userDefinedData": {}}
-
+    
     r = nsdApi.nsd_descriptors_post(data)
-
-    r_details = str(r.json().get('detail'))
+    
+    r_details = ''
+    if '201' in vnfPkgApi.state:
+        r_details = 'Success!'
+    elif r.json().get('detail'):
+        r_details = str(r.json().get('detail'))
+        
     ret = MSA_API.process_content(nsdApi.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

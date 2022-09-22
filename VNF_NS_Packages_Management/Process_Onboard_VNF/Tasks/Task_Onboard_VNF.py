@@ -4,6 +4,7 @@ from msa_sdk.msa_api import MSA_API
 
 from custom.ETSI.VnfPkgSol005 import VnfPkgSol005
 
+REPOSITORY_ROOT_PATH = '/opt/fmc_repository/'
 
 if __name__ == "__main__":
 
@@ -23,9 +24,14 @@ if __name__ == "__main__":
     else:
         vnfPkgApi.set_parameters(auth_mode, context['mano_user'], context['mano_pass'])
         
-    r = vnfPkgApi.vnf_packages_vnfpkgid_package_file_put(context['vnf_package_id'],
-                                                         context['vnf_descriptor'])
-
-    r_details = str(r.json().get('detail'))
+    vnf_descriptor = REPOSITORY_ROOT_PATH + context['vnf_descriptor']
+    r = vnfPkgApi.vnf_packages_vnfpkgid_package_file_put(context['vnf_package_id'], vnf_descriptor)
+    
+    r_details = ''
+    if '202' in vnfPkgApi.state:
+        r_details = 'Success!'
+    elif r.json().get('detail'):
+        r_details = str(r.json().get('detail'))
+    
     ret = MSA_API.process_content(vnfPkgApi.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

@@ -26,9 +26,10 @@ if __name__ == "__main__":
     r = nsdApi.nsd_descriptors_post(data)
     
     r_details = ''
-    if '201' in vnfPkgApi.state:
-        r_details = 'Success!'
-    elif r.json().get('detail'):
+    status = vnfPkgApi.state
+    if status == 'ENDED':
+        r_details = 'Successful!'
+    else:
         r_details = str(r.json().get('detail'))
         
     ret = MSA_API.process_content(nsdApi.state, f'{r}' + ': ' + r_details, context, True)

@@ -4,6 +4,7 @@ from msa_sdk.msa_api import MSA_API
 
 from custom.ETSI.NsdSol005 import NsdSol005
 
+REPOSITORY_ROOT_PATH = '/opt/fmc_repository/'
 
 if __name__ == "__main__":
 
@@ -23,9 +24,14 @@ if __name__ == "__main__":
     else:
         nsdApi.set_parameters(auth_mode, context['mano_user'], context['mano_pass'])
     
-    r = nsdApi.ns_descriptors_nsdinfoid_nsd_file_put(context['ns_package_id'],
-                                                     context['ns_pkg_content'])
-
-    r_details = str(r.json().get('detail'))
+    ns_pkg_content = REPOSITORY_ROOT_PATH + context['ns_pkg_content']
+    r = nsdApi.ns_descriptors_nsdinfoid_nsd_file_put(context['ns_package_id'], ns_pkg_content)
+    
+    r_details = ''
+    if '202' in vnfPkgApi.state:
+        r_details = 'Success!'
+    elif r.json().get('detail'):
+        r_details = str(r.json().get('detail'))
+        
     ret = MSA_API.process_content(nsdApi.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

@@ -25,7 +25,7 @@ if __name__ == "__main__":
     r = nsdApi.ns_descriptors_nsd_info_id_delete(context["ns_package_id"])
 
     r_details = ''
-    status = vnfPkgApi.state
+    status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
     else:

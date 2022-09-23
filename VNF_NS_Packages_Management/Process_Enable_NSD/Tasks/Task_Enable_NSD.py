@@ -27,7 +27,7 @@ if __name__ == "__main__":
     r = nsdApi.set_operational_state(context['ns_package_id'], _state)
 
     r_details = ''
-    status = vnfPkgApi.state
+    status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
     else:

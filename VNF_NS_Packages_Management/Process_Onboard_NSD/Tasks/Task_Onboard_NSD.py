@@ -28,7 +28,7 @@ if __name__ == "__main__":
     r = nsdApi.ns_descriptors_nsdinfoid_nsd_file_put(context['ns_package_id'], ns_pkg_content)
     
     r_details = ''
-    status = vnfPkgApi.state
+    status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
     else:

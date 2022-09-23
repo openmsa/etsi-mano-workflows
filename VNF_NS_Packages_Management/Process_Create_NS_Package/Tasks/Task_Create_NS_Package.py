@@ -26,7 +26,7 @@ if __name__ == "__main__":
     r = nsdApi.nsd_descriptors_post(data)
     
     r_details = ''
-    status = vnfPkgApi.state
+    status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
     else:

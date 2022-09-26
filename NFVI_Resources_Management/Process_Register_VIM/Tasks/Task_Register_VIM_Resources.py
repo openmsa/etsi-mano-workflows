@@ -83,7 +83,12 @@ if __name__ == "__main__":
 
     r = nfviVim.nfvi_vim_register(content)
     
-    # context['vim_id'] = r.json()['id']
+    r_details = ''
+    status = nfviVim.state
+    if status == 'ENDED':
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
     
-    ret = MSA_API.process_content('ENDED', f'{r}', context, True)
+    ret = MSA_API.process_content(nfviVim.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

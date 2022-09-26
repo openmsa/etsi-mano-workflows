@@ -6,14 +6,13 @@ from msa_sdk import constants
 
 from custom.ETSI.NfvoVnfmSubscription import NfvoVnfmSubscription
 
+dev_var = Variables()
+dev_var.add('nfvo_device', var_type='Device')
+dev_var.add('vnfm_device', var_type='Device')
+dev_var.add('is_vnfm_register_only', var_type='Boolean')
+context = Variables.task_call(dev_var)
 
 if __name__ == "__main__":
-
-    dev_var = Variables()
-    dev_var.add('nfvo_device', var_type='Device')
-    dev_var.add('vnfm_device', var_type='Device')
-    context = Variables.task_call(dev_var)
-    
     #Get VNFM ME connection informations.
     vnfm_me_ref = context["vnfm_device"]
     vnfm_me_id = context["vnfm_device"][3:]
@@ -71,7 +70,6 @@ if __name__ == "__main__":
             "userName": vnfm_username,
             "password": vnfm_password
             }
-        }
     elif auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
         authType = ['OAUTH2_CLIENT_CREDENTIALS']
         #Oauth2.0 authentication parameters.
@@ -97,7 +95,8 @@ if __name__ == "__main__":
     content = {
                 "name": vnfm_name,
                 "authentification": {
-                "authType": authType,
+                    "authType": authType
+                 },
                 "url": vnfm_url,
                 "ignoreSsl": True,
                 "tlsCert": "",
@@ -109,22 +108,30 @@ if __name__ == "__main__":
     
     #Insert authentication parameters into the content.
     if auth_mode == 'basic':
-        context['authParamBasic'] = authParamBasic
+        content['authentification']['authParamBasic'] = authParamBasic
     elif auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-        context['authParamOauth2'] = authParamOauth2
+        content['authentification']['authParamOauth2'] = authParamOauth2
     
     #Execute the subscription/registration of the VNFM to the NFVO.
     r = nfvoSubscription.subscribe(content)
     
-    location = r.headers["Location"]
-
-    nfvo_subs_vnfm_id = location.split("/")[-1]
-    context["nfvo_subs_vnfm_id"] = nfvo_subs_vnfm_id
-    
-    #Check asynchronously the subscribe_nfvo_to_vnfm operation status.
-    r = nfvoSubscription.subscribe_completion_wait(nfvo_subs_vnfm_id, 60)
-    status = r['serverStatus']
-    if status != 'SUCCESS':
-        MSA_API.task_error('Subscribe NFVO ('+ nfvo_mano_me_ref +') to VNFM ('+ vnfm_me_ref +'), status=' + status, context)
+    try:
+        location = r.headers["Location"]
+        nfvo_subs_vnfm_id = location.split("/")[-1]
+        context["nfvo_subs_vnfm_id"] = nfvo_subs_vnfm_id
         
-    MSA_API.task_success('Subscribe NFVO ('+ nfvo_mano_me_ref +') to VNFM ('+ vnfm_me_ref +'), status=' + status, context)
+        #Check asynchronously the subscribe_nfvo_to_vnfm operation status.
+        r = nfvoSubscription.subscribe_completion_wait(nfvo_subs_vnfm_id, 60)
+    except KeyError:
+        pass
+    
+    r_details = ''
+    status = nfvoSubscription.state
+    if status == 'ENDED':
+        r_details = 'Successful!'
+        MSA_API.task_success(r_details, context, True)
+    else:
+        r_details = str(r.json().get('detail'))
+    
+    ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
+    print(ret)

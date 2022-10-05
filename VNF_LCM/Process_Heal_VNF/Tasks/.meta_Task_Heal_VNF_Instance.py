@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Process_Heal_VNF</value>
+            <value>Task_Heal_VNF_Instance.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1629200464996</value>
+            <value>1664980782288</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,14 +15,18 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1629200464992</value>
+            <value>1664980782286</value>
         </entry>
         <entry>
             <key>TAG</key>
         </entry>
         <entry>
+            <key>FILE_TYPE</key>
+            <value>text</value>
+        </entry>
+        <entry>
             <key>TYPE</key>
-            <value>DIRECTORY</value>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>

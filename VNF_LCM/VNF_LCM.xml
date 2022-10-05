@@ -71,6 +71,7 @@
       </classes>
     </variable>
     <variable displayName="Revision ID" name="params.revision_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="30" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="cause" name="params.cause" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance">
@@ -227,6 +228,42 @@
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
   </process>
+  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF">
+    <displayName>Heal VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Heal_VNF_Instance.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
+      <displayName>Heal VNF Instance</displayName>
+    </task>
+    <task name="Task_Get_VNF_LCM_Operation.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
+      <displayName>Get VNF LCM Operation</displayName>
+    </task>
+    <task name="Task_Sync_to_NFVO_and_VNFM.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
+      <displayName>Sync to NFVO and VNFM</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF">
+    <displayName>Reboot VNF</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Reboot_VNF_Instance.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF/Tasks</processPath>
+      <displayName>Reboot VNF Instance</displayName>
+    </task>
+    <task name="Task_Wait_for_status_to_be_active.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF/Tasks</processPath>
+      <displayName>Wait for status to be active</displayName>
+    </task>
+    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks/Task_Sync_to_NFVO_and_VNFM.py">
+      <processPath></processPath>
+      <displayName>Sync to NFVO and VNFM</displayName>
+    </task>
+  </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF">
     <displayName>Rebuild VNF</displayName>
     <type>UPDATE</type>
@@ -240,31 +277,13 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF/Tasks</processPath>
       <displayName>Rebuild VNF</displayName>
     </task>
-    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks/Task_Wait_for_status_to_be_active.py">
+    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF/Tasks/Task_Wait_for_status_to_be_active.py">
       <processPath></processPath>
       <displayName>Wait for status to be active</displayName>
     </task>
     <task name="Task_Sync_VIM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF/Tasks</processPath>
       <displayName>Sync VIM</displayName>
-    </task>
-  </process>
-  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF">
-    <displayName>Heal VNF</displayName>
-    <type>UPDATE</type>
-    <visibility>5</visibility>
-    <allowSchedule/>
-    <task name="Task_Reboot_VNF_Instance.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
-      <displayName>Reboot VNF Instance</displayName>
-    </task>
-    <task name="Task_Wait_for_status_to_be_active.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
-      <displayName>Wait for status to be active</displayName>
-    </task>
-    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks/Task_Sync_to_NFVO_and_VNFM.py">
-      <processPath></processPath>
-      <displayName>Sync to NFVO and VNFM</displayName>
     </task>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Live_Migrate_VNF">

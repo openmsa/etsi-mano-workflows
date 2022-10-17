@@ -45,16 +45,23 @@ if __name__ == "__main__":
         '''
         #---------------------------------------------------#
         r = vnfLcm.vnf_lcm_instantiate_vnf(context["vnf_instance_id"], content)
-    
-        location = ''
-        try:
-            location = r.headers['Location']
-        except:
-            #MSA_API.task_error('Instantiate VNF message: ' + json.dumps(r.json()), context)
-            MSA_API.task_error('Instantiate VNF is failed.', context)
-        context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
         
-        ret = MSA_API.process_content(vnfLcm.state, f'{r}', context, True)
+        r_details = ''
+        status = vnfLcm.state
+        if status == 'ENDED':
+            location = ''
+            try:
+                location = r.headers['Location']
+            except:
+                MSA_API.task_error('Instantiate VNF is failed.', context)
+                
+            context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
+            r_details = 'Successful!'
+        else:
+            r_details = str(r.json().get('detail'))
+            state = 'FAILED'
+        
+        ret = MSA_API.process_content(vnfLcm.state, f'{r}' + ': ' + r_details, context, True) 
         print(ret)
         sys.exit()
     else:
@@ -63,14 +70,14 @@ if __name__ == "__main__":
             vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
         else:
             vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'])
-        
+            
         vnf_instance_id = context['vnf_instance_id']
         
         vnf_lcm_op_occ_id = vnfLcmOpOccs.vnf_lcm_op_occs_get_id(vnf_instance_id)
         context["vnf_lcm_op_occ_id"] = vnf_lcm_op_occ_id
         
         #MSA_API.task_error('The VNF managed entities are created.' + vnf_lcm_op_occ_id, context)
-    
+        
     ret = MSA_API.process_content(vnfLcmOpOccs.state, f'VNF Instance context is stored.', context, True)
     print(ret)
     sys.exit()

@@ -16,10 +16,20 @@ if __name__ == "__main__":
         vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
     else:
         vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'])
-
-    r = vnfLcmOpOccs.vnf_lcm_op_occs_completion_wait(context["vnf_lcm_op_occ_id"])
     
-    context["operation_state"] = r.json()['operationState']
-
-    ret = MSA_API.process_content(vnfLcmOpOccs.state, f'{context["operation_state"]}', context, True)
+    vnf_lcm_op_occ_id = context["vnf_lcm_op_occ_id"]
+    
+    r = {}
+    if 'vnf_lcm_op_occ_id' in context and vnf_lcm_op_occ_id:
+        r = vnfLcmOpOccs.vnf_lcm_op_occs_completion_wait(vnf_lcm_op_occ_id)
+        
+    r_details = ''
+    status = vnfLcmOpOccs.state
+    if status == 'ENDED':
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
+        
+    ret = MSA_API.process_content(state, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

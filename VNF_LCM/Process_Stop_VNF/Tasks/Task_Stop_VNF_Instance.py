@@ -29,13 +29,20 @@ if __name__ == "__main__":
     
     r = vnfLcm.vnf_lcm_operate_instance_vnf(context["vnf_instance_id"], content)
     
-    location = ''
-    try:
-        location = r.headers['Location']
-    except:
-        MSA_API.task_error('Stop VNF Instance message: ' + json.dumps(r.json()), context)
+    r_details = ''
+    status = vnfLcm.state
+    if status == 'ENDED':
+        location = ''
+        try:
+            location = r.headers['Location']
+        except:
+            MSA_API.task_error('Stop VNF is failed.', context)
+            
+        context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
     
-    context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
-    
-    ret = MSA_API.process_content(vnfLcm.state, f'{r}', context, True)
+    ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

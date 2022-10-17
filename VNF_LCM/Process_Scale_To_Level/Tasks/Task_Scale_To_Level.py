@@ -31,10 +31,20 @@ if __name__ == "__main__":
 
     r = vnfLcm.vnf_lcm_scale_to_level_instance_vnf(context["vnf_instance_id"],
                                                    content)
+    r_details = ''
+    status = vnfLcm.state
+    if status == 'ENDED':
+        location = ''
+        try:
+            location = r.headers['Location']
+        except:
+            MSA_API.task_error('Scale-to-level VNF is failed.', context)
+            
+        context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
     
-    location = r.headers["Location"]
-    
-    context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
-    
-    ret = MSA_API.process_content(vnfLcm.state, f'{r}', context, True)
+    ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

@@ -52,7 +52,7 @@ if __name__ == "__main__":
         r_details = 'Successful!'
     else:
         r_details = str(r.json().get('detail'))
-        state = 'FAILED'
+        status = 'FAILED'
     
-    ret = MSA_API.process_content(vnfLcm.state, f'{r}' + ': ' + r_details, context, True) 
+    ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

@@ -130,9 +130,16 @@ if __name__ == "__main__":
                }
     
     r2 = vnfLcm.vnf_lcm_create_instance(payload)
-    lcm_data = r2.json()
-    context["vnf_instance_id"] = lcm_data['id']
-
-    ret = MSA_API.process_content(vnfLcm.state, f'{r1}, {r2}',
-                                  context, True)
+    
+    r_details = ''
+    status = vnfLcm.state
+    if status == 'ENDED':
+        lcm_data = r2.json()
+        context["vnf_instance_id"] = lcm_data['id']
+        r_details = 'Successful!'
+    else:
+        r_details = str(r2.json().get('detail'))
+        state = 'FAILED'
+        
+    ret = MSA_API.process_content(vnfLcm.state, f'{r2}' + ': ' + r_details, context, True) 
     print(ret)

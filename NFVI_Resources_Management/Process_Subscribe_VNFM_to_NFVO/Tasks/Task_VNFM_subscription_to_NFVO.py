@@ -59,7 +59,15 @@ if __name__ == "__main__":
     
     #VNFM URL Variables.
     http_protocol = 'http'
-    vnfm_url = http_protocol + '://' + vnfm_ip +':' + vnfm_port +'/ubi-etsi-mano/sol003'
+    vnfm_url = http_protocol + '://' + vnfm_ip +':' + vnfm_port
+    
+    #VNFM - SOL003 Base URL
+    base_url   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL_MS")
+    sol003_base_url  = base_url.get("value")
+    
+    if sol003_base_url != '/'
+       vnfm_url = vnfm_url + sol003_base_url
+       
     
     #VNFM authification type.
     authType = ['BASIC']

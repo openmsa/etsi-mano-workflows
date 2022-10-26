@@ -22,13 +22,6 @@ if __name__ == "__main__":
     r_details = ''
     status = vnfLcm.state
     if status == 'ENDED':
-        location = ''
-        try:
-            location = r.headers['Location']
-        except:
-            MSA_API.task_error('Delete VNF is failed.', context)
-            
-        context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
         r_details = 'Successful!'
     else:
         r_details = str(r.json().get('detail'))

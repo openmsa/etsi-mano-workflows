@@ -6,6 +6,7 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add("nfvo_device", var_type='Device')
+    dev_var.add("service_instance_name", var_type='String')
     context = Variables.task_call(dev_var)
     
     mano_me_id = context["nfvo_device"][3:]

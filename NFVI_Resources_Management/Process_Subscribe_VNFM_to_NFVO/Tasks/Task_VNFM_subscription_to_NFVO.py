@@ -65,7 +65,7 @@ if __name__ == "__main__":
     base_url   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL_MS")
     sol003_base_url  = base_url.get("value")
     
-    if sol003_base_url != '/'
+    if sol003_base_url != '/':
        vnfm_url = vnfm_url + sol003_base_url
        
     

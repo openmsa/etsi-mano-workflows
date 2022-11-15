@@ -27,6 +27,7 @@ if __name__ == "__main__":
     status = vnfPkgApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
+        context.update(vnf_package_id='')
     else:
         r_details = str(r.json().get('detail'))
         

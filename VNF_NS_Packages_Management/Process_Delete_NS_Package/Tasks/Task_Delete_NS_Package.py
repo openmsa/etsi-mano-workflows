@@ -28,6 +28,7 @@ if __name__ == "__main__":
     status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
+        context.update(ns_package_id='')
     else:
         r_details = str(r.json().get('detail'))
         

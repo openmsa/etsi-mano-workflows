@@ -262,8 +262,8 @@ if __name__ == "__main__":
         	manufacturer_id='18'
         	model_id='121'
         else:
-        	manufacturer_id='17'
-        	model_id='15031001'
+        	manufacturer_id='770000'
+        	model_id='770010'
         nfvo_device_ref = context.get('nfvo_device')
         management_address = ''
         try:

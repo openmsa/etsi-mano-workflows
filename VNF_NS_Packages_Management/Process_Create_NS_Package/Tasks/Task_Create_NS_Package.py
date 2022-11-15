@@ -6,9 +6,17 @@ from custom.ETSI.NsdSol005 import NsdSol005
 
 
 if __name__ == "__main__":
-
+    
     dev_var = Variables()
+    dev_var.add('ns_package_name', var_type='String')
     context = Variables.task_call()
+    
+    #Set the WF service instance name.
+    if 'ns_package_name' in context:
+        ns_package_name = context['ns_package_name']
+        if ns_package_name:
+            context.update(service_instance_name=ns_package_name)
+    
     
     #Get SOL00X version from context.
     sol_version = context.get('sol005_version')
@@ -29,6 +37,8 @@ if __name__ == "__main__":
     status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
+        ns_package_id = r.json().get('id')
+        context.update(ns_package_id=ns_package_id)
     else:
         r_details = str(r.json().get('detail'))
         

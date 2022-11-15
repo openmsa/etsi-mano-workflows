@@ -11,6 +11,12 @@ if __name__ == "__main__":
     dev_var.add('vnf_package_name', var_type='String')
     context = Variables.task_call(dev_var)
     
+    #Set the WF service instance name.
+    if 'vnf_package_name' in context:
+        vnf_package_name = context['vnf_package_name']
+        if vnf_package_name:
+            context.update(service_instance_name=vnf_package_name)
+    
     #Get SOL00X version from context.
     sol_version = context.get('sol005_version')
 
@@ -29,6 +35,8 @@ if __name__ == "__main__":
     status = vnfPkgApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
+        vnf_package_id = r.json().get('id')
+        context.update(vnf_package_id=vnf_package_id)
     else:
         r_details = str(r.json().get('detail'))
         

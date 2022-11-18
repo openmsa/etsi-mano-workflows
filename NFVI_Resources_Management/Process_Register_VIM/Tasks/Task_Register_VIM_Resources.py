@@ -10,6 +10,7 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('vim_device', var_type='Device')
+    dev_var.add("service_instance_name", var_type='String')
     context = Variables.task_call(dev_var)
     
     #Set NFVO access infos.
@@ -60,13 +61,21 @@ if __name__ == "__main__":
     user_domain_var = Device(device_id=vim_me_id).get_configuration_variable("USER_DOMAIN_ID")
     user_domain = user_domain_var.get("value")
     
+    #Get SDN controller (e.g: Juniper contrail) endpoint if exists.
+    sdn_endpoint = ''
+    try:
+        sdn_endpoint_var = Device(device_id=vim_me_id).get_configuration_variable("SDN_CONTROLLER_ENDPOINT")
+        sdn_endpoint = sdn_endpoint_var.get("value")
+    except:
+        pass
+    
+    #InterfaceInfo dict.
+    interfaceInfo = {"endpoint": endpoint, "non-strict-ssl": "true"}
+    
+    #Main content
     content = {
                "vimId": str(uuid.uuid4()),
                "vimType": vim_type,
-               "interfaceInfo": {
-                   "endpoint": endpoint,
-                   "non-strict-ssl": "true"
-                   },
                "accessInfo": {
                    "username": vim_username,
                    "password": vim_password,
@@ -80,7 +89,15 @@ if __name__ == "__main__":
                    "lat": 4.8001016
                    }
                }
-
+    
+    #Add the sdn controller endpoint.
+    if sdn_endpoint:
+        interfaceInfo.update(sdn_endpoint=sdn_endpoint)
+        
+    #Insert InterfaceInfo dict to the main content.
+    content.update(interfaceInfo=interfaceInfo)
+    
+    #Execute the VIM registration to the NFVO
     r = nfviVim.nfvi_vim_register(content)
     
     r_details = ''

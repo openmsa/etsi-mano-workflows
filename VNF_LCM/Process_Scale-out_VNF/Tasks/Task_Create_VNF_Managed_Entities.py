@@ -91,7 +91,7 @@ def _get_vnfc_resource_public_ip_address(nfvo_device, vim_id, server_id, timeout
     server_ip_addr = ''
     
     #Get openstack authenfication
-    conn = _get_vim_connection_auth(nfvo_device, vim_id, False)
+    conn = _get_vim_connection_auth(nfvo_device, vim_id, True)
     
     #Get VDU (server instance) details.
     servers = {}
@@ -101,7 +101,7 @@ def _get_vnfc_resource_public_ip_address(nfvo_device, vim_id, server_id, timeout
         try:
             servers = conn.compute.servers()
         except:
-            conn = _get_vim_connection_auth(nfvo_device, vim_id, True)
+            conn = _get_vim_connection_auth(nfvo_device, vim_id, False)
             servers = conn.compute.servers()
             
         #if servers is not a empty dictionnary.

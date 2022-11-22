@@ -62,7 +62,7 @@ if __name__ == "__main__":
     vnfm_url = http_protocol + '://' + vnfm_ip +':' + vnfm_port
     
     #VNFM - SOL003 Base URL
-    base_url   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL_MS")
+    base_url   = Device(device_id=vnfm_me_id).get_configuration_variable("BASE_URL_MS")
     sol003_base_url  = base_url.get("value")
     
     if sol003_base_url != '/':

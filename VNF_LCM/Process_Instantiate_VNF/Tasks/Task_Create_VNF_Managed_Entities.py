@@ -77,7 +77,8 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
                 context.update(domain_id_var_conf_attr=domain_id_var_conf_attr)
                 
                 #Get Openstack connection
-                auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, domain_name=domain_id)
+                #auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, domain_name=domain_id)
+                auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, user_domain_id=domain_id)
                 conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
                 
     return conn
@@ -133,7 +134,7 @@ def _get_vnfc_resource_public_ip_address(nfvo_device, vim_id, server_id, timeout
     server_ip_addr = ''
     
     #Get openstack authenfication
-    conn = _get_vim_connection_auth(nfvo_device, vim_id, False)
+    conn = _get_vim_connection_auth(nfvo_device, vim_id, True)
         
     #Get VDU (server instance) details.
     servers = {}
@@ -143,7 +144,7 @@ def _get_vnfc_resource_public_ip_address(nfvo_device, vim_id, server_id, timeout
         try:
             servers = conn.compute.servers()
         except:
-            conn = _get_vim_connection_auth(nfvo_device, vim_id, True)
+            conn = _get_vim_connection_auth(nfvo_device, vim_id, False)
             servers = conn.compute.servers()
             
         #if servers is not a empty dictionnary.

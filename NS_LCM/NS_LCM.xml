@@ -1,45 +1,45 @@
 <ObjectDefinition>
   <variables frozen="0">
-    <variable displayName="nfvo_device" name="params.nfvo_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="nfvo_device" name="params.nfvo_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="17010303" modId="17010305"/>
       </sdTypes>
     </variable>
-    <variable displayName="vnfm_device" name="params.vnfm_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="null" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnfm_device" name="params.vnfm_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="null" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="17010304" modId="17010306"/>
       </sdTypes>
     </variable>
-    <variable displayName="ns_package_id" name="params.ns_package_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" refDeviceIdVar="params.nfvo_device" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ns_package_id" name="params.ns_package_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" refDeviceIdVar="params.nfvo_device" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>ns_catalogs</class>
       </classes>
     </variable>
-    <variable displayName="nsInstantiationLevel" name="params.nsInstantiationLevel" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="nsScalingAspectId" name="params.nsScalingAspectId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="nsScaleLevelId" name="params.nsScaleLevelId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="aspectId" name="params.aspectId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="numberOfSteps" name="params.numberOfSteps" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ns_instance_name" name="params.ns_instance_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="is multiple vnfm" name="params.is_multiple_vnfm" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="is_cnf" name="params.is_cnf" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="k8s_me_ref" name="params.k8s_me_ref" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="nsInstantiationLevel" name="params.nsInstantiationLevel" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="nsScalingAspectId" name="params.nsScalingAspectId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="nsScaleLevelId" name="params.nsScaleLevelId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="aspectId" name="params.aspectId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="numberOfSteps" name="params.numberOfSteps" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ns_instance_name" name="params.ns_instance_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="is multiple vnfm" name="params.is_multiple_vnfm" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="is_cnf" name="params.is_cnf" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="k8s_me_ref" name="params.k8s_me_ref" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="20060101" modId="20060101"/>
       </sdTypes>
     </variable>
-    <variable displayName="deployments_file" name="params.deployments_file" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="deployments_file" name="params.deployments_file" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="/opt/fmc_repository/Datafiles/NFV/CNFD/freeradius-k8s/01-deployment.yml">/opt/fmc_repository/Datafiles/NFV/CNFD/freeradius-k8s/01-deployment.yml</values>
       </values>
     </variable>
-    <variable displayName="service_file" name="params.service_file" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="service_file" name="params.service_file" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="/opt/fmc_repository/Datafiles/NFV/CNFD/freeradius-k8s/02-services.yml">/opt/fmc_repository/Datafiles/NFV/CNFD/freeradius-k8s/02-services.yml</values>
       </values>
     </variable>
-    <variable displayName="NS Instance details" name="params.ns_instance_details" startIncrement="0" type="Code" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="updateType" name="params.updateType" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="NS Instance details" name="params.ns_instance_details" startIncrement="0" type="Code" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="updateType" name="params.updateType" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="ADD VNF">ADD_VNF</values>
         <values displayValue="REMOVE VNF">REMOVE_VNF</values>
@@ -48,121 +48,1121 @@
         <values displayValue="UPDATE VNFFG">UPDATE_VNFFG</values>
       </values>
     </variable>
-    <variable displayName="vnfInstanceId" name="params.addVnfIstance.0.vnfInstanceId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnfInstanceId" name="params.addVnfIstance.0.vnfInstanceId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="ADD_VNF" startIncrement="0" type="String" default=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="ADD_VNF" startIncrement="0" type="String" default="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfInstanceId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Add VNF Instance</sections>
       </sections>
     </variable>
-    <variable displayName="vnfProfileId" name="params.addVnfIstance.0.vnfProfileId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnfProfileId" name="params.addVnfIstance.0.vnfProfileId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfProfileId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnfIstance.0.vnfProfileId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Add VNF Instance</sections>
       </sections>
     </variable>
-    <variable displayName="vnfInstanceId" name="params.removeVnfInstanceId.0.vnfInstanceId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnfInstanceId" name="params.removeVnfInstanceId.0.vnfInstanceId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="ADD_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="REMOVE_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="ADD_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="REMOVE_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnfInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnfInstanceId.0.vnfInstanceId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Remove VNF Instances</sections>
       </sections>
     </variable>
-    <variable displayName="targetNsInstanceId" name="params.addVnffg.0.targetNsInstanceId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="targetNsInstanceId" name="params.addVnffg.0.targetNsInstanceId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="ADD_VNFFG" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="ADD_VNFFG" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="targetNsInstanceId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.targetNsInstanceId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Add VNFFG</sections>
       </sections>
     </variable>
-    <variable displayName="vnffgName" name="params.addVnffg.0.vnffgName" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="250" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnffgName" name="params.addVnffg.0.vnffgName" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="250" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="vnffgName" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.vnffgName" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Add VNFFG</sections>
       </sections>
     </variable>
-    <variable displayName="description" name="params.addVnffg.0.description" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="description" name="params.addVnffg.0.description" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="REMOVE_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="description" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="ADD_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="REMOVE_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="description" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="ADD_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="description" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.addVnffg.0.description" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Add VNFFG</sections>
       </sections>
     </variable>
-    <variable displayName="vnffgId" name="params.removeVnffgId.0.vnffgId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnffgId" name="params.removeVnffgId.0.vnffgId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.removeVnffgId.0.vnffgId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Remove VNFFG</sections>
       </sections>
     </variable>
-    <variable displayName="vnffgInfoId" name="params.updateVnffg.0.vnffgInfoId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Update VNFFG" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vnffgInfoId" name="params.updateVnffg.0.vnffgInfoId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Update VNFFG" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="REMOVE_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="ADD_VNFFG" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="REMOVE_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="ADD_VNFFG" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="vnffgInfoId" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.updateVnffg.0.vnffgInfoId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Update VNFFG</sections>
       </sections>
     </variable>
-    <variable displayName="nfpInfoId" name="params.updateVnffg.0.nfpInfoId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="nfpInfoId" name="params.updateVnffg.0.nfpInfoId" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="REMOVE_VNF" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="ADD_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="nfpInfoId" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfpInfoId" selectorValue="UPDATE_VNFFG" startIncrement="0" type="String" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Update VNFFG</sections>
       </sections>
     </variable>
-    <variable displayName="nfp" name="params.updateVnffg.0.nfp" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="Indicate the desired new NFP(s) for a given VNFFG after the operations of addition/removal of NS components (e.g. VNFs, VLs, etc.) have been completed, or indicate the updated or newly created NFP classification and selection rule which applied to an existing NFP." groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="nfp" name="params.updateVnffg.0.nfp" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="Indicate the desired new NFP(s) for a given VNFFG after the operations of addition/removal of NS components (e.g. VNFs, VLs, etc.) have been completed, or indicate the updated or newly created NFP classification and selection rule which applied to an existing NFP." groupSeparator="" groupDisplayName="" maxLength="300" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.updateType" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="ADD_VNF" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch=""/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="nfp" displayOrder="0" maxLength="1000" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="UPDATE_VNFFG" startIncrement="0" type="Code" default=""/>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="ADD_VNF" startIncrement="0" type="String">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="REMOVE_VNF" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="ADD_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="nfp" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="REMOVE_VNFFG" startIncrement="0" type="String" default="" localVarNameMatch="" remoteVarNameMatch="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="nfp" displayOrder="0" maxLength="1000" isMandatory="false" isUserLocked="false" name="params.updateVnffg.0.nfp" selectorValue="UPDATE_VNFFG" startIncrement="0" type="Code" default="">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader/>
+          <fullDisplayName/>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
       </behaviors>
       <sections>
         <sections>Update VNFFG</sections>
@@ -204,28 +1204,6 @@
     <task name="Task_Create_VNF_LCM_Service_Instances.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Instantiate_NS/Tasks</processPath>
       <displayName>Create VNF LCM Service Instances</displayName>
-    </task>
-    <task name="Task_Instantiate_CNF_Resources.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Instantiate_NS/Tasks</processPath>
-      <displayName>Instantiate CNF Resources</displayName>
-    </task>
-  </process>
-  <process name="Process/etsi-mano-workflows/NS_LCM/Process_Update_NS">
-    <displayName>Update NS</displayName>
-    <type>UPDATE</type>
-    <visibility>5</visibility>
-    <allowSchedule/>
-    <task name="Task_Prepare_NS_Update_request_body.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
-      <displayName>Prepare NS Update request body</displayName>
-    </task>
-    <task name="Task_Update_NS_Instance.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
-      <displayName>Update NS Instance</displayName>
-    </task>
-    <task name="Task_Get_NS_Operation_Occurrence_State.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
-      <displayName>Get NS Operation Occurrence State</displayName>
     </task>
   </process>
   <process name="Process/etsi-mano-workflows/NS_LCM/Process_Scale-out_NS">
@@ -298,6 +1276,24 @@
       <displayName>Terminate CNF Resources</displayName>
     </task>
   </process>
+  <process name="Process/etsi-mano-workflows/NS_LCM/Process_Update_NS">
+    <displayName>Update NS</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Prepare_NS_Update_request_body.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
+      <displayName>Prepare NS Update request body</displayName>
+    </task>
+    <task name="Task_Update_NS_Instance.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
+      <displayName>Update NS Instance</displayName>
+    </task>
+    <task name="Task_Get_NS_Operation_Occurrence_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NS_LCM/Process_Update_NS/Tasks</processPath>
+      <displayName>Get NS Operation Occurrence State</displayName>
+    </task>
+  </process>
   <process name="Process/etsi-mano-workflows/NS_LCM/Process_Delete_NS_Instance">
     <displayName>Delete NS Instance</displayName>
     <type>UPDATE</type>
@@ -315,7 +1311,7 @@
   <information>
     <icon/>
     <description>NS LCM (NSD based-on SOL001)</description>
-    <displayField>service_id</displayField>
+    <displayField>ns_instance_name</displayField>
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>

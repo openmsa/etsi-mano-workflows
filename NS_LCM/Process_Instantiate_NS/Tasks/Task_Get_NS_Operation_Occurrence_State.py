@@ -19,16 +19,27 @@ if __name__ == "__main__":
     
     r = nsLcmOpOccsInfo.ns_lcm_op_occs_completion_wait(context["ns_lcm_op_occ_id"])
     
-    context["ns_lcm_op_occs"] = r.json()
-    operationState = context["ns_lcm_op_occs"]["operationState"]
-    
-    if operationState == "FAILED":
-        MSA_API.task_error('The NS Instantiation operation is ' + operationState + '.', context, True)
-    
-    #Get VNFs details
-    if 'resourceChanges' in operationState:
-        resourceChanges = operationState.get('resourceChanges')
-        affectedVnfs = resourceChanges.get('affectedVnfs')
-        context.update(affectedVnfs=affectedVnfs)
+    #----------
+    status = nsLcmOpOccsInfo.state
+    if status == "ENDED":
+        context["ns_lcm_op_occs"] = r.json()
+        operationState = context["ns_lcm_op_occs"]["operationState"]
         
-    MSA_API.task_success('The NS Instantiation operation is ' + operationState + '.', context, True)
+        #Get VNFs details
+        if 'resourceChanges' in operationState:
+            resourceChanges = operationState.get('resourceChanges')
+            affectedVnfs = resourceChanges.get('affectedVnfs')
+            context.update(affectedVnfs=affectedVnfs)
+        
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
+        
+        ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
+        print(ret)
+        sys.exit()
+    #----------
+    
+    ret = MSA_API.process_content(nsLcmOpOccsInfo.state, f'{r}' + ': ' + r_details, context, True) 
+    print(ret)

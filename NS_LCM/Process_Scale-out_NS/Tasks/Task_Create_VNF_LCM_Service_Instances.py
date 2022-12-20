@@ -89,10 +89,10 @@ def _is_vnflcm_service_instance_exist(vnf_instance_id, vnf_lcm_services_list):
     return False
         
 if __name__ == "__main__":
-
+    
     dev_var = Variables()
     context = Variables.task_call(dev_var)
-    
+    '''
     #Initiate orchestraction object.
     ubiqube_id = context['UBIQUBEID']
     orch = Orchestration(ubiqube_id)
@@ -112,7 +112,7 @@ if __name__ == "__main__":
     nsLcm = NsLcmSol005(context["mano_ip"], context["mano_port"])
     
     auth_mode = context['auth_mode']
-    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2'
+    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
         nsLcm.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
     else:
         nsLcm.set_parameters(context['mano_user'], context['mano_pass'])
@@ -163,3 +163,6 @@ if __name__ == "__main__":
             _execute_service_by_reference(ubiqube_id, service_ext_ref, SERVICE_NAME, VNF_LCM_INSTANTIATE_PROCESS_NAME, data)
         
     MSA_API.task_success( 'VNF LCM service instances are created successfully.', context, True)
+    '''
+    MSA_API.task_success( 'VNF LCM service instances are created skipped.', context, True) 
+    

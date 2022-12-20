@@ -1,5 +1,6 @@
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
+import sys
 
 from custom.ETSI.NsLcmOpOccsSol005 import NsLcmOpOccsSol005
 
@@ -19,16 +20,26 @@ if __name__ == "__main__":
     
     r = nsLcmOpOccsInfo.ns_lcm_op_occs_completion_wait(context["ns_lcm_op_occ_id"])
     
-    context["ns_lcm_op_occs"] = r.json()
-    operationState = context["ns_lcm_op_occs"]["operationState"]
-    
-    if operationState == "FAILED":
-        MSA_API.task_error('The NS Scale-in operation is ' + operationState + '.', context, True)
-    
-    #Get VNFs details
-    if 'resourceChanges' in operationState:
-        resourceChanges = operationState.get('resourceChanges')
-        affectedVnfs = resourceChanges.get('affectedVnfs')
-        context.update(affectedVnfs=affectedVnfs)
+    #----------
+    status = nsLcmOpOccsInfo.state
+    if status == "ENDED":
+        context["ns_lcm_op_occs"] = r.json()
+        operationState = context["ns_lcm_op_occs"]["operationState"]
+        
+        #Get VNFs details
+        if 'resourceChanges' in operationState:
+            resourceChanges = operationState.get('resourceChanges')
+            affectedVnfs = resourceChanges.get('affectedVnfs')
+            context.update(affectedVnfs=affectedVnfs)
+        
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
+        
+        ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
+        print(ret)
+        sys.exit()
+    #----------
         
     MSA_API.task_success('The NS Scale-in operation is ' + operationState + '.', context, True)

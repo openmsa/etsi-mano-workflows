@@ -71,6 +71,6 @@ if __name__ == "__main__":
     ns_instance = r2.json()
     
     context["ns_instance_id"] = ns_instance['id']
-
+    
     ret = MSA_API.process_content(nsLcm.state, f'{r1}, {r2}', context, True)
     print(ret)

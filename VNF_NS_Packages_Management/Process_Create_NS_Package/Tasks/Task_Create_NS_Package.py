@@ -4,20 +4,19 @@ from msa_sdk.msa_api import MSA_API
 
 from custom.ETSI.NsdSol005 import NsdSol005
 
-
 if __name__ == "__main__":
-    
+
     dev_var = Variables()
     dev_var.add('ns_package_name', var_type='String')
-    context = Variables.task_call()
+    context = Variables.task_call(dev_var)
     
     #Set the WF service instance name.
     if 'ns_package_name' in context:
         ns_package_name = context['ns_package_name']
         if ns_package_name:
             context.update(service_instance_name=ns_package_name)
-    
-    
+            
+            
     #Get SOL00X version from context.
     sol_version = context.get('sol005_version')
     

@@ -92,7 +92,7 @@ if __name__ == "__main__":
     
     #Add the sdn controller endpoint.
     if sdn_endpoint:
-        interfaceInfo.update(sdn_endpoint=sdn_endpoint)
+        interfaceInfo['sdn-endpoint'] = sdn_endpoint
         
     #Insert InterfaceInfo dict to the main content.
     content.update(interfaceInfo=interfaceInfo)

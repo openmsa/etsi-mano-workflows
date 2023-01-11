@@ -1,5 +1,6 @@
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
+import sys
 
 from custom.ETSI.NsLcmSol005 import NsLcmSol005
 
@@ -39,16 +40,26 @@ if __name__ == "__main__":
 
     r = nsLcm.ns_lcm_scale_ns(ns_instance_id, payload)
     
-    if nsLcm.state != "ENDED":
-        ret = MSA_API.process_content(nsLcm.state, f'{context["ns_lcm_op_occ_id"]}',
-                                      context, True)
+        #----------
+    if nsLcm.state == "ENDED":
+        location = ''
+        try:
+            location = r.headers['Location']
+        except:
+            MSA_API.task_error('NS Scale-out is failed.', context)
+            
+        context["ns_lcm_op_occ_id"] = location.split("/")[-1]
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
+        
+        ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
         print(ret)
-        exit()
+        sys.exit()
+    #----------
     
-    location = r.headers["Location"]
-
-    context["ns_lcm_op_occ_id"] = location.split("/")[-1]
-
-    ret = MSA_API.process_content(nsLcm.state, f'{context["ns_lcm_op_occ_id"]}',
+    ret = MSA_API.process_content(nsLcm.state, f'NS Scaled-out is success!',
                                   context, True)
     print(ret)
+    sys.exit()

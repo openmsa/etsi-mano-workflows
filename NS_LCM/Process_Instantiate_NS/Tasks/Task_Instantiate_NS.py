@@ -2,13 +2,14 @@ from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
 from msa_sdk import constants
 import json
+import sys
 from custom.ETSI.NsLcmSol005 import NsLcmSol005
 
 
 if __name__ == "__main__":
 
     dev_var = Variables()
-    dev_var.add('ns_package_id', var_type='String')
+    #dev_var.add('ns_package_id', var_type='String')
     dev_var.add('is_multiple_vnfm', var_type='Boolean')
     context = Variables.task_call(dev_var)
     
@@ -25,17 +26,26 @@ if __name__ == "__main__":
     content = {'nsFlavourId': 'flavor'}
 
     r = nsLcm.ns_lcm_instantiate_ns(ns_instance_id, content)
-    
-    if nsLcm.state != "ENDED":
-        ret = MSA_API.process_content(nsLcm.state, f'{context["ns_lcm_op_occ_id"]}',
-                                      context, True)
+    #----------
+    if nsLcm.state == "ENDED":
+        location = ''
+        try:
+            location = r.headers['Location']
+        except:
+            MSA_API.task_error('NS Instantiate is failed.', context)
+            
+        context["ns_lcm_op_occ_id"] = location.split("/")[-1]
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
+        
+        ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
         print(ret)
-        exit()
+        sys.exit()
+    #----------
     
-    location = r.headers["Location"]
-
-    context["ns_lcm_op_occ_id"] = location.split("/")[-1]
-
-    ret = MSA_API.process_content(nsLcm.state, f'{context["ns_lcm_op_occ_id"]}',
+    ret = MSA_API.process_content(nsLcm.state, f'NS instantiated successfully!',
                                   context, True)
     print(ret)
+    sys.exit()

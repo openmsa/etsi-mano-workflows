@@ -18,12 +18,22 @@ if __name__ == "__main__":
     else:
         nsLcmOpOccsInfo.set_parameters(context['mano_user'], context['mano_pass'])
         
-    r = nsLcmOpOccsInfo.ns_lcm_op_occs_completion_wait(context["ns_lcm_op_occ_id"])
+    r = nsLcmOpOccsInfo.ns_lcm_op_occs_completion_wait(context["ns_lcm_op_occ_id"], 900)
     
-    context["ns_lcm_op_occs"] = r.json()
-    operationState = context["ns_lcm_op_occs"]["operationState"]
+    #----------
+    if nsLcmOpOccsInfo.state == "ENDED":
+        context["ns_lcm_op_occs"] = r.json()
+        operationState = context["ns_lcm_op_occs"]["operationState"]
+        
+        r_details = 'Successful!'
+    else:
+        r_details = str(r.json().get('detail'))
+        status = 'FAILED'
+        
+        ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
+        print(ret)
+        sys.exit()
+    #----------
     
-    if operationState == "FAILED":
-        MSA_API.task_error('The NS Terminate operation is ' + operationState + '.', context, True)
-
-    MSA_API.task_success('The NS Terminate operation is ' + operationState + '.', context, True)
+    ret = MSA_API.process_content(nsLcmOpOccsInfo.state, f'{r}' + ': ' + r_details, context, True) 
+    print(ret)

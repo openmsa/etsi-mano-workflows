@@ -40,12 +40,16 @@ if __name__ == "__main__":
     nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
     nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
     
+    #Get NFVO Base URL.
+    nfvo_base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL_MS")
+    nfvo_base_url  = nfvo_base_url_var.get("value")
+    
     #Get Authentication mode ('basic' or 'oauth2').
     auth_mode_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("AUTH_MODE")
     auth_mode  = auth_mode_var.get("value")
     context["auth_mode"] = auth_mode
     
-    nfvoSubscription = NfvoVnfmSubscription(nfvo_mano_ip, nfvo_mano_port)
+    nfvoSubscription = NfvoVnfmSubscription(nfvo_mano_ip, nfvo_mano_port, nfvo_base_url)
     
     if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
         #Get keycloak server URL.

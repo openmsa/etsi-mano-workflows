@@ -116,12 +116,14 @@ if __name__ == "__main__":
         except KeyError:
             pass
         
+        r_details = ''
         status = vnfmSubscription.state
         if status == 'ENDED':
             r_details = 'Successful!'
             MSA_API.task_success(r_details, context, True)
         else:
-            r_details = str(r.json().get('detail'))
+            if isinstance(r, dict):
+                r_details = str(r.json().get('detail'))
         
         ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
         print(ret)

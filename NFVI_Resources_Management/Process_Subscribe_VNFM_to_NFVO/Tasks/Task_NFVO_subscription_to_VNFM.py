@@ -28,7 +28,12 @@ if __name__ == "__main__":
         vnfm_username  = Device(device_id=vnfm_me_id).login
         vnfm_password  = Device(device_id=vnfm_me_id).password
         
-        vnfmSubscription = NfvoVnfmSubscription(vnfm_ip, vnfm_port)
+        #Get VNFM base URL.
+        vnfm_base_url_var   = Device(device_id=vnfm_me_id).get_configuration_variable("BASE_URL_MS")
+        vnfm_base_url  = vnfm_base_url_var.get("value")
+
+        # Execute NFVO registration to teh VNFM.
+        vnfmSubscription = NfvoVnfmSubscription(vnfm_ip, vnfm_port, vnfm_base_url)
         vnfmSubscription.set_parameters(vnfm_username, vnfm_password)
         
         #Set NFVO access infos.
@@ -54,10 +59,14 @@ if __name__ == "__main__":
             vnfmSubscription.set_parameters(vnfm_username, vnfm_password, auth_mode, context['keycloak_server_url'])
         else:
             vnfmSubscription.set_parameters(vnfm_username, vnfm_password)
-            
+        
+        #Get NFVO Base URL.
+        nfvo_base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL_MS")
+        nfvo_base_url  = nfvo_base_url_var.get("value")
+        
         #NFVO URL Variables.
         http_protocol = 'http'
-        nfvo_url = http_protocol + '://' + nfvo_mano_ip +':' + nfvo_mano_port +'/ubi-etsi-mano/sol003'
+        nfvo_url = http_protocol + '://' + nfvo_mano_ip +':' + nfvo_mano_port + nfvo_base_url + 'sol003'
         
         #NFVO authification type.
         authType = ['BASIC']
@@ -116,12 +125,14 @@ if __name__ == "__main__":
         except KeyError:
             pass
         
+        r_details = ''
         status = vnfmSubscription.state
         if status == 'ENDED':
             r_details = 'Successful!'
             MSA_API.task_success(r_details, context, True)
         else:
-            r_details = str(r.json().get('detail'))
+            if isinstance(r, dict):
+                r_details = str(r.json().get('detail'))
         
         ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
         print(ret)

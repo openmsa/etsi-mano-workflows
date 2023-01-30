@@ -5,12 +5,10 @@ from msa_sdk.device import Device
 
 from custom.ETSI.NfviVim import NfviVim
 
-
 if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('vim_device', var_type='Device')
-    dev_var.add("service_instance_name", var_type='String')
     context = Variables.task_call(dev_var)
     
     #Set NFVO access infos.
@@ -105,7 +103,8 @@ if __name__ == "__main__":
     if status == 'ENDED':
         r_details = 'Successful!'
     else:
-        r_details = str(r.json().get('detail'))
+        if isinstance(r, dict):
+            r_details = str(r.json().get('detail'))
     
     ret = MSA_API.process_content(nfviVim.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

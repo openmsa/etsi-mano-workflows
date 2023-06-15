@@ -10,9 +10,6 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('nfvo_device', var_type='Device')
-    dev_var.add('vnfm_device', var_type='Device')
-    dev_var.add('ns_package_id', var_type='String')
-    dev_var.add('ns_instance_name', var_type='String')
     context = Variables.task_call(dev_var)
     
     mano_me_id = context["nfvo_device"][3:]
@@ -58,21 +55,9 @@ if __name__ == "__main__":
         print(ret)
         exit()
     
-    #Store the NSD Id in the context.
+    #Store the NSD Id for checking in the context.
     nsd_id = r1.json()["nsdId"]
-    context['nsd_id'] = nsd_id
-    
-    ns_instance_name = 'NS_default_name'
-    if context.get('ns_instance_name'):
-        ns_instance_name = context.get('ns_instance_name')
-    
-    content = {"nsdId": nsd_id, "nsName": ns_instance_name, "nsDescription": ""}
-
-    r2 = nsLcm.ns_lcm_create_instance(content)
-    
-    ns_instance = r2.json()
-    
-    context["ns_instance_id"] = ns_instance['id']
+    context['nsd_id_checking'] = nsd_id
     
     ret = MSA_API.process_content(nsLcm.state, f'{r1}, {r2}', context, True)
     print(ret)

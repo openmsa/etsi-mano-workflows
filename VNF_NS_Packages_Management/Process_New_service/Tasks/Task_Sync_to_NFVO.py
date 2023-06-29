@@ -31,7 +31,12 @@ if __name__ == "__main__":
         keycloak_url_var   = Device(device_id=mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
         keycloak_server_url  = keycloak_url_var.get("value")
         context["keycloak_server_url"] = keycloak_server_url
-
+    
+    #Get nfvo base url.
+    mano_base_url_var   = Device(device_id=mano_me_id).get_configuration_variable("BASE_URL")
+    mano_base_url  = mano_base_url_var.get("value")
+    context["mano_base_url"] = mano_base_url
+    
     #Get SOL005 version.
     sol005_version_var   = Device(device_id=mano_me_id).get_configuration_variable("SOL005_VERSION")
     sol005_version  = sol005_version_var.get("value")

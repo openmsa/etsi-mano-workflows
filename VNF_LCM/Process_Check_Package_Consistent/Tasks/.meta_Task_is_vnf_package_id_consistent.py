@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Task_Delete_NS_Package.py</value>
+            <value>Task_is_vnf_package_id_consistent.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1688048273116</value>
+            <value>1686061348092</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +15,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1688048273113</value>
+            <value>1686061348089</value>
         </entry>
         <entry>
             <key>TAG</key>

@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Process_Create_VNF_Package</value>
+            <value>Task_Create_VNF_Package.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1628505088371</value>
+            <value>1688560776927</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,14 +15,18 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1628505088368</value>
+            <value>1688560776923</value>
         </entry>
         <entry>
             <key>TAG</key>
         </entry>
         <entry>
+            <key>FILE_TYPE</key>
+            <value>text</value>
+        </entry>
+        <entry>
             <key>TYPE</key>
-            <value>DIRECTORY</value>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>

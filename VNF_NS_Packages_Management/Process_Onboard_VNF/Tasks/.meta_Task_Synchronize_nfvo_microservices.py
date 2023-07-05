@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Process_New_service</value>
+            <value>Task_Synchronize_nfvo_microservices.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1628505066146</value>
+            <value>1688560790519</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,14 +15,18 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1628505066142</value>
+            <value>1688560790516</value>
         </entry>
         <entry>
             <key>TAG</key>
         </entry>
         <entry>
+            <key>FILE_TYPE</key>
+            <value>text</value>
+        </entry>
+        <entry>
             <key>TYPE</key>
-            <value>DIRECTORY</value>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>

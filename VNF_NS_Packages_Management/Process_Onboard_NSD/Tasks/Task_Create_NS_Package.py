@@ -8,6 +8,7 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('ns_package_name', var_type='String')
+    dev_var.add('ns_package_id', var_type='String')
     context = Variables.task_call(dev_var)
     
     #Set the WF service instance name.

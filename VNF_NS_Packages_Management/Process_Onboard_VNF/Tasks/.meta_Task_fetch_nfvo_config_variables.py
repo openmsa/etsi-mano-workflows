@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Task_Sync_to_NFVO.py</value>
+            <value>Task_fetch_nfvo_config_variables.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1688048938894</value>
+            <value>1688560769628</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +15,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1688048938890</value>
+            <value>1688560769624</value>
         </entry>
         <entry>
             <key>TAG</key>

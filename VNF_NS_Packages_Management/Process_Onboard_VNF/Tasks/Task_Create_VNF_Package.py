@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('vnf_package_name', var_type='String')
-    dev_var.add('vnf_package_id', var_type='String')
+    #dev_var.add('vnf_package_id', var_type='String')
     context = Variables.task_call(dev_var)
     
     #Set the WF service instance name.
@@ -31,15 +31,16 @@ if __name__ == "__main__":
     
     pkg = {"userDefinedData": {"name": context['vnf_package_name']}}
     r = vnfPkgApi.vnf_packages_post(pkg)
-   
+    
+    vnf_package_id = r.json().get('id')
+    #MSA_API.task_error(vnfPkgApi.state, context, True) 
+    
     r_details = ''
     status = vnfPkgApi.state
-    MSA_API.task_success(str(r), context, True)
     if status == 'ENDED':
         r_details = 'Successful!'
         vnf_package_id = r.json().get('id')
         context.update(vnf_package_id=vnf_package_id)
-    else:
         try:
             r_details = str(r.json().get('detail'))
         except:

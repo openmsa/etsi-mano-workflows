@@ -42,5 +42,5 @@ if __name__ == "__main__":
     sol005_version  = sol005_version_var.get("value")
     context.update(sol005_version=sol005_version)
     
-    ret = MSA_API.process_content('ENDED', f'Task OK', context, True)
+    ret = MSA_API.process_content('ENDED', f'Task OK!', context, True)
     print(ret)

@@ -17,11 +17,16 @@ if __name__ == "__main__":
     nfvo_mano_me_id = context["nfvo_device"][3:]
     nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
     nfvo_mano_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("HTTP_PORT")
-    nfvo_mano_port  = nfvo_mano_var.get("value")
+    nfvo_mano_port  = nfvo_mano_var.get("value").strip()
     nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
     nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
     
-    nfviVim = NfviVim(nfvo_mano_ip, nfvo_mano_port)
+    #Get NFVO API base url.
+    base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL")
+    base_url  = base_url_var.get("value").strip()
+    context["auth_mode"] = base_url
+    
+    nfviVim = NfviVim(nfvo_mano_ip, nfvo_mano_port, base_url)
     nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass)
     
     r = nfviVim.nfvi_vim_delete(context["vim_id"])

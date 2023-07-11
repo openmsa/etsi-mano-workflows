@@ -24,7 +24,7 @@ dev_var = Variables()
 context = Variables.task_call(dev_var)
 
 process_id = context['SERVICEINSTANCEID']
-
+'''
 if "is_third_party_vnfm" in context:
 	is_third_party_vnfm = context.get('is_third_party_vnfm')
 	if is_third_party_vnfm == 'true':
@@ -148,7 +148,7 @@ elif "vwaf" in img_name.lower():
 	}
 	session.put(url, data=body)
 
-
+'''
 ret = MSA_API.process_content('ENDED', 'Task OK', context, True)
 print(ret)
 

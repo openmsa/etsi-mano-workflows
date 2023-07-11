@@ -18,17 +18,17 @@ if __name__ == "__main__":
     vnfm_me_id = context["vnfm_device"][3:]
     vnfm_ip    = Device(device_id=vnfm_me_id).management_address
     vnfm_var   = Device(device_id=vnfm_me_id).get_configuration_variable("HTTP_PORT")
-    vnfm_port  = vnfm_var.get("value")
+    vnfm_port  = vnfm_var.get("value").strip()
     vnfm_username  = Device(device_id=vnfm_me_id).login
     vnfm_password  = Device(device_id=vnfm_me_id).password
     vnfm_var   = Device(device_id=vnfm_me_id).get_configuration_variable("CAPABILITIES")
-    vnfm_capabilities  = vnfm_var.get("value")
+    vnfm_capabilities  = vnfm_var.get("value").strip()
     vnfm_var   = Device(device_id=vnfm_me_id).get_configuration_variable("SOL003_VERSION")
-    vnfm_sol003_version  = vnfm_var.get("value")
+    vnfm_sol003_version  = vnfm_var.get("value").strip()
     
     #Get Authentication mode ('basic' or 'oauth2').
     auth_mode_var   = Device(device_id=vnfm_me_id).get_configuration_variable("AUTH_MODE")
-    auth_mode  = auth_mode_var.get("value")
+    auth_mode  = auth_mode_var.get("value").strip()
     context["auth_mode"] = auth_mode
     
     #Set NFVO access infos.
@@ -36,39 +36,46 @@ if __name__ == "__main__":
     nfvo_mano_me_id = context["nfvo_device"][3:]
     nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
     nfvo_mano_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("HTTP_PORT")
-    nfvo_mano_port  = nfvo_mano_var.get("value")
+    nfvo_mano_port  = nfvo_mano_var.get("value").strip()
     nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
     nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
     
+    #Get NFVO Base URL.
+    nfvo_base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL")
+    nfvo_base_url  = nfvo_base_url_var.get("value").strip()
+    
     #Get Authentication mode ('basic' or 'oauth2').
     auth_mode_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("AUTH_MODE")
-    auth_mode  = auth_mode_var.get("value")
+    auth_mode  = auth_mode_var.get("value").strip()
     context["auth_mode"] = auth_mode
     
-    nfvoSubscription = NfvoVnfmSubscription(nfvo_mano_ip, nfvo_mano_port)
+    #VNFM - SOL003 Base URL
+    base_url   = Device(device_id=vnfm_me_id).get_configuration_variable("BASE_URL")
+    sol003_base_url  = base_url.get("value").strip()
+    
+    nfvoSubscription = NfvoVnfmSubscription(nfvo_mano_ip, nfvo_mano_port, nfvo_base_url)
     
     if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
         #Get keycloak server URL.
         keycloak_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
-        keycloak_server_url  = keycloak_url_var.get("value")
+        keycloak_server_url  = keycloak_url_var.get("value").strip()
         context["keycloak_server_url"] = keycloak_server_url
         
         nfvoSubscription.set_parameters(nfvo_mano_user, nfvo_mano_pass, auth_mode, context['keycloak_server_url'])
     else:
         nfvoSubscription.set_parameters(nfvo_mano_user, nfvo_mano_pass)
     
+    
     #VNFM URL Variables.
     http_protocol = 'http'
     vnfm_url = http_protocol + '://' + vnfm_ip +':' + vnfm_port
     
-    #VNFM - SOL003 Base URL
-    base_url   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL_MS")
-    sol003_base_url  = base_url.get("value")
+    if sol003_base_url != '/':
+        vnfm_url = vnfm_url + sol003_base_url
     
-    if sol003_base_url != '/'
-       vnfm_url = vnfm_url + sol003_base_url
-       
-    
+    if sol003_base_url == '/vnfm-webapp/':
+        vnfm_url = vnfm_url + 'sol003'
+        
     #VNFM authification type.
     authType = ['BASIC']
     if auth_mode == 'basic':
@@ -139,7 +146,8 @@ if __name__ == "__main__":
         r_details = 'Successful!'
         MSA_API.task_success(r_details, context, True)
     else:
-        r_details = str(r.json().get('detail'))
+        if isinstance(r, dict):
+            r_details = str(r.json().get('detail'))
     
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
     print(ret)

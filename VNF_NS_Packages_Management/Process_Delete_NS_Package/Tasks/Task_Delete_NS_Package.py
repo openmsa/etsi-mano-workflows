@@ -14,7 +14,7 @@ if __name__ == "__main__":
     #Get SOL00X version from context.
     sol_version = context.get('sol005_version')
 
-    nsdApi = NsdSol005(context["mano_ip"], context["mano_port"], sol_version)    
+    nsdApi = NsdSol005(context["mano_ip"], context["mano_port"], context["mano_base_url"], sol_version)    
         
     auth_mode = context['auth_mode']
     if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
@@ -28,6 +28,7 @@ if __name__ == "__main__":
     status = nsdApi.state
     if status == 'ENDED':
         r_details = 'Successful!'
+        context.update(ns_package_id='')
     else:
         r_details = str(r.json().get('detail'))
         

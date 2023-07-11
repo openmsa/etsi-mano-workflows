@@ -58,19 +58,21 @@ if __name__ == "__main__":
         print(ret)
         exit()
     
-    context['ns_package_id'] = r1.json()["nsdId"]
+    #Store the NSD Id in the context.
+    nsd_id = r1.json()["nsdId"]
+    context['nsd_id'] = nsd_id
     
     ns_instance_name = 'NS_default_name'
     if context.get('ns_instance_name'):
         ns_instance_name = context.get('ns_instance_name')
     
-    content = {"nsdId": context['ns_package_id'], "nsName": ns_instance_name, "nsDescription": ""}
+    content = {"nsdId": nsd_id, "nsName": ns_instance_name, "nsDescription": ""}
 
     r2 = nsLcm.ns_lcm_create_instance(content)
     
     ns_instance = r2.json()
     
     context["ns_instance_id"] = ns_instance['id']
-
+    
     ret = MSA_API.process_content(nsLcm.state, f'{r1}, {r2}', context, True)
     print(ret)

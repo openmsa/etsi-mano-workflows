@@ -27,6 +27,7 @@ if __name__ == "__main__":
     if 'vnf_lcm_op_occ_id' in context and vnf_lcm_op_occ_id:
         r = vnfLcmOpOccs.vnf_lcm_op_occs_completion_wait(vnf_lcm_op_occ_id)
         
+    
     r_details = ''
     status = vnfLcmOpOccs.state
     if status == 'ENDED':
@@ -35,5 +36,6 @@ if __name__ == "__main__":
         r_details = str(r.json().get('detail'))
         status = 'FAILED'
         
+    
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

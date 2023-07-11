@@ -34,6 +34,6 @@ if __name__ == "__main__":
     else:
         r_details = str(r.json().get('detail'))
         status = 'FAILED'
-        
+    
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

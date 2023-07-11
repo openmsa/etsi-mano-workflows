@@ -38,7 +38,8 @@ if ($context['resource'] == 'services') {
     $api=$context['kubernetes_endpoint']."api/v1/namespaces/".$context['namespace']."/".$context['resource'];
 }
 
-$response=kubernetes_apply_yaml ("POST", $api, $context['token_id'], $context['file'],"50", "50");
+$file = '/opt/fmc_repository/' . $context['file'];
+$response=kubernetes_apply_yaml ("POST", $api, $context['token_id'], $file,"50", "50");
 
 $response = shell_exec($response);
 

@@ -5,7 +5,6 @@ from msa_sdk.device import Device
 
 from custom.ETSI.NfviVim import NfviVim
 
-
 if __name__ == "__main__":
 
     dev_var = Variables()
@@ -16,23 +15,28 @@ if __name__ == "__main__":
     nfvo_mano_me_id = context["nfvo_device"][3:]
     nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
     nfvo_mano_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("HTTP_PORT")
-    nfvo_mano_port  = nfvo_mano_var.get("value")
+    nfvo_mano_port  = nfvo_mano_var.get("value").strip()
     nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
     nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
     
     #Get Authentication mode ('basic' or 'oauth2').
     auth_mode_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("AUTH_MODE")
-    auth_mode  = auth_mode_var.get("value")
+    auth_mode  = auth_mode_var.get("value").strip()
     context["auth_mode"] = auth_mode
     
+    #Get NFVO API base url.
+    base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL")
+    base_url  = base_url_var.get("value").strip()
+    context["auth_mode"] = base_url
+    
     #Init NFVI VIM object.
-    nfviVim = NfviVim(nfvo_mano_ip, nfvo_mano_port)
+    nfviVim = NfviVim(nfvo_mano_ip, nfvo_mano_port, base_url)
     
     if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
         #Get keycloak server URL.
         keycloak_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
         keycloak_server_url  = keycloak_url_var.get("value")
-        context["keycloak_server_url"] = keycloak_server_url
+        context["keycloak_server_url"] = keycloak_server_url.strip()
         
         nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass, auth_mode, context['keycloak_server_url'])
     else:
@@ -47,26 +51,34 @@ if __name__ == "__main__":
     vim_type = 'OPENSTACK_V3'
     
     http_protocol_var = Device(device_id=vim_me_id).get_configuration_variable("HTTP_PROTOCOL")
-    http_protocol = http_protocol_var.get("value")
+    http_protocol = http_protocol_var.get("value").strip()
     
     endpoint = http_protocol  +'://' + vim__ip + ':5000/v3'
     
     project_id_var= Device(device_id=vim_me_id).get_configuration_variable("TENANT_ID")
-    project_id = project_id_var.get("value")
+    project_id = project_id_var.get("value").strip()
     
     project_domain_var =  Device(device_id=vim_me_id).get_configuration_variable("PROJECT_DOMAIN_ID")
-    project_domain = project_domain_var.get("value")
+    project_domain = project_domain_var.get("value").strip()
     
     user_domain_var = Device(device_id=vim_me_id).get_configuration_variable("USER_DOMAIN_ID")
-    user_domain = user_domain_var.get("value")
+    user_domain = user_domain_var.get("value").strip()
     
+    #Get SDN controller (e.g: Juniper contrail) endpoint if exists.
+    sdn_endpoint = ''
+    try:
+        sdn_endpoint_var = Device(device_id=vim_me_id).get_configuration_variable("SDN_CONTROLLER_ENDPOINT")
+        sdn_endpoint = sdn_endpoint_var.get("value").strip()
+    except:
+        pass
+    
+    #InterfaceInfo dict.
+    interfaceInfo = {"endpoint": endpoint, "non-strict-ssl": "true"}
+    
+    #Main content
     content = {
                "vimId": str(uuid.uuid4()),
                "vimType": vim_type,
-               "interfaceInfo": {
-                   "endpoint": endpoint,
-                   "non-strict-ssl": "true"
-                   },
                "accessInfo": {
                    "username": vim_username,
                    "password": vim_password,
@@ -80,7 +92,15 @@ if __name__ == "__main__":
                    "lat": 4.8001016
                    }
                }
-
+    
+    #Add the sdn controller endpoint.
+    if sdn_endpoint:
+        interfaceInfo['sdn-endpoint'] = sdn_endpoint
+        
+    #Insert InterfaceInfo dict to the main content.
+    content.update(interfaceInfo=interfaceInfo)
+    
+    #Execute the VIM registration to the NFVO
     r = nfviVim.nfvi_vim_register(content)
     
     r_details = ''
@@ -88,7 +108,8 @@ if __name__ == "__main__":
     if status == 'ENDED':
         r_details = 'Successful!'
     else:
-        r_details = str(r.json().get('detail'))
+        if isinstance(r, dict):
+            r_details = str(r.json().get('detail'))
     
     ret = MSA_API.process_content(nfviVim.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

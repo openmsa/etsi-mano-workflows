@@ -1,5 +1,6 @@
 import json
 import time
+import sys
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
 from msa_sdk.device import Device
@@ -78,6 +79,7 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
                 
                 #Get Openstack connection
                 auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, domain_name=domain_id)
+                #auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, user_domain_id=domain_id)
                 conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
                 
     return conn
@@ -222,6 +224,8 @@ if __name__ == "__main__":
     else:
         vnfLcm.set_parameters(context['mano_user'], context['mano_pass'])
     
+    #waiting
+    time.sleep(120)
     r = vnfLcm.vnf_lcm_get_vnf_instance_details(context["vnf_instance_id"])
     
     #MSA_API.task_error('DEBUG = ' + json.dumps(r.json()), context)
@@ -262,8 +266,8 @@ if __name__ == "__main__":
         	manufacturer_id='18'
         	model_id='121'
         else:
-        	manufacturer_id='17'
-        	model_id='15031001'
+        	manufacturer_id='770000'
+        	model_id='770010'
         nfvo_device_ref = context.get('nfvo_device')
         management_address = ''
         try:

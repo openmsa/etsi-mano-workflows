@@ -114,10 +114,6 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Resolve VIM Managed Entity</displayName>
     </task>
-    <task name="Task_Configure_Address_Pair.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
-      <displayName>Configure Address Pair</displayName>
-    </task>
     <task name="Task_Synchronize_with_VIM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Synchronize with VIM</displayName>
@@ -247,64 +243,6 @@
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
   </process>
-  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF">
-    <displayName>Reboot VNF</displayName>
-    <type>UPDATE</type>
-    <visibility>5</visibility>
-    <allowSchedule/>
-    <task name="Task_Reboot_VNF_Instance.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF/Tasks</processPath>
-      <displayName>Reboot VNF Instance</displayName>
-    </task>
-    <task name="Task_Wait_for_status_to_be_active.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF/Tasks</processPath>
-      <displayName>Wait for status to be active</displayName>
-    </task>
-    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks/Task_Sync_to_NFVO_and_VNFM.py">
-      <processPath></processPath>
-      <displayName>Sync to NFVO and VNFM</displayName>
-    </task>
-  </process>
-  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF">
-    <displayName>Rebuild VNF</displayName>
-    <type>UPDATE</type>
-    <visibility>5</visibility>
-    <allowSchedule/>
-    <task name="Task_Get_VNF_Server_Id.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF/Tasks</processPath>
-      <displayName>Get VNF Server Id</displayName>
-    </task>
-    <task name="Task_Rebuild_VNF.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF/Tasks</processPath>
-      <displayName>Rebuild VNF</displayName>
-    </task>
-    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Reboot_VNF/Tasks/Task_Wait_for_status_to_be_active.py">
-      <processPath></processPath>
-      <displayName>Wait for status to be active</displayName>
-    </task>
-    <task name="Task_Sync_VIM.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Rebuild_VNF/Tasks</processPath>
-      <displayName>Sync VIM</displayName>
-    </task>
-  </process>
-  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Live_Migrate_VNF">
-    <displayName>Live Migrate VNF</displayName>
-    <type>UPDATE</type>
-    <visibility>5</visibility>
-    <allowSchedule/>
-    <task name="Task_Live_Migrate_VNF.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Live_Migrate_VNF/Tasks</processPath>
-      <displayName>Live Migrate VNF</displayName>
-    </task>
-    <task name="Task_Wait_for_status_to_be_active.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
-      <displayName>Wait for status to be active</displayName>
-    </task>
-    <task name="Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks/Task_Sync_to_NFVO_and_VNFM.py">
-      <processPath></processPath>
-      <displayName>Sync to NFVO and VNFM</displayName>
-    </task>
-  </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF">
     <displayName>Terminate VNF</displayName>
     <type>UPDATE</type>
@@ -321,10 +259,6 @@
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
-    </task>
-    <task name="Task_Clean_up_servers.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF/Tasks</processPath>
-      <displayName>Clean up servers</displayName>
     </task>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Delete_VNF_Instance">
@@ -355,34 +289,22 @@
       <displayName>mytest</displayName>
     </task>
   </process>
-  <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update">
-    <displayName>Software Update</displayName>
+  <process name="Process/etsi-mano-workflows/NS_LCM/Process_Check_Package_Consistent">
+    <displayName>Check Package Consistent</displayName>
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
-    <task name="Task_Backup_VNF_Configuration.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update/Tasks</processPath>
-      <displayName>Backup VNF Configuration</displayName>
+    <task name="Task_check_of_feasibility.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Check_Package_Consistent/Tasks</processPath>
+      <displayName>check of feasibility</displayName>
     </task>
-    <task name="Task_Shutdown_VNFCs.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update/Tasks</processPath>
-      <displayName>Shutdown VNFCs</displayName>
+    <task name="Task_is_vnf_package_id_consistent.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Check_Package_Consistent/Tasks</processPath>
+      <displayName>Is vnf package id consistent</displayName>
     </task>
-    <task name="Task_Detach_Ports.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update/Tasks</processPath>
-      <displayName>Detach Ports</displayName>
-    </task>
-    <task name="Task_Recreate_new_VNFCs.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update/Tasks</processPath>
-      <displayName>Recreate new VNFCs</displayName>
-    </task>
-    <task name="Task_Restore_VNF_Configuration.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update/Tasks</processPath>
-      <displayName>Restore VNF Configuration</displayName>
-    </task>
-    <task name="Task_Update_servers.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Software_Update/Tasks</processPath>
-      <displayName>Update servers</displayName>
+    <task name="Task_is_vnfd_id_consistent.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Check_Package_Consistent/Tasks</processPath>
+      <displayName>Is vnfd id consistent</displayName>
     </task>
   </process>
   <information>

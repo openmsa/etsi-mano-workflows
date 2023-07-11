@@ -35,7 +35,8 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
         domain_id = project_domain_id
                     
     #Get Openstack connection
-    auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, user_domain_id=domain_id)
+    #auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, user_domain_id=domain_id)
+    auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, domain_name=domain_id)
     conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
                 
     return conn
@@ -190,8 +191,8 @@ if __name__ == "__main__":
             	manufacturer_id='18'
             	model_id='121'
             else:
-            	manufacturer_id='17'
-            	model_id='15031001'
+            	manufacturer_id='770000'
+            	model_id='770010'
             nfvo_device_ref = context.get('nfvo_device')
             management_address = ''
             try:

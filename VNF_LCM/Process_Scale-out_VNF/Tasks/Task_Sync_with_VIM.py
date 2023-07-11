@@ -31,10 +31,16 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
         domain_id = project_domain_id
                     
     #Get Openstack connection
-    #auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, user_domain_id=domain_id)
-    auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, domain_name=domain_id)
-    conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
-                
+    auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id)
+    try:
+        auth.update(user_domain_id=domain_id)
+        #auth.update(domain_name=domain_id)
+        conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
+    except:
+        auth.pop('domain_name')
+        auth.update(user_domain_id=domain_id)
+        conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
+
     return conn
 
 '''
@@ -127,7 +133,11 @@ if __name__ == "__main__":
             vnfc_ram = flavor_dict['ram']
             vnfc_disk = flavor_dict['disk']
             
-            hypervisor_hostname = server_obj.get('OS-EXT-SRV-ATTR:hypervisor_hostname')
+            vnfc_serv_id=server_obj.get('id')
+            #hypervisor_hostname = server_obj.get('OS-EXT-SRV-ATTR:hypervisor_hostname')
+            serv_obj=str(server_obj)
+            hypervisor_hostname=serv_obj[serv_obj.index('OS-EXT-SRV-ATTR:hypervisor_hostname'):]
+            hypervisor_hostname=hypervisor_hostname.split(',')[0].split('=')[1]
             image = server_obj.get('image').get('id')
             #util.log_to_process_file(process_id,"extracted flavour details "+vnfc_name+" - "+vnfc_cpu)
             #Add cpu, ram, disk in the tab and then in the context.

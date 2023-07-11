@@ -78,9 +78,15 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
                 context.update(domain_id_var_conf_attr=domain_id_var_conf_attr)
                 
                 #Get Openstack connection
-                auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, domain_name=domain_id)
-                #auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id, user_domain_id=domain_id)
-                conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
+                auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id)
+                try:
+                    auth.update(user_domain_id=domain_id)
+                    #auth.update(domain_name=domain_id)
+                    conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
+                except:
+                    auth.pop('domain_name')
+                    auth.update(user_domain_id=domain_id)
+                    conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
                 
     return conn
 
@@ -263,11 +269,11 @@ if __name__ == "__main__":
         #model_id='14020601'
         #default IP address
         if "vsrx" in img_name.lower():
-        	manufacturer_id='18'
-        	model_id='121'
+            manufacturer_id='18'
+            model_id='121'
         else:
-        	manufacturer_id='770000'
-        	model_id='770010'
+            manufacturer_id='770000'
+            model_id='770010'
         nfvo_device_ref = context.get('nfvo_device')
         management_address = ''
         try:

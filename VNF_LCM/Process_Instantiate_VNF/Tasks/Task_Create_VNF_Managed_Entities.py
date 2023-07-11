@@ -197,8 +197,8 @@ def _get_vnfc_resource_ip_addresses(nfvo_device, vim_id, server_id, timeout=60, 
                     addresses = server.addresses
                     for network_name, iface_list in addresses.items():
                         for ip_addr in iface_list:
-                        	ip_a=ip_addr.get('addr')
-                        	ip_list.append(ip_a)
+                            ip_a=ip_addr.get('addr')
+                            ip_list.append(ip_a)
             break
         time.sleep(interval)
             
@@ -320,25 +320,25 @@ if __name__ == "__main__":
         uri=''
         #add config variables, attach suitable config templates and do initial provisioning
         if "vsrx" in img_name.lower():
-        	device.create_configuration_variable('HOST_NAME', img_name+str(device_id))
-        	if len(addr_list) > 1:
-        		if addr_list[1]:
-        			device.create_configuration_variable('SECOND_INT_IP', addr_list[1])
-        		if len(addr_list) > 2:
-        			if addr_list[2]:
-        				device.create_configuration_variable('THIRD_INT_IP', addr_list[2])
+            device.create_configuration_variable('HOST_NAME', img_name+str(device_id))
+            if len(addr_list) > 1:
+                if addr_list[1]:
+                    device.create_configuration_variable('SECOND_INT_IP', addr_list[1])
+                if len(addr_list) > 2:
+                    if addr_list[2]:
+                        device.create_configuration_variable('THIRD_INT_IP', addr_list[2])
         	#using the device id for priority as it always increases
         	#hence any time the first VNF created will have a low numeric vlaue for priority
-        	priority=device_id%250
-        	device.create_configuration_variable('PRIORITY', priority)
-        	uri = {"uri": "Configuration/demo/vsrx_day0_standalone"}
-        	uris = []
-        	uris.append(uri)
-        	device.attach_files(uris, 'PRE_CONFIG')
+            priority=device_id%250
+            device.create_configuration_variable('PRIORITY', priority)
+            uri = {"uri": "Configuration/demo/vsrx_day0_standalone"}
+            uris = []
+            uris.append(uri)
+            device.attach_files(uris, 'PRE_CONFIG')
         	#sleep for some time so that the VNF is reachable from MSA
-        	time.sleep(30)
-        	device.initial_provisioning()
-        	time.sleep(10)
+            time.sleep(30)
+            device.initial_provisioning()
+            time.sleep(10)
 #--------------------------------------------------------------
     #Store vnf_me_list in the context.
     context.update(vnf_me_list=vnf_me_list)

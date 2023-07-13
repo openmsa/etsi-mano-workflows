@@ -118,8 +118,22 @@
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
   </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF">
+    <displayName>Onboard VNF Package</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Onboard_VNF.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Onboard VNF</displayName>
+    </task>
+    <task name="Task_Synchronize.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Create_VNF_Package/Tasks</processPath>
+      <displayName>Synchronize</displayName>
+    </task>
+  </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Disable_VNF">
-    <displayName>VNF Disable Package</displayName>
+    <displayName>Disable VNF Package</displayName>
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>

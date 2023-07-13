@@ -10,7 +10,7 @@ if __name__ == "__main__":
     vim_short_id = context['vim_device'][3:]
 
     order1 = Order(str(vim_short_id))
-    order1.command_synchronize(timeout=60)
+    order1.command_synchronize(timeout=240)
     
     ret = MSA_API.process_content('ENDED',
         f'Devices {context["vim_device"]} synchronized',

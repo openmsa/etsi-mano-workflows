@@ -24,11 +24,13 @@ dev_var = Variables()
 context = Variables.task_call(dev_var)
 
 process_id = context['SERVICEINSTANCEID']
+
 '''
 if "is_third_party_vnfm" in context:
 	is_third_party_vnfm = context.get('is_third_party_vnfm')
 	if is_third_party_vnfm == 'true':
 		MSA_API.task_success('Skip for 3rd party VNFM.', context)
+
 
 vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
 

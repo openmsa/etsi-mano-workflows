@@ -12,7 +12,7 @@ if __name__ == "__main__":
     
     time.sleep(6)
     order = Order(str(device_short_id))
-    order.command_synchronize(timeout=250)
+    order.command_synchronize(timeout=240)
 
     ret = MSA_API.process_content('ENDED',
         f'Device {context["nfvo_device"]} synchronized', context, True)

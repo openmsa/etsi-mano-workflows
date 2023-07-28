@@ -3,6 +3,7 @@ import json
 from msa_sdk import constants
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
+from msa_sdk import util
 
 from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 from custom.ETSI.VnfLcmOpOccsSol003 import VnfLcmOpOccsSol003
@@ -13,12 +14,15 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     context = Variables.task_call(dev_var)
+    
+    process_id = context['SERVICEINSTANCEID']
+    
     #Get authentication type.
     auth_mode = context["auth_mode"]
     
     if context.get('is_vnf_instance_exist') != True:
         
-        vnfPkg = VnfPkgSol005(context["nfvo_mano_ip"], context["nfvo_mano_port"])
+        vnfPkg = VnfPkgSol005(context["nfvo_mano_ip"], context["nfvo_mano_port"], context['mano_base_url'])
         vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
         
         if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':

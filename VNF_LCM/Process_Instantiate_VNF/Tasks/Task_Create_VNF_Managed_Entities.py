@@ -11,11 +11,15 @@ from custom.ETSI.NfviVim import NfviVim
 from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 from custom.ETSI.VnfPkgSol005 import VnfPkgSol005
 
+from msa_sdk import util
 
 '''
 Get VIM connection.
 '''
 def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
+    
+    process_id = context['SERVICEINSTANCEID']
+    
     #Openstack Authification Connection.
     conn = ''
     
@@ -37,7 +41,8 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
     
     #Get VIM connection info by id.
     vim_list = nfviVim.nfvi_vim_get()
-
+    vim_str = ' '.join(vim_list)
+    util.log_to_process_file(process_id, '*** vim_list: ' + vim_str)
     if vim_list:
         for index, vimInfo in enumerate(vim_list.json()):
             if vimInfo.get('vimId') == vim_id:
@@ -87,7 +92,9 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
                     auth.pop('domain_name')
                     auth.update(user_domain_id=domain_id)
                     conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
-                
+                    util.log_to_process_file(process_id, '*** conn: '+conn)
+                return conn
+
     return conn
 
 
@@ -211,6 +218,8 @@ def _get_vnfc_resource_ip_addresses(nfvo_device, vim_id, server_id, timeout=60, 
 dev_var = Variables()
 context = Variables.task_call(dev_var)
 
+process_id = context['SERVICEINSTANCEID']
+
 subtenant_ext_ref = context['UBIQUBEID']
 vnf_service_instance_ref = context.get('SERVICEINSTANCEREFERENCE')
 
@@ -256,6 +265,9 @@ if __name__ == "__main__":
         #Save vim_connection_id in the context.
         context.update(vim_connection_id=vim_connection_id)
         
+        util.log_to_process_file(process_id, 'nfvo_device_ref: '+nfvo_device_ref)
+        util.log_to_process_file(process_id, 'vim_connection_id: '+vim_connection_id)
+
         conx = _get_vim_connection_auth(nfvo_device_ref, vim_connection_id, False)
         serv = conx.compute.get_server(vnfResourceId)
         img=serv.image.id

@@ -3,20 +3,28 @@ from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
 from msa_sdk.device import Device
 from msa_sdk import constants
+from msa_sdk import util
 
 from custom.ETSI.NfvoVnfmSubscription import NfvoVnfmSubscription
 
 dev_var = Variables()
-dev_var.add('nfvo_device', var_type='Device')
-dev_var.add('vnfm_device', var_type='Device')
-dev_var.add('is_vnfm_register_only', var_type='Boolean')
+dev_var.add('nfvo_device')
+dev_var.add('vnfm_device')
+dev_var.add('is_vnfm_register_only')
 context = Variables.task_call(dev_var)
+
+process_id = context['SERVICEINSTANCEID']
 
 if __name__ == "__main__":
     #Get VNFM ME connection informations.
     vnfm_me_ref = context["vnfm_device"]
     vnfm_me_id = context["vnfm_device"][3:]
+
+    util.log_to_process_file(process_id, '\nTOTO')
+
+    util.log_to_process_file(process_id, '\nvnfm_me_id: '+vnfm_me_id)
     vnfm_ip    = Device(device_id=vnfm_me_id).management_address
+    util.log_to_process_file(process_id, '\nvnfm_ip: '+vnfm_ip)
     vnfm_var   = Device(device_id=vnfm_me_id).get_configuration_variable("HTTP_PORT")
     vnfm_port  = vnfm_var.get("value").strip()
     vnfm_username  = Device(device_id=vnfm_me_id).login
@@ -25,7 +33,7 @@ if __name__ == "__main__":
     vnfm_capabilities  = vnfm_var.get("value").strip()
     vnfm_var   = Device(device_id=vnfm_me_id).get_configuration_variable("SOL003_VERSION")
     vnfm_sol003_version  = vnfm_var.get("value").strip()
-    
+    util.log_to_process_file(process_id, '\nvnfm_sol003_version: '+vnfm_sol003_version)
     #Get Authentication mode ('basic' or 'oauth2').
     auth_mode_var   = Device(device_id=vnfm_me_id).get_configuration_variable("AUTH_MODE")
     auth_mode  = auth_mode_var.get("value").strip()

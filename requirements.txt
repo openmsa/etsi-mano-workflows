@@ -1,0 +1,3 @@
+
+openstacksdk==0.61.0
+

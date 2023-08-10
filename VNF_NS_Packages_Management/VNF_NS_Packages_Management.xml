@@ -91,6 +91,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Onboard VNFD</displayName>
     </task>
+    <task name="Task_Check_Onboarding_Status.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Check Onboarding Status</displayName>
+    </task>
     <task name="Task_Synchronize_nfvo_microservices.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
@@ -264,7 +268,7 @@
     <order>10000</order>
     <visibility>5</visibility>
     <msDirectoryName/>
-    <processToAssiocateToTrashIcon/>
+    <processToAssociateToTrashIcon/>
     <name>VNF / NS Packages Management</name>
     <group>ETSI|Python|VNF|NS</group>
   </information>

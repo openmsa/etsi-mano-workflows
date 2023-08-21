@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Task_Sync_to_NFVO.py</value>
+            <value>Task_retrieve_vnf_descriptor_id.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1688026101753</value>
+            <value>1688733225452</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +15,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1688026101722</value>
+            <value>1688733225445</value>
         </entry>
         <entry>
             <key>TAG</key>

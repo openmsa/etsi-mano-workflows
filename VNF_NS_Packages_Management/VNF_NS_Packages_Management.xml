@@ -36,6 +36,11 @@
         <repositories>Datafiles</repositories>
       </repositories>
     </variable>
+    <variable displayName="VNF Descriptor Id" name="params.vnf_descriptor_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Virtual Network Function</sections>
+      </sections>
+    </variable>
     <variable displayName="VNF  Package Id" name="params.vnf_package_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" refDeviceIdVar="params.nfvo_device" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Virtual Network Function</sections>
@@ -66,6 +71,7 @@
       </classes>
     </variable>
     <variable displayName="Service Instance Name" name="params.service_instance_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ns_descriptor_id" name="params.ns_descriptor_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF">
@@ -85,9 +91,17 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Onboard VNFD</displayName>
     </task>
+    <task name="Task_Check_Onboarding_Status.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Check Onboarding Status</displayName>
+    </task>
     <task name="Task_Synchronize_nfvo_microservices.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
+    </task>
+    <task name="Task_retrieve_vnf_descriptor_id.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Retrieve VNF Descriptor ID</displayName>
     </task>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Enable_VNF">
@@ -108,8 +122,22 @@
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
   </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF">
+    <displayName>Onboard VNF Package</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Onboard_VNF.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Onboard VNF</displayName>
+    </task>
+    <task name="Task_Synchronize.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Create_VNF_Package/Tasks</processPath>
+      <displayName>Synchronize</displayName>
+    </task>
+  </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Disable_VNF">
-    <displayName>VNF Disable Package</displayName>
+    <displayName>Disable VNF Package</displayName>
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
@@ -168,6 +196,10 @@
     <task name="Task_Synchronize_nfvo_microservices.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
+    </task>
+    <task name="Task_retrieve_ns_descriptor_id.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_NSD/Tasks</processPath>
+      <displayName>Retrieve NS Descriptor ID</displayName>
     </task>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Enable_NSD">
@@ -235,7 +267,8 @@
     <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <processToAssiocateToTrashIcon/>
+    <msDirectoryName/>
+    <processToAssociateToTrashIcon/>
     <name>VNF / NS Packages Management</name>
     <group>ETSI|Python|VNF|NS</group>
   </information>

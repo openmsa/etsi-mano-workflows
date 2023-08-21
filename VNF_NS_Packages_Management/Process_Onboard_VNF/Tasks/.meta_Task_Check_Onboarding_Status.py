@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>Task_Sync_to_NFVO.py</value>
+            <value>Task_Check_Onboarding_Status.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1688026101753</value>
+            <value>1691584869788</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,7 +15,7 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1688026101722</value>
+            <value>1691584869784</value>
         </entry>
         <entry>
             <key>TAG</key>

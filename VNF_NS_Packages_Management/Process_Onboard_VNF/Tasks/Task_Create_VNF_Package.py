@@ -48,4 +48,3 @@ if __name__ == "__main__":
         
     ret = MSA_API.process_content(vnfPkgApi.state, f'{r}' + ': ' + r_details, context, True) 
     print(ret)
-

@@ -13,13 +13,13 @@ if __name__ == "__main__":
     if context.get('is_vnf_instance_exist') == True:
         MSA_API.task_success('Task execution is completed.', context)
 
-    vnfLcmOpOccs = VnfLcmOpOccsSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
+    vnfLcmOpOccs = VnfLcmOpOccsSol003(context["vnfm_mano_ip"], context["vnfm_mano_port"], context['vnfm_mano_base_url'])
     
-    auth_mode = context["auth_mode"]
-    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-        vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
+    auth_mode = context["vnfm_auth_mode"]
+    if auth_mode == 'oauth_v2':
+        vnfLcmOpOccs.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'], auth_mode, context['vnfm_keycloak_server_url'])
     else:
-        vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'])
+        vnfLcmOpOccs.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
     
     vnf_lcm_op_occ_id = context.get('vnf_lcm_op_occ_id')
     

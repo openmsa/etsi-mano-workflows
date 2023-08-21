@@ -73,9 +73,9 @@ if __name__ == "__main__":
     if sol003_base_url != '/':
         vnfm_url = vnfm_url + sol003_base_url
     
-    if sol003_base_url == '/vnfm-webapp/':
+    if sol003_base_url == '/vnfm-webapp/' or sol003_base_url == '/ubi-etsi-mano/':
         vnfm_url = vnfm_url + 'sol003'
-        
+
     #VNFM authification type.
     authType = ['BASIC']
     if auth_mode == 'basic':

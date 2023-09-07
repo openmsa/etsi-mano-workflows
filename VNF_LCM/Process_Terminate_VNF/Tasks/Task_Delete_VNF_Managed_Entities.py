@@ -15,20 +15,22 @@ subtenant_ext_ref = context['UBIQUBEID']
 if __name__ == "__main__":
     
     #Get VNF Managed Entities list.
-    vnf_me_list = context.get('vnf_me_list')
-    
-    #For each VNFC-VDU create corresponding ME's.
-    if isinstance(vnf_me_list, list):
-	    for index, vnfc_dict in enumerate(vnf_me_list):
-	        device_ref = vnfc_dict.get('device_ext_ref')
-	        device_id = device_ref[3:]
-	        #initialize Device object based-on the device id.
-	        device = Device(device_id=device_id)
-	        try:
-	            #remove managed entity.
-	            device.delete(device_ref)
-	        except:
-	            continue
-            
-    MSA_API.task_success('The VNF managed entities are deleted.', context)
+	vnf_me_list = context.get('vnf_me_list')
+
+	#For each VNFC-VDU create corresponding ME's.
+	if isinstance(vnf_me_list, list):
+		for index, vnfc_dict in enumerate(vnf_me_list):
+			device_ref = vnfc_dict.get('device_ext_ref')
+			device_id = device_ref[3:]
+			#initialize Device object based-on the device id.
+			device = Device(device_id=device_id)
+			try:
+				#remove managed entity.
+				device.delete(device_ref)
+			except:
+				continue
+		#Unset the list of the MEs from the dict.
+		vnf_me_list.clear()
+		
+	MSA_API.task_success('The VNF managed entities are deleted.', context)
 

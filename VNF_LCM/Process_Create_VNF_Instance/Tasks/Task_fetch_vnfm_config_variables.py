@@ -40,7 +40,7 @@ if __name__ == "__main__":
     vnfm_mano_port  = _get_config_variable (vnfm_mano_me_id, "HTTP_PORT")
     
     #Store VNFM config variables values into the workflow service instance context.
-    context["   "] = vnfm_mano_auth_mode
+    context["vnfm_mano_auth_mode"] = vnfm_mano_auth_mode
     context["vnfm_mano_ip"] = vnfm_mano_ip
     context["vnfm_mano_port"] = vnfm_mano_port
     context["vnfm_mano_user"] = vnfm_mano_user

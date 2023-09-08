@@ -30,6 +30,7 @@ if __name__ == "__main__":
         vnfPkgApi.set_parameters(context['mano_user'], context['mano_pass'])
     
     pkg = {"userDefinedData": {"name": context['vnf_package_name']}}
+    pkg = {"userDefinedData": {}}
     r = vnfPkgApi.vnf_packages_post(pkg)
     
     vnf_package_id = r.json().get('id')

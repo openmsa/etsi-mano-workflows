@@ -16,8 +16,14 @@ if __name__ == "__main__":
         vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'], auth_mode, context['vnfm_mano_keycloak_server_url'])
     else:
         vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
+        
+    vnf_instance_id = context["vnf_instance_id"]
     
-    r = vnfLcm.vnf_lcm_delete_instance_of_vnf(context["vnf_instance_id"])
+    #Ensure the vnf_instance_id exists from the context.
+    if not vnf_instance_id:
+        MSA_API.task_error('The VNF instance id to be deleted is empty from the workflow instance context.', context, True)
+        
+    r = vnfLcm.vnf_lcm_delete_instance_of_vnf(vnf_instance_id)
     
     r_details = ''
     status = vnfLcm.state

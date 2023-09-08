@@ -29,9 +29,9 @@ if __name__ == "__main__":
     ## Get list of VNFC vdu.
     vnfLcm = VnfLcmSol003(context["vnfm_mano_ip"], context["vnfm_mano_port"], context['vnfm_mano_base_url'])
     
-    auth_mode = context["vnfm_auth_mode"]
+    auth_mode = context["vnfm_mano_auth_mode"]
     if auth_mode == 'oauth_v2':
-        vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'], auth_mode, context['vnfm_keycloak_server_url'])
+        vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'], auth_mode, context['vnfm_mano_keycloak_server_url'])
     else:
         vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
     

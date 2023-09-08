@@ -4,7 +4,6 @@ from msa_sdk import constants
 
 from custom.ETSI.VnfLcmOpOccsSol003 import VnfLcmOpOccsSol003
 
-
 if __name__ == "__main__":
 
     dev_var = Variables()
@@ -32,7 +31,15 @@ if __name__ == "__main__":
     r_details = ''
     status = vnfLcmOpOccs.state
     if status == 'ENDED':
-        r_details = 'Successful!'
+        # Get the operation state from the operation accurancies response.
+        response = r.json()
+        operationState = response.get('operationState')
+        if operationState == 'FAILED':
+            r_status = str(response.get('error').get('status'))
+            r_details = str(response.get('error').get('detail'))
+            MSA_API.task_error('The VNF operation is failed, with STATUS: "' + r_status + '", ERROR DETAIL: "' + r_details + '"', context, True)
+        else:
+            r_details = 'Successful!'
     else:
         r_details = str(r.json().get('detail'))
         status = 'FAILED'

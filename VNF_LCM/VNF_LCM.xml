@@ -192,8 +192,8 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-out_VNF/Tasks</processPath>
       <displayName>Scale-out VNF Instance</displayName>
     </task>
-    <task name="Task_Get_VNF_LCM_Operation_State.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-out_VNF/Tasks</processPath>
+    <task name="Task_Get_VNF_Operation_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Get VNF LCM Operation State</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
@@ -201,7 +201,7 @@
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
     <task name="Task_Create_VNF_Managed_Entities.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-out_VNF/Tasks</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Create VNF Managed Entities</displayName>
     </task>
     <task name="Task_Sync_with_VIM.py">
@@ -222,8 +222,8 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-in_VNF/Tasks</processPath>
       <displayName>Scale-in VNF Instance</displayName>
     </task>
-    <task name="Task_Get_VNF_LCM_Operation_State.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-in_VNF/Tasks</processPath>
+    <task name="Task_Get_VNF_Operation_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Get VNF LCM Operation State</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
@@ -252,8 +252,8 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Stop_VNF/Tasks</processPath>
       <displayName>Stop VNF Instance</displayName>
     </task>
-    <task name="Task_Get_VNF_LCM_Operation_State.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Stop_VNF/Tasks</processPath>
+    <task name="Task_Get_VNF_Operation_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Get VNF LCM Operation State</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
@@ -274,8 +274,8 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Start_VNF/Tasks</processPath>
       <displayName>Start VNF Instance</displayName>
     </task>
-    <task name="Task_Get_VNF_LCM_Operation.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Start_VNF/Tasks</processPath>
+    <task name="Task_Get_VNF_Operation_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Get VNF LCM Operation</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
@@ -300,8 +300,8 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
       <displayName>Heal VNF Instance</displayName>
     </task>
-    <task name="Task_Get_VNF_LCM_Operation.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF/Tasks</processPath>
+    <task name="Task_Get_VNF_Operation_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Get VNF LCM Operation</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
@@ -322,9 +322,13 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF/Tasks</processPath>
       <displayName>Terminate VNF</displayName>
     </task>
-    <task name="Task_Get_VNF_LCM_Operation_State.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF/Tasks</processPath>
+    <task name="Task_Get_VNF_Operation_State.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Get VNF LCM Operation State</displayName>
+    </task>
+    <task name="Task_Delete_VNF_Managed_Entities.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF/Tasks</processPath>
+      <displayName>Delete VNF Managed Entities</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
@@ -348,10 +352,6 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
-    <task name="Task_Delete_VNF_Managed_Entities.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF/Tasks</processPath>
-      <displayName>Delete VNF Managed Entities</displayName>
-    </task>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Syncronize_with_VIM">
     <displayName>Syncronize with VIM</displayName>
@@ -368,6 +368,14 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_fetch_vnfm_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
+      <displayName>Fetch VNFM config variables</displayName>
+    </task>
+    <task name="Task_fetch_nfvo_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
+      <displayName>Fetch NFVO config variables</displayName>
+    </task>
     <task name="Task_check_of_feasibility.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Check_Package_Consistent/Tasks</processPath>
       <displayName>check of feasibility</displayName>
@@ -385,10 +393,10 @@
     <icon/>
     <description>VNF LCM (VNFD based-on SOL001)</description>
     <displayField>vnf_instance_name</displayField>
-    <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <processToAssiocateToTrashIcon/>
+    <serviceTaskType>python</serviceTaskType>
+    <processToAssociateToTrashIcon/>
     <name>VNF LifeCycle Management</name>
     <group>MANO|LCM|VNF</group>
   </information>

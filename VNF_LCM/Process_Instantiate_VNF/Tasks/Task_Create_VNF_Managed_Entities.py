@@ -78,7 +78,7 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False, is_user_
                         auth.update(user_domain_id=domain_id)
                     conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
                 except:
-                    MSA_API.task_error('Failed to get authentified to the openstack project.')
+                    MSA_API.task_error('Failed to authentify to openstack (VIM).')
     return conn
 
 

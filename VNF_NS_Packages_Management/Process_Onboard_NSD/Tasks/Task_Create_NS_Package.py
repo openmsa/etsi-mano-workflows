@@ -39,6 +39,8 @@ if __name__ == "__main__":
         r_details = 'Successful!'
         ns_package_id = r.json().get('id')
         context.update(ns_package_id=ns_package_id)
+        #Store the initial NS Package id (generated during the NS Package creation operation).
+        context.update(ns_package_id_initial=ns_package_id)
     else:
         r_details = str(r.json().get('detail'))
         

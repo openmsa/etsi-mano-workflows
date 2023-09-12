@@ -14,18 +14,17 @@ if __name__ == "__main__":
     dev_var = Variables()
     context = Variables.task_call(dev_var)
     #Get authentication type.
-    auth_mode = context["auth_mode"]
+    auth_mode = context["vnfm_mano_auth_mode"]
     
     if context.get('is_vnf_instance_exist') != True:
-        
-        vnfPkg = VnfPkgSol005(context["nfvo_mano_ip"], context["nfvo_mano_port"])
-        vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
+        vnfPkg = VnfPkgSol005(context["nfvo_mano_ip"], context["nfvo_mano_port"], context['nfvo_mano_base_url'])
+        vnfLcm = VnfLcmSol003(context["vnfm_mano_ip"], context["vnfm_mano_port"], context['vnfm_mano_base_url'])
         
         if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-            vnfLcm.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
-            vnfPkg.set_parameters(context['nfvo_mano_user'], context['nfvo_mano_pass'], auth_mode, context['keycloak_server_url'])
+            vnfLcm.set_parameters(context['vnfm_mano_ip'], context['vnfm_mano_pass'], auth_mode, context['vnfm_mano_keycloak_server_url'])
+            vnfPkg.set_parameters(context['nfvo_mano_user'], context['nfvo_mano_pass'], auth_mode, context['nfvo_mano_keycloak_server_url'])
         else:
-            vnfLcm.set_parameters(context['mano_user'], context['mano_pass'])
+            vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
             vnfPkg.set_parameters(context['nfvo_mano_user'], context['nfvo_mano_pass'])
             
         r1 = vnfPkg.vnf_packages_get_package(context["vnf_pkg_id"])
@@ -65,11 +64,11 @@ if __name__ == "__main__":
         print(ret)
         sys.exit()
     else:
-        vnfLcmOpOccs = VnfLcmOpOccsSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
+        vnfLcmOpOccs = VnfLcmOpOccsSol003(context["vnfm_mano_ip"], context["vnfm_mano_port"], context['vnfm_mano_base_url'])
         if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-            vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
+            vnfLcmOpOccs.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'], auth_mode, context['vnfm_keycloak_server_url'])
         else:
-            vnfLcmOpOccs.set_parameters(context['mano_user'], context['mano_pass'])
+            vnfLcmOpOccs.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
             
         vnf_instance_id = context['vnf_instance_id']
         

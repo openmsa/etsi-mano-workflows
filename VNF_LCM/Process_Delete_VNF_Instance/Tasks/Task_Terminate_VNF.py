@@ -5,10 +5,6 @@ from msa_sdk.msa_api import MSA_API
 
 from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 
-dev_var = Variables()
-dev_var.add('cause', var_type='String')
-#dev_var.add('additionalParams', var_type='String')
-context = Variables.task_call(dev_var)
 
 if __name__ == "__main__":
 
@@ -23,14 +19,12 @@ if __name__ == "__main__":
     else:
         vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
     
-    cause = context.get('cause')
-    additionalParams = {}
-    content = {
-               "cause": cause,
-               "additionalParams": additionalParams,
+    content = {"gracefulTerminationTimeout": 0,
+               "terminationType": "FORCEFUL",
+               "additionalParams": {}
                }
     
-    r = vnfLcm.vnf_lcm_heal_instance_vnf(context["vnf_instance_id"], content)
+    r = vnfLcm.vnf_lcm_terminate_vnf(context["vnf_instance_id"], content)
     
     r_details = ''
     status = vnfLcm.state
@@ -39,13 +33,19 @@ if __name__ == "__main__":
         try:
             location = r.headers['Location']
         except:
-            MSA_API.task_error('Heal VNF is failed.', context)
+            MSA_API.task_error('Terminate VNF is failed.', context)
             
         context["vnf_lcm_op_occ_id"] = location.split("/")[-1]
         r_details = 'Successful!'
     else:
         r_details = str(r.json().get('detail'))
-        status = 'FAILED'
+        http_header_resp = f'{r}'
+        if '404' in http_header_resp:
+            status = 'WARNING'
+            #Set variable as True to skip the next task 'Get VNF Operation State'.
+            context.update(is_vnf_instance_exist=True)
+        else:
+            status = 'FAILED'
     
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

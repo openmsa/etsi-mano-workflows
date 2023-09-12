@@ -1,18 +1,14 @@
+import json
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
 from msa_sdk.device import Device
 from msa_sdk import constants
-import json
 
 from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
-from custom.ETSI.VnfPkgSol005 import VnfPkgSol005
-
 
 if __name__ == "__main__":
 
     dev_var = Variables()
-    dev_var.add('nfvo_device', var_type='Device')
-    dev_var.add('vnfm_device', var_type='Device')
     dev_var.add('vnf_pkg_id', var_type='OBMFRef')
     dev_var.add('vnf_instance_name', var_type='String')
     dev_var.add('vnf_instance_description', var_type='String')
@@ -21,53 +17,16 @@ if __name__ == "__main__":
     dev_var.add('ns_service_instance_ref', var_type='String')
     context = Variables.task_call(dev_var)
     
-    mano_me_id = context["vnfm_device"][3:]
-    mano_ip    = Device(device_id=mano_me_id).management_address
-    mano_var   = Device(device_id=mano_me_id).get_configuration_variable("HTTP_PORT")
-    mano_port  = mano_var.get("value")
-    mano_user  = Device(device_id=mano_me_id).login
-    mano_pass  = Device(device_id=mano_me_id).password
-    
-    #--------------------- 3rd party S-VFNM ---------------
-    mano_var   = Device(device_id=mano_me_id).get_configuration_variable("BASE_URL_MS")
-    mano_base_url  = mano_var.get("value")
-    context["mano_base_url"] = mano_base_url
-    
-    try:
-        is_third_party_vnfm   = Device(device_id=mano_me_id).get_configuration_variable("IS_THIRD_PARTY_VNFM")
-        is_third_party_vnfm  = is_third_party_vnfm.get("value")
-        context["is_third_party_vnfm"] = is_third_party_vnfm
-    except:
-        pass
-    #---------------------------------------------
-    
-    context["mano_ip"]   = mano_ip
-    context["mano_port"] = mano_port
-    context["mano_user"] = mano_user
-    context["mano_pass"] = mano_pass
-    
-    nfvo_mano_me_id = context["nfvo_device"][3:]
-    nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
-    nfvo_mano_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("HTTP_PORT")
-    nfvo_mano_port  = nfvo_mano_var.get("value")
-    nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
-    nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
-    
-    context["nfvo_mano_ip"]   = nfvo_mano_ip
-    context["nfvo_mano_port"] = nfvo_mano_port
-    context["nfvo_mano_user"] = nfvo_mano_user
-    context["nfvo_mano_pass"] = nfvo_mano_pass
-    
-    #Get Authentication mode ('basic' or 'oauth2').
-    auth_mode_var   = Device(device_id=mano_me_id).get_configuration_variable("AUTH_MODE")
-    auth_mode  = auth_mode_var.get("value")
-    context["auth_mode"] = auth_mode
+    #Get VNFM config variables values from context.
+    vnfm_mano_auth_mode = context["vnfm_mano_auth_mode"]
+    vnfm_mano_base_url = context["vnfm_mano_base_url"]
+    vnfm_mano_ip = context["vnfm_mano_ip"]
+    vnfm_mano_port = context["vnfm_mano_port"]
+    vnfm_mano_user = context["vnfm_mano_user"]
+    vnfm_mano_pass = context["vnfm_mano_pass"]
     
     #Create VNF Instance resources.
-    vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"], mano_base_url)
-    
-    #Create VNF Package Sol005 object instancs.
-    vnfPkg = VnfPkgSol005(context["nfvo_mano_ip"], context["nfvo_mano_port"])
+    vnfLcm = VnfLcmSol003(vnfm_mano_ip, vnfm_mano_port, vnfm_mano_base_url)
     
     #Create VNF LCM service instance of an existing VNF Instance.
     if context.get('is_vnf_instance_exist') == True:
@@ -75,37 +34,13 @@ if __name__ == "__main__":
         
         MSA_API.task_success('VNF LCM service instance is created for VNF instance id: {vnf_instance_id}.', context)
     
-    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+    if vnfm_mano_auth_mode == 'oauth_v2':
         #Get keycloak server URL.
-        keycloak_url_var   = Device(device_id=mano_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
-        keycloak_server_url  = keycloak_url_var.get("value")
-        context["keycloak_server_url"] = keycloak_server_url
+        keycloak_server_url = context["vnfm_mano_keycloak_server_url"]
         
-        vnfLcm.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
-        vnfPkg.set_parameters(context['nfvo_mano_user'], context['nfvo_mano_pass'], auth_mode, context['keycloak_server_url'])
+        vnfLcm.set_parameters(vnfm_mano_user, vnfm_mano_pass, vnfm_mano_auth_mode, keycloak_server_url)
     else:
-        vnfLcm.set_parameters(context['mano_user'], context['mano_pass'])
-        vnfPkg.set_parameters(context['nfvo_mano_user'], context['nfvo_mano_pass'])
-    
-    r1 = vnfPkg.vnf_packages_get_package(context["vnf_pkg_id"])
-
-    if vnfPkg.state != "ENDED":
-        ret = MSA_API.process_content(vnfPkg.state, f'{r1}',
-                                      context, True)
-        print(ret)
-        exit()
-        
-    context["vnfd_id"] = r1.json()["vnfdId"]
-    var_check = r1.json()["operationalState"]
-    if var_check != 'ENABLED':
-        MSA_API.task_error('VNF package is '+var_check, context)
-    
-    '''
-    metadata = {"deviceManufacturer": "",
-                "deviceModel": ""
-                }
-    '''            
-    vnfd_id = context["vnfd_id"]
+        vnfLcm.set_parameters(vnfm_mano_user, vnfm_mano_pass)
     
     #--------------------- 3rd party S-VFNM ---------------
     metadata = {"onboardedVnfPkgInfoId": context["vnf_pkg_id"]}
@@ -122,24 +57,30 @@ if __name__ == "__main__":
             vnfd_id = context["vnf_pkg_id"]
             #---------------------------------------------------------------#
     #---------------------------------------------
-
+        
+    #Get VNF Descriptor id from the context.    
+    vnfd_id = context["vnfd_id"]
+        
+    #Prepare the VNF Instance Resources creation request payload.
     payload = {"vnfdId": vnfd_id,
                "vnfInstanceName": context["vnf_instance_name"],
-               "vnfInstanceDescription": "",
+               "vnfInstanceDescription": context['vnf_instance_description'],
                "metadata": metadata
                }
     
-    r2 = vnfLcm.vnf_lcm_create_instance(payload)
+    #Execute the VNF LCM operation to create VNF instance resources to the VNFM.
+    r = vnfLcm.vnf_lcm_create_instance(payload)
     
+    #Check the operation status and get the response details.
     r_details = ''
     status = vnfLcm.state
     if status == 'ENDED':
-        lcm_data = r2.json()
+        lcm_data = r.json()
         context["vnf_instance_id"] = lcm_data['id']
         r_details = 'Successful!'
     else:
-        r_details = str(r2.json().get('detail'))
+        r_details = str(r.json().get('detail'))
         status = 'FAILED'
         
-    ret = MSA_API.process_content(status, f'{r2}' + ': ' + r_details, context, True) 
+    ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

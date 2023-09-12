@@ -30,6 +30,7 @@ if __name__ == "__main__":
         vnfPkgApi.set_parameters(context['mano_user'], context['mano_pass'])
     
     pkg = {"userDefinedData": {"name": context['vnf_package_name']}}
+    pkg = {"userDefinedData": {}}
     r = vnfPkgApi.vnf_packages_post(pkg)
     
     vnf_package_id = r.json().get('id')
@@ -41,6 +42,9 @@ if __name__ == "__main__":
         r_details = 'Successful!'
         vnf_package_id = r.json().get('id')
         context.update(vnf_package_id=vnf_package_id)
+        #Store the initial VNF Package id (generated during the VNF Package creation operation).
+        context.update(vnf_package_id_initial=vnf_package_id)
+        context.update(is_service_instance_in_used=True)
         try:
             r_details = str(r.json().get('detail'))
         except:

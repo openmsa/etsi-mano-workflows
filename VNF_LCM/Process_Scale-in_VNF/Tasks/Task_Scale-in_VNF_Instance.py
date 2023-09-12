@@ -14,13 +14,13 @@ if __name__ == "__main__":
     dev_var.add('numberOfSteps', var_type='String')
     context = Variables.task_call(dev_var)
 
-    vnfLcm = VnfLcmSol003(context["mano_ip"], context["mano_port"], context['mano_base_url'])
+    vnfLcm = VnfLcmSol003(context["vnfm_mano_ip"], context["vnfm_mano_port"], context['vnfm_mano_base_url'])
     
-    auth_mode = context["auth_mode"]
-    if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-        vnfLcm.set_parameters(context['mano_user'], context['mano_pass'], auth_mode, context['keycloak_server_url'])
+    auth_mode = context["vnfm_mano_auth_mode"]
+    if auth_mode == 'oauth_v2':
+        vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'], auth_mode, context['vnfm_mano_keycloak_server_url'])
     else:
-        vnfLcm.set_parameters(context['mano_user'], context['mano_pass'])
+        vnfLcm.set_parameters(context['vnfm_mano_user'], context['vnfm_mano_pass'])
     
     aspectId = context.get('aspectId')
     if not aspectId:

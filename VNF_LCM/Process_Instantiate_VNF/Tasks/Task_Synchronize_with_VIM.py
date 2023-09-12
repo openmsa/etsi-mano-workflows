@@ -139,7 +139,7 @@ if __name__ == "__main__":
             image = server_obj.get('image').get('id')
             #util.log_to_process_file(process_id,"extracted flavour details "+vnfc_name+" - "+vnfc_cpu)
             #Add cpu, ram, disk in the tab and then in the context.
-            flavor = dict(vnfc_name=vnfc_name, vnfc_id=vnfc_serv_id, cpu=str(vnfc_cpu), memory=str(vnfc_ram), disk=str(vnfc_disk), image=image, host=hypervisor_hostname, vnf_resource_id=vnf_resource_id,flavor_name=flavor_name)
+            flavor = dict(vnfc_name=vnfc_name, vnfc_id=vnfResourceId, cpu=str(vnfc_cpu), memory=str(vnfc_ram), disk=str(vnfc_disk), image=image, host=hypervisor_hostname, vnf_resource_id=vnf_resource_id,flavor_name=flavor_name)
             #util.log_to_process_file(process_id, "vnfc_name-"+vnfc_name+"with cpu"+vnfc_cpu)
             vnfc_flavor.append(flavor.copy())      
         except Exception as e:

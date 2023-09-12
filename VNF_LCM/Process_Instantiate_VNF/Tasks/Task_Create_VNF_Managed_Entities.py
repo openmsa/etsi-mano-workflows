@@ -11,7 +11,7 @@ from custom.ETSI.NfviVim import NfviVim
 from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 from custom.ETSI.VnfPkgSol005 import VnfPkgSol005
 
-
+#openstack.enable_logging(debug=True, path='/opt/fmc_repository/etsi-mano-workflows/openstack.log', stream=sys.stdout)
 '''
 Get VIM connection.
 '''
@@ -79,7 +79,6 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
                     auth.pop('domain_name')
                     auth.update(user_domain_id=domain_id)
                     conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
-                
     return conn
 
 
@@ -134,7 +133,7 @@ def _get_vdu_mgmt_address_convention(server, server_list_address):
     server_ip_addr = ''
     for network_name, iface_list in server_list_address.items():
         #CONVERSION OF THE MANAGEMENT NETWORK NAMING.
-        if "mgmt" in network_name.lower() or "management" in network_name.lower() or "middle" in  network_name.lower():
+        if "mgmt" in network_name.lower() or "management" in network_name.lower():
             for iface in iface_list:
                 server_ip_addr = iface.get('addr')
                 server_name = server.name
@@ -143,45 +142,48 @@ def _get_vdu_mgmt_address_convention(server, server_list_address):
     if not server_ip_addr:
         MSA_API.task_error('No management network found as per the naming convention: \nThe key words "mgmt" or "management" should be set as a prefix for the management network name.', context, True)
 
-
 '''
 Get VNFC resource (VDU) instance public IP address.
 '''
 def _get_vnfc_resource_public_ip_address(nfvo_device, vim_id, server_id, timeout=60, interval=5):
     #Get openstack authenfication
     conn = _get_vim_connection_auth(nfvo_device, vim_id, False)
-        
+
     #Get VDU (server instance) details.
     servers = {}
     global_timeout = time.time() + timeout
-    while True:
+    status = 'BUILD'
+    while True and status != 'ACTIVE':
         #Get VDU (server instance) details.
         try:
             servers = conn.compute.servers()
         except:
-            conn = _get_vim_connection_auth(nfvo_device, vim_id, True)
             servers = conn.compute.servers()
             
         #if servers is not a empty dictionnary.
         if bool(servers) == True or time.time() > global_timeout:
             for server in servers:
                 if server.id == server_id:
-                    addresses = server.addresses
-                    return _get_vdu_mgmt_address_convention(server, addresses)
+                    if server.status == 'ACTIVE':
+                        status = server.status
+                        addresses = server.addresses
+                        return _get_vdu_mgmt_address_convention(server, addresses)
         time.sleep(interval)
 
 #----------------------------
 def _get_vnfc_resource_ip_addresses(nfvo_device, vim_id, server_id, timeout=60, interval=5):
     
-    #server_ip_addr = ''
-    ip_list=[]
     #Get openstack authenfication
     conn = _get_vim_connection_auth(nfvo_device, vim_id, False)
+
+    #server_ip_addr = ''
+    ip_list=[]
         
     #Get VDU (server instance) details.
     servers = {}
     global_timeout = time.time() + timeout
-    while True:
+    status = 'BUILD'
+    while True and status != 'ACTIVE':
         #Get VDU (server instance) details.
         try:
             servers = conn.compute.servers()
@@ -193,11 +195,12 @@ def _get_vnfc_resource_ip_addresses(nfvo_device, vim_id, server_id, timeout=60, 
         if bool(servers) == True or time.time() > global_timeout:
             for server in servers:
                 if server.id == server_id:
-                    addresses = server.addresses
-                    for network_name, iface_list in addresses.items():
-                        for ip_addr in iface_list:
-                            ip_a=ip_addr.get('addr')
-                            ip_list.append(ip_a)
+                    if server.status == 'ACTIVE':
+                        addresses = server.addresses
+                        for network_name, iface_list in addresses.items():
+                            for ip_addr in iface_list:
+                                ip_a=ip_addr.get('addr')
+                                ip_list.append(ip_a)
             break
         time.sleep(interval)
             
@@ -281,14 +284,20 @@ if __name__ == "__main__":
     for index, vnfR in enumerate(vnfResourcesList):
         #openstack server instance ID.
         vnfResourceId = vnfR["computeResource"]["resourceId"]
+        #Get VIM (openstack) id from the VNF Instance details.
         vim_connection_id = vnfR["computeResource"]['vimConnectionId']
 
         #Save vim_connection_id in the context.
         context.update(vim_connection_id=vim_connection_id)
         
+        #Get openstack connection.
         conx = _get_vim_connection_auth(nfvo_device_ref, vim_connection_id, False)
+
+        #Get server (VDU) instance id from openstack tenant.
         serv = conx.compute.get_server(vnfResourceId)
+        #Store server image id
         img=serv.image.id
+        #Store server image name.
         img_name=conx.image.get_image(img).name
 #-----------------------------------------------------------
         #Customer ID
@@ -309,18 +318,18 @@ if __name__ == "__main__":
         
         try:
             #Get the management API.
-            re = _get_vnfc_resource_public_ip_address(nfvo_device_ref, vim_connection_id, vnfResourceId)
+            re = _get_vnfc_resource_public_ip_address(nfvo_device_ref, vim_connection_id, vnfResourceId, 500)
             management_address = re.get('server_ip_addr')
             server_name = re.get('server_name')
         except TypeError:
-            re = _get_vnfc_resource_public_ip_address(nfvo_device_ref, vim_connection_id, vnfResourceId)
-            management_address = re.get('server_ip_addr')
-            server_name = re.get('server_name')
+            MSA_API.task_error('Failed to get details about the VDU instance from openstack, where id='+vnfResourceId, context, True)
+        except AttributeError:
+            MSA_API.task_error('Failed to get management IP Address and name of the VDU instance from openstack, where id='+vnfResourceId, context, True)
 #---------------------------------------
         try:
-            addr_list = _get_vnfc_resource_ip_addresses(nfvo_device_ref, vim_connection_id, vnfResourceId)
+            addr_list = _get_vnfc_resource_ip_addresses(nfvo_device_ref, vim_connection_id, vnfResourceId, 500)
         except TypeError:
-            addr_list = _get_vnfc_resource_ip_addresses(nfvo_device_ref, vim_connection_id, vnfResourceId)
+            MSA_API.task_error('Failed to get details about the VDU instance from openstack, where id='+vnfResourceId, context, True)
 #---------------------------------------
         
         if not management_address:

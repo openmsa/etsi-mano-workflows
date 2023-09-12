@@ -26,7 +26,7 @@ if __name__ == "__main__":
     
     r = {}
     if 'vnf_lcm_op_occ_id' in context and vnf_lcm_op_occ_id:
-        r = vnfLcmOpOccs.vnf_lcm_op_occs_completion_wait(vnf_lcm_op_occ_id)
+        r = vnfLcmOpOccs.vnf_lcm_op_occs_completion_wait(vnf_lcm_op_occ_id, 500)
         
     r_details = ''
     status = vnfLcmOpOccs.state

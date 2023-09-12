@@ -133,7 +133,7 @@ def _get_vdu_mgmt_address_convention(server, server_list_address):
     server_ip_addr = ''
     for network_name, iface_list in server_list_address.items():
         #CONVERSION OF THE MANAGEMENT NETWORK NAMING.
-        if "mgmt" in network_name.lower() or "management" in network_name.lower() or "middle" in  network_name.lower():
+        if "mgmt" in network_name.lower() or "management" in network_name.lower():
             for iface in iface_list:
                 server_ip_addr = iface.get('addr')
                 server_name = server.name

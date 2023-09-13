@@ -24,20 +24,28 @@ if __name__ == "__main__":
         vnfPkgApi.set_parameters(auth_mode, context['mano_user'], context['mano_pass'])
     
     time.sleep(5)
-    r = vnfPkgApi.vnf_packages_get_package(context['vnf_package_id'])
-    
-    onboarding_state = r.json().get('onboardingState')
-    operational_state = r.json().get('operationalState')
+    vnf_package_id = context['vnf_package_id']
+    r = vnfPkgApi.vnf_packages_get_package(vnf_package_id)
+    r_dict = r.json()
+
+    onboarding_state = r_dict.get('onboardingState')
+    operational_state = r_dict.get('operationalState')
     if onboarding_state != 'ONBOARDED' or operational_state != 'ENABLED':
-        ret = MSA_API.process_content(MSA_API.FAILED, 'Onboarding State: ' + onboarding_state + ' Operational state: ' + operational_state, context, True)
-        print(ret)
+        msg = msg = 'Onboarding State: ' + onboarding_state + ' Operational state: ' + operational_state + '.'
+        error_detail = ''
+        if 'onboardingFailureDetails' in r_dict:
+            error_detail = str(r_dict.get('onboardingFailureDetails').get('detail'))
+            error_status = str(r_dict.get('onboardingFailureDetails').get('status'))
+            msg = 'Onboarding CSAR file (package) to the VNF package (id='+ vnf_package_id +') is FAILED:\n - HTTP status: ' + error_status + '\n - Detail: ' + error_detail
+        MSA_API.task_error(msg, context, True)
     else:
         r_details = ''
         status = vnfPkgApi.state
         if status == 'ENDED':
             r_details = 'Successful!'
         else:
-            r_details = str(r.json().get('detail'))
-        
+            #Get details.
+            r_details = str(r_dict.get('detail'))
+
         ret = MSA_API.process_content(vnfPkgApi.state, f'{r}' + ': ' + r_details, context, True)
         print(ret)

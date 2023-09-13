@@ -17,8 +17,8 @@ if __name__ == "__main__":
             MSA_API.task_error('This workflow service instance is only for managing the VNF package with id=' + init_vnf_package_id, context, True)
     #NS Package
     elif 'ns_package_id_initial' in context and 'ns_package_id' in context:
-        init_ns_package_id = context.get('vnf_package_id_initial')
-        ns_package_id = context.get('vnf_package_id')
+        init_ns_package_id = context.get('ns_package_id_initial')
+        ns_package_id = context.get('ns_package_id')
         if init_ns_package_id != ns_package_id:
             MSA_API.task_error('This workflow service instance is only for managing the NS package with id=' + init_ns_package_id, context, True)
 

@@ -87,6 +87,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Create VNF Package</displayName>
     </task>
+    <task name="Task_Synchronize_nfvo_microservices.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Synchronize NFVO microservices</displayName>
+    </task>
     <task name="Task_Onboard_VNF.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Onboard VNFD</displayName>
@@ -111,7 +115,7 @@
     <allowSchedule/>
     <task name="Task_check_that_the_id_assignment_to_the_service_instance.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
-      <displayName>Check the package id dedicated to this service instance</displayName>
+      <displayName>Check the package id assigned to this workflow instance</displayName>
     </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
@@ -133,7 +137,7 @@
     <allowSchedule/>
     <task name="Task_check_that_the_id_assignment_to_the_service_instance.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
-      <displayName>Check the package id dedicated to this service instance</displayName>
+      <displayName>Check the package id assigned to this workflow instance</displayName>
     </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
@@ -155,7 +159,7 @@
     <allowSchedule/>
     <task name="Task_check_that_the_id_assignment_to_the_service_instance.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
-      <displayName>Check the package id is dedicated to this service instance</displayName>
+      <displayName>Check the package id assigned to this workflow instance</displayName>
     </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
@@ -187,6 +191,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_NSD/Tasks</processPath>
       <displayName>Create NS Package</displayName>
     </task>
+    <task name="Task_Synchronize_nfvo_microservices.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
+      <displayName>Synchronize NFVO microservices</displayName>
+    </task>
     <task name="Task_Onboard_NSD.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_NSD/Tasks</processPath>
       <displayName>Onboard NSD</displayName>
@@ -207,7 +215,7 @@
     <allowSchedule/>
     <task name="Task_check_that_the_id_assignment_to_the_service_instance.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
-      <displayName>Check the package id dedicated to this service instance</displayName>
+      <displayName>Check the package id assigned to this workflow instance</displayName>
     </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
@@ -229,7 +237,7 @@
     <allowSchedule/>
     <task name="Task_check_that_the_id_assignment_to_the_service_instance.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
-      <displayName>Check the package id dedicated to this service instance</displayName>
+      <displayName>Check the package id assigned to this workflow instance</displayName>
     </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
@@ -251,7 +259,7 @@
     <allowSchedule/>
     <task name="Task_check_that_the_id_assignment_to_the_service_instance.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
-      <displayName>Check the package id dedicated to this service instance</displayName>
+      <displayName>Check the package id assigned to this workflow instance</displayName>
     </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>

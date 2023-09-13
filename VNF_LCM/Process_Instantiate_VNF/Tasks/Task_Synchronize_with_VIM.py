@@ -10,7 +10,7 @@ from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 
 # Get VIM connection.
 
-def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
+def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False, is_user_domain_id_attribute=False):
     #Openstack Authentification Connection.
     conn = ''
     
@@ -33,13 +33,13 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
     #Get Openstack connection
     auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id)
     try:
-        auth.update(user_domain_id=domain_id)
-        #auth.update(domain_name=domain_id)
+        if not is_user_domain_id_attribute:
+            auth.update(domain_name=domain_id)
+        else:
+            auth.update(user_domain_id=domain_id)
         conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
     except:
-        auth.pop('domain_name')
-        auth.update(user_domain_id=domain_id)
-        conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
+        MSA_API.task_error('Failed to authentify to openstack (VIM).')
                 
     return conn
 
@@ -116,7 +116,17 @@ if __name__ == "__main__":
         #openstack server instance ID.
         vnf_resource_id = vnfc_dict.get('vnf_resource_id')
         #Get VIM keystone connextion.
-        conn = _get_vim_connection_auth(nfvo_device, vim_connection_id, False)
+        conn = _get_vim_connection_auth(nfvo_device, vim_connection_id, False, False)
+
+        #Get server (VDU) instance id from openstack tenant.
+        try:
+            serv = conn.compute.get_server(vnfResourceId)
+        except:
+            conn = _get_vim_connection_auth(nfvo_device, vim_connection_id, False, True)
+            try:
+                serv = conn.compute.get_server(vnfResourceId)
+            except:
+                MSA_API.task_error('Failed to get authentified to the openstack project.')
         try:
             util.log_to_process_file(process_id,"going through vnf_list")
             server_obj = conn.compute.get_server(vnf_resource_id)

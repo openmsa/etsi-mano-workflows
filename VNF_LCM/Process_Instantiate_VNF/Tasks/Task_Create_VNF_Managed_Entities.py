@@ -15,7 +15,7 @@ from custom.ETSI.VnfPkgSol005 import VnfPkgSol005
 '''
 Get VIM connection.
 '''
-def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
+def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False, is_user_domain_id_attribute=False):
     #Openstack Authification Connection.
     conn = ''
     
@@ -72,13 +72,13 @@ def _get_vim_connection_auth(nfvo_device, vim_id, is_user_domain=False):
                 #Get Openstack connection
                 auth = dict(auth_url=auth_url, username=username, password=password, project_id=project_id)
                 try:
-                    auth.update(user_domain_id=domain_id)
-                    #auth.update(domain_name=domain_id)
+                    if not is_user_domain_id_attribute:
+                        auth.update(domain_name=domain_id)
+                    else:
+                        auth.update(user_domain_id=domain_id)
                     conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
                 except:
-                    auth.pop('domain_name')
-                    auth.update(user_domain_id=domain_id)
-                    conn = openstack.connection.Connection(region_name=region_name, auth=auth, compute_api_version=compute_api_version, identity_interface=identity_interface, verify=False)
+                    MSA_API.task_error('Failed to authentify to openstack (VIM).')
     return conn
 
 
@@ -294,7 +294,14 @@ if __name__ == "__main__":
         conx = _get_vim_connection_auth(nfvo_device_ref, vim_connection_id, False)
 
         #Get server (VDU) instance id from openstack tenant.
-        serv = conx.compute.get_server(vnfResourceId)
+        try:
+            serv = conx.compute.get_server(vnfResourceId)
+        except:
+            conx = _get_vim_connection_auth(nfvo_device_ref, vim_connection_id, False, True)
+            try:
+                serv = conx.compute.get_server(vnfResourceId)
+            except:
+                MSA_API.task_error('Failed to get authentified to the openstack project.')
         #Store server image id
         img=serv.image.id
         #Store server image name.

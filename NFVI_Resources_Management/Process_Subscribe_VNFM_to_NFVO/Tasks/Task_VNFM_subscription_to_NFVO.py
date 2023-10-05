@@ -112,6 +112,10 @@ if __name__ == "__main__":
                 "authentification": {
                     "authType": authType
                  },
+                 "localUser": {
+                    "clientId": nfvo_mano_user,
+                    "secretId": nfvo_mano_pass
+                },
                 "url": vnfm_url,
                 "ignoreSsl": True,
                 "tlsCert": "",

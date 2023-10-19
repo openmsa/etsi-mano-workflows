@@ -10,9 +10,13 @@ dev_var = Variables()
 dev_var.add('nfvo_device', var_type='Device')
 dev_var.add('vnfm_device', var_type='Device')
 dev_var.add('is_vnfm_register_only', var_type='Boolean')
+dev_var.add("service_instance_name", var_type='String')
 context = Variables.task_call(dev_var)
 
 if __name__ == "__main__":
+    #Lock the workflow instance for the NFVO and VNFM subscription management.
+    context["service_instance_assignment"] = "vnfm_and_nfvo_subscription_mgmt"
+
     #Get VNFM ME connection informations.
     vnfm_me_ref = context["vnfm_device"]
     vnfm_me_id = context["vnfm_device"][3:]
@@ -111,6 +115,10 @@ if __name__ == "__main__":
                 "name": vnfm_name,
                 "authentification": {
                     "authType": authType
+                 },
+                 "localUser": {
+                 	"clientId": nfvo_mano_user,
+                 	"secretId": nfvo_mano_pass
                  },
                 "url": vnfm_url,
                 "ignoreSsl": True,

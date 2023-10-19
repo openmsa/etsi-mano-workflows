@@ -9,6 +9,7 @@ from custom.ETSI.NfvoVnfmSubscription import NfvoVnfmSubscription
 dev_var = Variables()
 dev_var.add('vnfm_device', var_type='Device')
 dev_var.add('is_vnfm_register_only', var_type='Boolean')
+dev_var.add("service_instance_name", var_type='String')
 context = Variables.task_call(dev_var)
 
 if __name__ == "__main__":
@@ -22,15 +23,14 @@ if __name__ == "__main__":
         #Get VNFM ME connection informations.
         vnfm_me_ref = context["vnfm_device"]
         vnfm_me_id = context["vnfm_device"][3:]
-        vnfm_ip    = Device(device_id=vnfm_me_id).management_address
-        vnfm_var   = Device(device_id=vnfm_me_id).get_configuration_variable("HTTP_PORT")
-        vnfm_port  = vnfm_var.get("value").strip()
-        vnfm_username  = Device(device_id=vnfm_me_id).login
-        vnfm_password  = Device(device_id=vnfm_me_id).password
-        
-        #Get VNFM base URL.
-        vnfm_base_url_var   = Device(device_id=vnfm_me_id).get_configuration_variable("BASE_URL")
-        vnfm_base_url  = vnfm_base_url_var.get("value").strip()
+        vnfm_ip    = context["vnfm_mano_ip"]
+        vnfm_port  = context["vnfm_mano_port"]
+        vnfm_username  = context["vnfm_mano_user"]
+        vnfm_password  = context["vnfm_mano_pass"]
+        #VNFM Keycloak server
+        nfvo_keycloak_server_url = context["vnfm_mano_keycloak_server_url"]
+        #VNFM base URL.
+        vnfm_base_url  = context["vnfm_mano_base_url"]
 
         # Execute NFVO registration to teh VNFM.
         vnfmSubscription = NfvoVnfmSubscription(vnfm_ip, vnfm_port, vnfm_base_url)
@@ -39,30 +39,20 @@ if __name__ == "__main__":
         #Set NFVO access infos.
         nfvo_mano_me_ref = context["nfvo_device"]
         nfvo_mano_me_id = context["nfvo_device"][3:]
-        nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
-        nfvo_mano_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("HTTP_PORT")
-        nfvo_mano_port  = nfvo_mano_var.get("value").strip()
-        nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
-        nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
-        
+        nfvo_mano_ip    = context["nfvo_mano_ip"]
+        nfvo_mano_port  = context["nfvo_mano_port"]
+        nfvo_mano_user  = context["nfvo_mano_user"]
+        nfvo_mano_pass  = context["nfvo_mano_pass"]
+        nfvo_base_url  = context["nfvo_mano_base_url"]
+        nfvo_keycloak_server_url = context["nfvo_mano_keycloak_server_url"] 
+
         #Get Authentication mode ('basic' or 'oauth2').
-        auth_mode_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("AUTH_MODE")
-        auth_mode  = auth_mode_var.get("value").strip()
-        context["auth_mode"] = auth_mode
+        vnfm_auth_mode  = context["vnfm_mano_auth_mode"]
         
-        if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
-            #Get keycloak server URL.
-            keycloak_url_var   = Device(device_id=vnfm_me_id).get_configuration_variable("SIGNIN_REQ_PATH")
-            keycloak_server_url  = keycloak_url_var.get("value").strip()
-            context["keycloak_server_url"] = keycloak_server_url
-            
-            vnfmSubscription.set_parameters(vnfm_username, vnfm_password, auth_mode, context['keycloak_server_url'])
+        if vnfm_auth_mode == 'oauth2' or vnfm_auth_mode == 'oauth_v2':            
+            vnfmSubscription.set_parameters(vnfm_username, vnfm_password, vnfm_auth_mode, context['keycloak_server_url'])
         else:
             vnfmSubscription.set_parameters(vnfm_username, vnfm_password)
-        
-        #Get NFVO Base URL.
-        nfvo_base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL")
-        nfvo_base_url  = nfvo_base_url_var.get("value").strip()
         
         #NFVO URL Variables.
         http_protocol = 'http'
@@ -70,14 +60,14 @@ if __name__ == "__main__":
         
         #NFVO authification type.
         authType = ['BASIC']
-        if auth_mode == 'basic':
+        if nfvo_keycloak_server_url == 'basic':
             authType = ['BASIC']
             #Basic authentication parameters.
             authParamBasic =  {
                 "userName": nfvo_mano_user,
                 "password": nfvo_mano_pass
                 }
-        elif auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+        elif nfvo_keycloak_server_url == 'oauth2' or nfvo_keycloak_server_url == 'oauth_v2':
             authType = ['OAUTH2_CLIENT_CREDENTIALS']
             #Oauth2.0 authentication parameters.
             authParamOauth2 = {
@@ -88,8 +78,7 @@ if __name__ == "__main__":
             }
         
         #NFVO SOL003 version.
-        nfvo_sol003_version_var   = Device(device_id=vnfm_me_id).get_configuration_variable("SOL003_VERSION")
-        nfvo_sol003_version  = nfvo_sol003_version_var.get("value")
+        nfvo_sol003_version  = context["nfvo_sol003_version"]
         
         #vnfn name var.
         nfvo_name = 'nfvo-1'
@@ -99,6 +88,10 @@ if __name__ == "__main__":
                     "authentification": {
                         "authType": authType
                      },
+                     "localUser": {
+                 	    "clientId": vnfm_username,
+                 	    "secretId": vnfm_password
+                     },
                     "url": nfvo_url,
                     "ignoreSsl": True,
                     "tlsCert": "",
@@ -107,9 +100,9 @@ if __name__ == "__main__":
                     "serverType": "NFVO"
                     }
         #Insert authentication parameters into the content.
-        if auth_mode == 'basic':
+        if nfvo_keycloak_server_url == 'basic':
             content['authentification']['authParamBasic'] = authParamBasic
-        elif auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
+        elif nfvo_keycloak_server_url == 'oauth2' or nfvo_keycloak_server_url == 'oauth_v2':
             content['authentification']['authParamOauth2'] = authParamOauth2
             
         r = vnfmSubscription.subscribe(content)

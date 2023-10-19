@@ -1,44 +1,42 @@
 <ObjectDefinition>
   <variables frozen="0">
-    <variable displayName="nfvo_device" name="params.nfvo_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="null" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="NFVO Managed Entity" name="params.nfvo_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="17010303" modId="17010305"/>
       </sdTypes>
     </variable>
-    <variable displayName="Openstack Managed Entity" name="params.vim_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="VIM Managed Entity (Openstack)" name="params.vim_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="14020603" modId="16051904"/>
       </sdTypes>
     </variable>
-    <variable displayName="vnfm_device" name="params.vnfm_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="VNFM Managed  Entity" name="params.vnfm_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="17010304" modId="17010306"/>
       </sdTypes>
     </variable>
-    <variable displayName="is_vnfm_to_nfvo_registeration_only" name="params.is_vnfm_register_only" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vim_id" name="params.vim_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" refDeviceIdVar="params.nfvo_device" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Subscrib VNFM to NFVO only" name="params.is_vnfm_register_only" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="If TRUE, the only VNFM will be subscribed to the NFVO.&#xa;If FALSE, the VNFM wiil be subscribed to the NFVO and the NFVO to the VNFM." groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VIM Managed Entity" name="params.vim_id" startIncrement="0" type="OBMFRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" refDeviceIdVar="params.nfvo_device" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>nfvi_resources</class>
       </classes>
     </variable>
-    <variable displayName="service_instance_name" name="params.service_instance_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Service Instance Name" name="params.service_instance_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
-  <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_New_Service">
-    <displayName>New Service</displayName>
+  <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM">
+    <displayName>Register VIM to NFVO</displayName>
     <type>CREATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
-    <task name="Task_Sync_to_NFVO.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_New_Service/Tasks</processPath>
-      <displayName>Sync to NFVO</displayName>
+    <task name="Task_fetch_nfvo_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Fetch NFVO config variables</displayName>
     </task>
-  </process>
-  <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM">
-    <displayName>Register VIM to NFVO</displayName>
-    <type>UPDATE</type>
-    <visibility>5</visibility>
-    <allowSchedule/>
+    <task name="Task_Fetch_vim_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM/Tasks</processPath>
+      <displayName>Fetch VIM config variables</displayName>
+    </task>
     <task name="Task_Register_VIM_Resources.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM/Tasks</processPath>
       <displayName>Register VIM Resources</displayName>
@@ -50,16 +48,66 @@
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO">
     <displayName>Register VNFM and NFVO</displayName>
-    <type>UPDATE</type>
+    <type>CREATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_fetch_vnfm_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Fetch VNFM config variables</displayName>
+    </task>
+    <task name="Task_fetch_nfvo_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Fetch NFVO config variables</displayName>
+    </task>
     <task name="Task_VNFM_subscription_to_NFVO.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>VNFM subscription to NFVO</displayName>
     </task>
+    <task name="Task_check_vnfm_subscription.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
+      <displayName>Check VNFM subscription</displayName>
+    </task>
     <task name="Task_NFVO_subscription_to_VNFM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>NFVO subscription to VNFM</displayName>
+    </task>
+    <task name="Task_check_nfvo_subscription.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
+      <displayName>Check NFVO subscription</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO">
+    <displayName>Unregister VNFM and NFVO</displayName>
+    <type>UPDATE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_check_workflow_instance_assignation.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Check workflow instance assignation</displayName>
+    </task>
+    <task name="Task_fetch_vnfm_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Fetch VNFM config variables</displayName>
+    </task>
+    <task name="Task_fetch_nfvo_config_variables.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Fetch NFVO config variables</displayName>
+    </task>
+    <task name="Task_vnfm_unsubscription_from_nfvo.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>VNFM unsubscription from NFVO</displayName>
+    </task>
+    <task name="Task_check_vnfm_unsubscription.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Check VNFM unsubscription</displayName>
+    </task>
+    <task name="Task_nfvo_unsubscription_from_vnfm.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>NFVO unsubscription from VNFM</displayName>
+    </task>
+    <task name="Task_check_nfvo_unsubscription.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Check NFVO unsubscription</displayName>
     </task>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM">
@@ -80,10 +128,10 @@
     <icon/>
     <description/>
     <displayField>service_instance_name</displayField>
-    <serviceTaskType>python</serviceTaskType>
     <order>10000</order>
     <visibility>5</visibility>
-    <processToAssiocateToTrashIcon/>
+    <serviceTaskType>python</serviceTaskType>
+    <processToAssociateToTrashIcon/>
     <name>MANO &amp; NFVI Resources Management</name>
     <group>MANO|VNFM|VIM</group>
   </information>

@@ -133,7 +133,8 @@ def _get_vdu_mgmt_address_convention(server, server_list_address):
     server_ip_addr = ''
     for network_name, iface_list in server_list_address.items():
         #CONVERSION OF THE MANAGEMENT NETWORK NAMING.
-        if "mgmt" in network_name.lower() or "management" in network_name.lower():
+        network_mgmt_name_convention = (context.get('vnf_mgmt_network_name')).strip()
+        if network_mgmt_name_convention.lower() in network_name.lower():
             for iface in iface_list:
                 server_ip_addr = iface.get('addr')
                 server_name = server.name
@@ -232,6 +233,7 @@ def _is_vdu_managed_entity_exists(vnf_me_list, vnfResourceId, context):
 ######################################################################################################
 
 dev_var = Variables()
+dev_var.add('vnf_mgmt_network_name', var_type='String')
 context = Variables.task_call(dev_var)
 
 subtenant_ext_ref = context['UBIQUBEID']

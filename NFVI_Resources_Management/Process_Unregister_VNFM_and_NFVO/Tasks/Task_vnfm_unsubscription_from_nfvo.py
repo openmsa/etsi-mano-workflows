@@ -7,10 +7,9 @@ from msa_sdk import constants
 from custom.ETSI.NfvoVnfmSubscription import NfvoVnfmSubscription
 
 dev_var = Variables()
-dev_var.add('nfvo_device', var_type='Device')
-dev_var.add('vnfm_device', var_type='Device')
 dev_var.add('is_vnfm_register_only', var_type='Boolean')
 dev_var.add("service_instance_name", var_type='String')
+dev_var.add("vnfm_subscription_id", var_type='String')
 context = Variables.task_call(dev_var)
 
 if __name__ == "__main__":
@@ -34,9 +33,15 @@ if __name__ == "__main__":
         nfvoSubscription.set_parameters(nfvo_mano_user, nfvo_mano_pass)
 
     #Get VNFM suscription id.
-    vnfm_subs_id_to_nfvo = context("nfvo_subs_vnfm_id")
+    vnfm_subs_id_to_nfvo = context["vnfm_subs_id_to_nfvo"]
     #Execute the unsubscription of the VNFM from the NFVO.
-    r = nfvoSubscription.subscribe(vnfm_subs_id_to_nfvo)
+    r = nfvoSubscription.unsubscribe(vnfm_subs_id_to_nfvo)
+    
+    # Check the type of the response. In case subscription http failure (e.g: http 500) the 'r' type is dictionnary. 
+    #Otherwise it is a Response object type.
+    r_dict = r
+    if not isinstance(r_dict, dict):
+        r_dict = r.json()
     
     r_details = ''
     status = nfvoSubscription.state
@@ -44,8 +49,8 @@ if __name__ == "__main__":
         r_details = 'Successful!'
         MSA_API.task_success(r_details, context, True)
     else:
-        if isinstance(r, dict):
-            r_details = str(r.json().get('detail'))
+        if isinstance(r_dict, dict):
+            r_details = str(r_dict.get('detail'))
     
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
     print(ret)

@@ -7,9 +7,9 @@ from msa_sdk import constants
 from custom.ETSI.NfvoVnfmSubscription import NfvoVnfmSubscription
 
 dev_var = Variables()
-dev_var.add('vnfm_device', var_type='Device')
 dev_var.add('is_vnfm_register_only', var_type='Boolean')
 dev_var.add("service_instance_name", var_type='String')
+dev_var.add("nfvo_subscription_id", var_type='String')
 context = Variables.task_call(dev_var)
 
 if __name__ == "__main__":
@@ -28,11 +28,11 @@ if __name__ == "__main__":
         vnfm_username  = context["vnfm_mano_user"]
         vnfm_password  = context["vnfm_mano_pass"]
         #VNFM Keycloak server.
-        nfvo_keycloak_server_url = context["vnfm_mano_keycloak_server_url"]
+        vnfm_keycloak_server_url = context["vnfm_mano_keycloak_server_url"]
         #VNFM base URL.
         vnfm_base_url  = context["vnfm_mano_base_url"]
 
-        # Execute NFVO unregistration to the VNFM.
+        # Execute NFVO unsubscription from the VNFM.
         vnfmSubscription = NfvoVnfmSubscription(vnfm_ip, vnfm_port, vnfm_base_url)
         vnfmSubscription.set_parameters(vnfm_username, vnfm_password)
         
@@ -40,15 +40,15 @@ if __name__ == "__main__":
         vnfm_auth_mode  = context["vnfm_mano_auth_mode"]
         
         if vnfm_auth_mode == 'oauth2' or vnfm_auth_mode == 'oauth_v2':            
-            vnfmSubscription.set_parameters(vnfm_username, vnfm_password, vnfm_auth_mode, context['keycloak_server_url'])
+            vnfmSubscription.set_parameters(vnfm_username, vnfm_password, vnfm_auth_mode, vnfm_keycloak_server_url)
         else:
             vnfmSubscription.set_parameters(vnfm_username, vnfm_password)
 
-        #NFVO SOL003 version.
-        nfvo_sol003_version  = context["nfvo_sol003_version"]
-
         #NFVO subscription id to the VNFM.
-        nfvo_subs_id_to_vnfm = context["vnfm_subs_nfvo_id"]
+        if 'nfvo_subs_id_to_vnfm' in context:
+            nfvo_subs_id_to_vnfm = context["nfvo_subs_id_to_vnfm"]
+        else:
+            MSA_API.task_success("Task skipped: the server subscription is empty for this workflow instance context.", context, True)
         
         r = vnfmSubscription.unsubscribe(nfvo_subs_id_to_vnfm)
         

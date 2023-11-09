@@ -39,19 +39,21 @@ if __name__ == "__main__":
     ##Get VNFM service port.
     vnfm_mano_port  = _get_config_variable (vnfm_mano_me_id, "HTTP_PORT")
     
+    ##Get VNFM capabilities.
+    vnfm_mano_capabilities  = _get_config_variable (vnfm_mano_me_id, "CAPABILITIES")
+    
+    ##Get VNFM sol003 version.
+    vnfm_mano_sol003_version  = _get_config_variable (vnfm_mano_me_id, "SOL003_VERSION")
+    
     #Store VNFM config variables values into the workflow service instance context.
     context["vnfm_mano_auth_mode"] = vnfm_mano_auth_mode
     context["vnfm_mano_ip"] = vnfm_mano_ip
     context["vnfm_mano_port"] = vnfm_mano_port
     context["vnfm_mano_user"] = vnfm_mano_user
     context["vnfm_mano_pass"] = vnfm_mano_pass
-    
-    #Base URL building: add 'sol003' in the BASE_URL, if it's about MSA G-VNFM.
-    if vnfm_mano_base_url != '/':
-        context["vnfm_mano_base_url"] = vnfm_mano_base_url
-    
-    if vnfm_mano_base_url == '/vnfm-webapp/' or vnfm_mano_base_url == '/ubi-etsi-mano/':
-        context["vnfm_mano_base_url"] = vnfm_mano_base_url + 'sol003/'
+    context["vnfm_mano_capabilities"] = vnfm_mano_capabilities
+    context["vnfm_mano_sol003_version"] = vnfm_mano_sol003_version
+    context['vnfm_mano_base_url'] = vnfm_mano_base_url
     
     if vnfm_mano_auth_mode == 'oauth_v2':
         #Get keycloak server URL. 

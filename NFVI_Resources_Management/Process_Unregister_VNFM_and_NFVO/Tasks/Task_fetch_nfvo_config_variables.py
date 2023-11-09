@@ -6,15 +6,19 @@ from msa_sdk.device import Device
 '''
 Get config variable value from managed entity (ME).
 '''
-def _get_config_variable (managed_entity_id, var_name):
+def _get_config_variable (managed_entity_id, var_name, is_ignore_exception=False):
     try:
         var = Device(device_id=managed_entity_id).get_configuration_variable(var_name)
         value  = var.get("value")
         return value.strip()
     except:
-        error_msg = "Config variable '" + var_name + "' can't be retrieved from " + managed_entity_id + " Managed Entity."
-        MSA_API.task_error(error_msg, context, True) 
-
+        if is_ignore_exception:
+            pass
+        else:
+            error_msg = "Config variable '" + var_name + "' can't be retrieved from " + managed_entity_id + " Managed Entity."
+            MSA_API.task_error(error_msg, context, True) 
+            
+            
 if __name__ == "__main__":
 
     dev_var = Variables()
@@ -36,22 +40,21 @@ if __name__ == "__main__":
     ##Get NFVO service port.
     nfvo_mano_port  = _get_config_variable (nfvo_mano_me_id, "HTTP_PORT")
     
-    #NFVO SOL003 version.
-    nfvo_sol003_version_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("SOL003_VERSION")
-    nfvo_sol003_version  = nfvo_sol003_version_var.get("value")
+    ##Get VNFM sol003 version.
+    nfvo_mano_sol003_version  = _get_config_variable (nfvo_mano_me_id, "SOL003_VERSION")
     
     #Store NFVO config variables values into the workflow service instance context.
-    context["nfvo_mano_auth_mode"] = nfvo_mano_auth_mode.strip()
-    context["nfvo_mano_base_url"] = nfvo_mano_base_url.strip()
-    context["nfvo_mano_ip"] = nfvo_mano_ip.strip()
-    context["nfvo_mano_port"] = str(nfvo_mano_port.strip())
-    context["nfvo_mano_user"] = nfvo_mano_user.strip()
-    context["nfvo_mano_pass"] = nfvo_mano_pass.strip()
-    context["nfvo_sol003_version"] = nfvo_sol003_version.strip()
+    context["nfvo_mano_auth_mode"] = nfvo_mano_auth_mode
+    context["nfvo_mano_base_url"] = nfvo_mano_base_url
+    context["nfvo_mano_ip"] = nfvo_mano_ip
+    context["nfvo_mano_port"] = str(nfvo_mano_port)
+    context["nfvo_mano_user"] = nfvo_mano_user
+    context["nfvo_mano_pass"] = nfvo_mano_pass
+    context["nfvo_mano_sol003_version"] = nfvo_mano_sol003_version
     
     if nfvo_mano_auth_mode == 'oauth_v2':
         #Get keycloak server URL. 
         keycloak_server_url  = _get_config_variable (nfvo_mano_me_id, "SIGNIN_REQ_PATH")
-        context["nfvo_mano_keycloak_server_url"] = keycloak_server_url.strip()
+        context["nfvo_mano_keycloak_server_url"] = keycloak_server_url
         
     MSA_API.task_success('NFVO config variables are stored into the context!', context, True) 

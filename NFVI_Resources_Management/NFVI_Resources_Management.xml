@@ -22,6 +22,8 @@
       </classes>
     </variable>
     <variable displayName="Service Instance Name" name="params.service_instance_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNFM Subscription Id" name="params.vnfm_subscription_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="NFVO Subscription Id" name="params.nfvo_subscription_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM">
@@ -51,6 +53,10 @@
     <type>CREATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_lock_workflow_service.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
+      <displayName>Lock workflow service</displayName>
+    </task>
     <task name="Task_fetch_vnfm_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Fetch VNFM config variables</displayName>
@@ -122,6 +128,16 @@
     <task name="Task_Sync_to_NFVO.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
       <displayName>Sync to NFVO</displayName>
+    </task>
+  </process>
+  <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Trash">
+    <displayName>Move to Trash</displayName>
+    <type>DELETE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Delete_workflow_instance.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Trash/Tasks</processPath>
+      <displayName>Delete workflow instance</displayName>
     </task>
   </process>
   <information>

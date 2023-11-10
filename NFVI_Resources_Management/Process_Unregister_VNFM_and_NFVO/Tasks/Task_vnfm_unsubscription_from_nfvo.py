@@ -39,9 +39,10 @@ if __name__ == "__main__":
     
     # Check the type of the response. In case subscription http failure (e.g: http 500) the 'r' type is dictionnary. 
     #Otherwise it is a Response object type.
-    r_dict = r
-    if not isinstance(r_dict, dict):
-        r_dict = r.json()
+    #r_dict = r
+    #if not isinstance(r_dict, dict):
+    #    MSA_API.task_error(str(r_dict), context, True)
+    #    r_dict = r.json()
     
     r_details = ''
     status = nfvoSubscription.state
@@ -49,8 +50,8 @@ if __name__ == "__main__":
         r_details = 'Successful!'
         MSA_API.task_success(r_details, context, True)
     else:
-        if isinstance(r_dict, dict):
-            r_details = str(r_dict.get('detail'))
+        if isinstance(r, dict):
+            r_details = str(r.json().get('detail'))
     
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
     print(ret)

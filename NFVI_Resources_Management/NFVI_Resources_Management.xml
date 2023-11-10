@@ -147,7 +147,7 @@
     <order>10000</order>
     <visibility>5</visibility>
     <serviceTaskType>python</serviceTaskType>
-    <processToAssociateToTrashIcon/>
+    <processToAssociateToTrashIcon>Move to Trash</processToAssociateToTrashIcon>
     <name>MANO &amp; NFVI Resources Management</name>
     <group>MANO|VNFM|VIM</group>
   </information>

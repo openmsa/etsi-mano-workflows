@@ -36,6 +36,12 @@ class NfvoVnfmSubscription(BaseApi):
         _url = self.SUBSCRIPTION_URL
         response = self.do_post(_url, _payload)
         return response
+    
+    def unsubscribe(self, server_id):
+        _url = self.SUBSCRIPTION_URL + '/' + server_id
+        response = self.do_delete(_url)
+        return response
+    
 
     def subscribe_get_status(self, server_id):
         _url = self.SUBSCRIPTION_URL
@@ -43,10 +49,11 @@ class NfvoVnfmSubscription(BaseApi):
         
         subscription = ''
         for index, item in enumerate(response.json()):
-            item_server_id = item['id']
-            if item_server_id == server_id:
-                subscription = item
-                break
+            if 'id' in item:
+                item_server_id = item['id']
+                if item_server_id == server_id:
+                    subscription = item
+                    break
         return subscription
 
     def subscribe_completion_wait(self, server_id, timeout=60):

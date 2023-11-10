@@ -3,11 +3,11 @@
     <map>
         <entry>
             <key>DISPLAYNAME</key>
-            <value>NFVI_Resources_Management.xml</value>
+            <value>Task_vnfm_unsubscription_from_nfvo.py</value>
         </entry>
         <entry>
             <key>DATE_MODIFICATION</key>
-            <value>1697638864891</value>
+            <value>1697203993071</value>
         </entry>
         <entry>
             <key>REPOSITORY</key>
@@ -15,26 +15,18 @@
         </entry>
         <entry>
             <key>DATE_CREATION</key>
-            <value>1697638864886</value>
-        </entry>
-        <entry>
-            <key>MODEL</key>
-            <value>0</value>
+            <value>1697203993066</value>
         </entry>
         <entry>
             <key>TAG</key>
         </entry>
         <entry>
             <key>FILE_TYPE</key>
-            <value>unknown</value>
-        </entry>
-        <entry>
-            <key>MANUFACTURER</key>
-            <value>0</value>
+            <value>text</value>
         </entry>
         <entry>
             <key>TYPE</key>
-            <value>FILE</value>
+            <value>UPLOAD</value>
         </entry>
         <entry>
             <key>COMMENT</key>

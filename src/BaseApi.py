@@ -123,9 +123,9 @@ class BaseApi():
         elif _response.status_code in self.STATE["Redirection"]:
             self.state = "WARNING"
         elif _response.status_code in self.STATE["Client_Error"]:
-            self.state = "WARNING"
+            self.state = "FAIL"
         elif _response.status_code in self.STATE["Server_Error"]:
-            self.state = "WARNING"
+            self.state = "FAIL"
         else:
             self.state = "FAIL"
         return _response

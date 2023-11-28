@@ -8,6 +8,7 @@ from custom.ETSI.NfviVim import NfviVim
 if __name__ == "__main__":
     dev_var = Variables()
     dev_var.add('vim_device', var_type='Device')
+    dev_var.add("vim_registration_id", var_type='String')
     dev_var.add("service_instance_name", var_type='String')
     context = Variables.task_call(dev_var)
     
@@ -75,16 +76,17 @@ if __name__ == "__main__":
     #Insert InterfaceInfo dict to the main content.
     content.update(interfaceInfo=interfaceInfo)
     
-    context.update(DEBUG_SSLE=content)
-    
-    #MSA_API.task_error('STOP', context, True)
     #Execute the VIM registration to the NFVO
     r = nfviVim.nfvi_vim_register(content)
     
     r_details = ''
     status = nfviVim.state
     if status == 'ENDED':
-        r_details = 'Successful!'
+        if isinstance(r.json(), dict):
+            vim_registration_id = r.json().get('id')
+            #Store the vimId in the context.
+            context["vim_registration_id"] = vim_registration_id
+            r_details = 'SUCCESS! The VIM is registered with id=' + vim_registration_id + '.'
     else:
         if isinstance(r.json, dict):
             r_details = str(r.json().get('detail'))

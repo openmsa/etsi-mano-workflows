@@ -10,26 +10,34 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('nfvo_device', var_type='Device')
-    dev_var.add('vim_id', var_type='String')
     context = Variables.task_call(dev_var)
     
-    #Get NFVO access infos.
+    #Set NFVO access infos.
     nfvo_mano_me_id = context["nfvo_device"][3:]
-    nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
-    nfvo_mano_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("HTTP_PORT")
-    nfvo_mano_port  = nfvo_mano_var.get("value").strip()
-    nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
-    nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
-    
+    nfvo_mano_ip    = context["nfvo_mano_ip"]
+    nfvo_mano_port  = context["nfvo_mano_port"]
+    nfvo_mano_user  = context["nfvo_mano_user"]
+    nfvo_mano_pass  = context["nfvo_mano_pass"]
+    #Get keycloak server URL.
+    nfvo_keycloak_server_url  = context["nfvo_mano_keycloak_server_url"]
+    #Get Authentication mode ('basic' or 'oauth2').
+    auth_mode  = context["nfvo_mano_auth_mode"]
     #Get NFVO API base url.
-    base_url_var   = Device(device_id=nfvo_mano_me_id).get_configuration_variable("BASE_URL")
-    base_url  = base_url_var.get("value").strip()
-    context["auth_mode"] = base_url
+    base_url  = context["nfvo_mano_base_url"]
     
+    #Init NFVI VIM object.
     nfviVim = NfviVim(nfvo_mano_ip, nfvo_mano_port, base_url)
-    nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass)
     
-    r = nfviVim.nfvi_vim_delete(context["vim_id"])
+    if auth_mode == 'oauth_v2':
+        nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass, auth_mode, nfvo_keycloak_server_url)
+    else:
+        nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass)
+        
+    #Get VIM registration id.
+    vim_registration_id = context['vim_registration_id']
+    
+    #Delete registered VIM by id.
+    r = nfviVim.nfvi_vim_delete(vim_registration_id)
     
     r_details = ''
     status = nfviVim.state

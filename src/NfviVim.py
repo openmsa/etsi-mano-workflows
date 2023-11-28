@@ -37,3 +37,8 @@ class NfviVim(BaseApi):
         _url = self.VIM_URL
         response = self.do_get(_url)
         return response
+
+    def nfvi_vim_register_update(self, vimId, _payload):
+        _url = self.VIM_URL + '/' + vimId
+        response = self.do_patch(_url, _payload)
+        return response

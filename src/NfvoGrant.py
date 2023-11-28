@@ -19,26 +19,21 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from custom.ETSI.BaseApi import BaseApi
 
 
-class NfviVim(BaseApi):
+class NfvoGrant(BaseApi):
 
-    VIM_URL = 'admin/vim'
+    GRANT_URL = 'admin/grant'
 
-    def nfvi_vim_register(self, _payload):
-        _url = self.VIM_URL + '/register'
-        response = self.do_post(_url, _payload)
-        return response
-
-    def nfvi_vim_delete(self, _vimId):
-        _url = self.VIM_URL + "/" + _vimId
+    def nfvo_grant_delete(self, _grantId):
+        _url = self.GRANT_URL + "/" + _grantId
         response = self.do_delete(_url)
         return response
 
-    def nfvi_vim_get(self):
-        _url = self.VIM_URL
+    def nfvo_grant_get(self):
+        _url = self.GRANT_URL
         response = self.do_get(_url)
         return response
 
-    def nfvi_vim_register_update(self, vimId, _payload):
-        _url = self.VIM_URL + '/' + vimId
-        response = self.do_patch(_url, _payload)
+    def nfvo_grant_all_delete(self):
+        _url = self.GRANT_URL + "/all"
+        response = self.do_delete(_url)
         return response

@@ -8,8 +8,6 @@ from custom.ETSI.NfviVim import NfviVim
 if __name__ == "__main__":
     dev_var = Variables()
     dev_var.add('vim_device', var_type='Device')
-    dev_var.add("vim_registration_id", var_type='String')
-    dev_var.add("service_instance_name", var_type='String')
     context = Variables.task_call(dev_var)
     
     #Lock the workflow instance to be dedicated to the VIM registration management.
@@ -49,12 +47,15 @@ if __name__ == "__main__":
     endpoint = context["vim_auth_endpoint"]
     sdn_endpoint = context["vim_sdn_endpoint"]
     
+    #Get VIM registration id.
+    vim_registration_id = context['vim_registration_id']
+    
     #InterfaceInfo dict.
-    interfaceInfo = {"endpoint": endpoint, "non-strict-ssl": "true"}
+    interfaceInfo = {"endpoint": endpoint}
     
     #Main content
     content = {
-               "vimId": str(uuid.uuid4()),
+               "vimId": vim_registration_id,
                "vimType": vim_type,
                "accessInfo": {
                    "username": vim_username,
@@ -63,10 +64,6 @@ if __name__ == "__main__":
                    "projectDomain": project_domain,
                    "userDomain": user_domain,
                    "vim_project": "cbamnso"
-                   },
-               "geoloc": {
-                   "lng": 45.75801,
-                   "lat": 4.8001016
                    }
                }
     #Add the sdn controller endpoint.
@@ -77,7 +74,9 @@ if __name__ == "__main__":
     content.update(interfaceInfo=interfaceInfo)
     
     #Execute the VIM registration to the NFVO
-    r = nfviVim.nfvi_vim_register(content)
+    r = nfviVim.nfvi_vim_register_update(vim_registration_id, content)
+    
+    
     
     r_details = ''
     status = nfviVim.state
@@ -86,7 +85,11 @@ if __name__ == "__main__":
             vim_registration_id = r.json().get('id')
             #Store the vimId in the context.
             context["vim_registration_id"] = vim_registration_id
-            r_details = 'SUCCESS! The VIM is registered with id=' + vim_registration_id + '.'
+            r_details = 'SUCCESS! The VIM registered with id=' + vim_registration_id + ' is updated.'
+    elif status == 'FAIL': 
+        if isinstance(r.json(), dict):
+            error_detail = r.json().get('detail')
+            MSA_API.task_error('FAILED! The VIM registered with id=' + vim_registration_id + ' update is failed. \nFailure Details: ' + error_detail, context, True)
     else:
         if isinstance(r.json, dict):
             r_details = str(r.json().get('detail'))

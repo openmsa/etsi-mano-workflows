@@ -1,15 +1,16 @@
-import uuid
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
 from msa_sdk.device import Device
 
 from custom.ETSI.NfviVim import NfviVim
+from custom.ETSI.NfvoGrant import NfvoGrant
 
 
 if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('nfvo_device', var_type='Device')
+    dev_var.add('vim_id', var_type='String')
     context = Variables.task_call(dev_var)
     
     #Set NFVO access infos.
@@ -26,25 +27,23 @@ if __name__ == "__main__":
     base_url  = context["nfvo_mano_base_url"]
     
     #Init NFVI VIM object.
-    nfviVim = NfviVim(nfvo_mano_ip, nfvo_mano_port, base_url)
+    nfvoGrant = NfvoGrant(nfvo_mano_ip, nfvo_mano_port, base_url)
     
     if auth_mode == 'oauth_v2':
-        nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass, auth_mode, nfvo_keycloak_server_url)
+        nfvoGrant.set_parameters(nfvo_mano_user, nfvo_mano_pass, auth_mode, nfvo_keycloak_server_url)
     else:
-        nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass)
-        
-    #Get VIM registration id.
-    vim_registration_id = context['vim_registration_id']
+        nfvoGrant.set_parameters(nfvo_mano_user, nfvo_mano_pass)
     
-    #Delete registered VIM by id.
-    r = nfviVim.nfvi_vim_delete(vim_registration_id)
+    #As a VIM delete pre-requisite, delete all the grant objects on the NFVO.
+    r = nfvoGrant.nfvo_grant_all_delete()
     
+    #Checking the of the operation response.
     r_details = ''
-    status = nfviVim.state
+    status = nfvoGrant.state
     if status == 'ENDED':
         r_details = 'Successful!'
     else:
         r_details = str(r.json().get('detail'))
     
-    ret = MSA_API.process_content(nfviVim.state, f'{r}' + ': ' + r_details, context, True)
+    ret = MSA_API.process_content(nfvoGrant.state, f'{r}' + ': ' + r_details, context, True)
     print(ret)

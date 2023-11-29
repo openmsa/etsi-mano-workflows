@@ -11,9 +11,9 @@ if __name__ == "__main__":
     service_assignment = context["service_instance_assignment"]
 
     if service_assignment == "vim_registration_mgmt":
-        MSA_API.task_error("This service instance is dedicated for the VIM registration / unregistration only.\nPlease create a new workflow service to manage the VNFM and NFVO subscription / unsubscription.", context, True)
-    elif service_assignment == "vnfm_and_nfvo_subscription_mgmt":
         pass
+    elif service_assignment == "vnfm_and_nfvo_subscription_mgmt":
+        MSA_API.task_error("This service instance is dedicated for the VNFM and NFVO subscription / unsubscription operations only.\nPlease create a new workflow service to manage the VIM registration / unregistration.", context, True)
     else:
         MSA_API.task_error("This service instance was not assigned to any type of service (VIM or MANO un/registration).", context, True)
     

@@ -162,6 +162,10 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_check_workflow_instance_assignation.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM/Tasks</processPath>
+      <displayName>Check workflow instance assignation</displayName>
+    </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Fetch NFVO config variables</displayName>
@@ -184,6 +188,10 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_check_workflow_instance_assignation.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM/Tasks</processPath>
+      <displayName>Check workflow instance assignation</displayName>
+    </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Fetch NFVO config variables</displayName>

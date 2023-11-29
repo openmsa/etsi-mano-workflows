@@ -48,6 +48,7 @@ if __name__ == "__main__":
         nfvo_mano_port  = context["nfvo_mano_port"]
         nfvo_mano_user  = context["nfvo_mano_user"]
         nfvo_mano_pass  = context["nfvo_mano_pass"]
+        nfvo_mano_name = context['nfvo_mano_name']
         nfvo_mano_base_url  = context["nfvo_mano_base_url"]
         nfvo_mano_keycloak_server_url = context["nfvo_mano_keycloak_server_url"] 
         #Get NFVO SOL003 version.
@@ -78,11 +79,8 @@ if __name__ == "__main__":
                 "grantType": "client_credentials"
             }
         
-        #vnfn name var.
-        nfvo_name = 'nfvo-1'
-        
         content = {
-                    "name": nfvo_name,
+                    "name": nfvo_mano_name,
                     "authentification": {
                         "authType": authType
                      },

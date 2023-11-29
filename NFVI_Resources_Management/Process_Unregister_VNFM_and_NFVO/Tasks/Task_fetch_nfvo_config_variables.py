@@ -30,6 +30,7 @@ if __name__ == "__main__":
     nfvo_mano_ip    = Device(device_id=nfvo_mano_me_id).management_address
     nfvo_mano_user  = Device(device_id=nfvo_mano_me_id).login
     nfvo_mano_pass  = Device(device_id=nfvo_mano_me_id).password
+    nfvo_mano_name  = Device(device_id=nfvo_mano_me_id).name
     
     ##Get NFVO Authentication mode ('basic' or 'oauth2').
     nfvo_mano_auth_mode  = _get_config_variable (nfvo_mano_me_id, "AUTH_MODE")
@@ -51,6 +52,7 @@ if __name__ == "__main__":
     context["nfvo_mano_user"] = nfvo_mano_user
     context["nfvo_mano_pass"] = nfvo_mano_pass
     context["nfvo_mano_sol003_version"] = nfvo_mano_sol003_version
+    context["nfvo_mano_name"] = nfvo_mano_name
     
     if nfvo_mano_auth_mode == 'oauth_v2':
         #Get keycloak server URL. 

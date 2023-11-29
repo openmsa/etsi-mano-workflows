@@ -40,6 +40,7 @@ if __name__ == "__main__":
     nfvo_mano_port = context["nfvo_mano_port"]
     nfvo_mano_user = context["nfvo_mano_user"]
     nfvo_mano_pass = context["nfvo_mano_pass"]
+    nfvo_mano_name = context['nfvo_mano_name']
     #Get VNFM keycloak server url.
     nfvo_mano_keycloak_server_url = context["nfvo_mano_keycloak_server_url"]
     
@@ -96,10 +97,10 @@ if __name__ == "__main__":
     capabilities = [vnfm_capabilities]
     
     #vnfn name var.
-    vnfm_name = 'vnfm-' + capabilities[0]
+    vnfm_mano_name = context['vnfm_mano_name']
     
     content = {
-                "name": vnfm_name,
+                "name": vnfm_mano_name,
                 "authentification": {
                     "authType": authType
                  },

@@ -29,6 +29,7 @@ if __name__ == "__main__":
     vnfm_mano_ip    = Device(device_id=vnfm_mano_me_id).management_address
     vnfm_mano_user  = Device(device_id=vnfm_mano_me_id).login
     vnfm_mano_pass  = Device(device_id=vnfm_mano_me_id).password
+    vnfm_mano_name  = Device(device_id=vnfm_mano_me_id).name
     
     ##Get VNFM Authentication mode ('basic' or 'oauth2').
     vnfm_mano_auth_mode  = _get_config_variable (vnfm_mano_me_id, "AUTH_MODE")
@@ -54,6 +55,8 @@ if __name__ == "__main__":
     context["vnfm_mano_capabilities"] = vnfm_mano_capabilities
     context["vnfm_mano_sol003_version"] = vnfm_mano_sol003_version
     context['vnfm_mano_base_url'] = vnfm_mano_base_url
+    context['vnfm_mano_name'] = vnfm_mano_name
+    
     
     if vnfm_mano_auth_mode == 'oauth_v2':
         #Get keycloak server URL. 

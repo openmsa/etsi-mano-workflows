@@ -13,7 +13,7 @@
         <sdTypes manId="17010303" modId="17010305"/>
       </sdTypes>
     </variable>
-    <variable displayName="VNFM Reference" name="params.vnfm_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="VNFM Reference" name="params.vnfm_device" startIncrement="0" type="Device" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>MANO Managed Entities</sections>
       </sections>
@@ -106,6 +106,14 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>Check NFVO subscription</displayName>
     </task>
+    <task name="Task_Sync_to_NFVO.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
+      <displayName>Synchronize NFVO microservices</displayName>
+    </task>
+    <task name="Task_Synchronize_vnfm_microservices.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
+      <displayName>Synchronize VNFM microservices</displayName>
+    </task>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO">
     <displayName>Unregister VNFM and NFVO</displayName>
@@ -140,12 +148,24 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Check NFVO unsubscription</displayName>
     </task>
+    <task name="Task_Sync_to_NFVO.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
+      <displayName>Synchronize NFVO microservices</displayName>
+    </task>
+    <task name="Task_Synchronize_vnfm_microservices.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
+      <displayName>Synchronize VNFM microservices</displayName>
+    </task>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM">
     <displayName>Update VIM Registration</displayName>
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_check_workflow_instance_assignation.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM/Tasks</processPath>
+      <displayName>Check workflow instance assignation</displayName>
+    </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Fetch NFVO config variables</displayName>
@@ -168,6 +188,10 @@
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
+    <task name="Task_check_workflow_instance_assignation.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM/Tasks</processPath>
+      <displayName>Check workflow instance assignation</displayName>
+    </task>
     <task name="Task_fetch_nfvo_config_variables.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Fetch NFVO config variables</displayName>

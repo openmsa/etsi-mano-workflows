@@ -42,7 +42,7 @@
       </sections>
       <values/>
     </variable>
-    <variable displayName="VNF Instance ID" name="params.vnf_instance_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="VNF Instance ID" name="params.vnf_instance_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>VNF Output</sections>
       </sections>
@@ -170,6 +170,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Synchronize with VIM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF">
     <displayName>Instantiate VNF</displayName>
@@ -208,6 +209,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
       <displayName>Synchronize with VIM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Scale-out_VNF">
     <displayName>Scale-out VNF</displayName>
@@ -238,6 +240,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-out_VNF/Tasks</processPath>
       <displayName>Sync with VIM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Scale-in_VNF">
     <displayName>Scale-in VNF</displayName>
@@ -268,6 +271,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Scale-in_VNF/Tasks</processPath>
       <displayName>Sync with VIM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Stop_VNF">
     <displayName>Stop VNF</displayName>
@@ -290,6 +294,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Start_VNF">
     <displayName>Start VNF</displayName>
@@ -306,12 +311,13 @@
     </task>
     <task name="Task_Get_VNF_Operation_State.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
-      <displayName>Get VNF LCM Operation</displayName>
+      <displayName>Get VNF LCM Operation State</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Heal_VNF">
     <displayName>Heal VNF</displayName>
@@ -332,12 +338,13 @@
     </task>
     <task name="Task_Get_VNF_Operation_State.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
-      <displayName>Get VNF LCM Operation</displayName>
+      <displayName>Get VNF LCM Operation State</displayName>
     </task>
     <task name="Task_Sync_to_NFVO_and_VNFM.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Terminate_VNF">
     <displayName>Terminate VNF</displayName>
@@ -364,6 +371,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Delete_VNF_Instance">
     <displayName>Delete VNF Instance</displayName>
@@ -379,7 +387,7 @@
       <displayName>Terminate VNF</displayName>
     </task>
     <task name="Task_Get_VNF_Operation_State.py">
-      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Instantiate_VNF/Tasks</processPath>
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Delete_VNF_Instance/Tasks/</processPath>
       <displayName>Get VNF LCM Operation State</displayName>
     </task>
     <task name="Task_Delete_VNF_Managed_Entities.py">
@@ -394,6 +402,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Create_VNF_Instance/Tasks</processPath>
       <displayName>Sync to NFVO and VNFM</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_LCM/Process_Syncronize_with_VIM">
     <displayName>Get VNF Instance resources inventory from VIM</displayName>
@@ -404,6 +413,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Syncronize_with_VIM/Tasks</processPath>
       <displayName>Get Inventory from VIM tenant</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/NS_LCM/Process_Check_Package_Consistent">
     <displayName>Check Package Consistency</displayName>
@@ -430,6 +440,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_LCM/Process_Check_Package_Consistent/Tasks</processPath>
       <displayName>Check vnfd id consistency</displayName>
     </task>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <information>
     <icon/>
@@ -437,6 +448,7 @@
     <displayField>vnf_instance_name</displayField>
     <order>10000</order>
     <visibility>5</visibility>
+    <wfConstraintsPath/>
     <serviceTaskType>python</serviceTaskType>
     <processToAssociateToTrashIcon/>
     <name>VNF LifeCycle Management</name>

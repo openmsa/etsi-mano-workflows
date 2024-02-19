@@ -107,6 +107,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Retrieve VNF Descriptor ID</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Enable_VNF">
     <displayName>VNF Enable Package</displayName>
@@ -129,9 +130,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Disable_VNF">
-    <displayName>Disable VNF Package</displayName>
+    <displayName>VNF Disable Package</displayName>
     <type>UPDATE</type>
     <visibility>5</visibility>
     <allowSchedule/>
@@ -151,6 +153,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Delete_VNF">
     <displayName>VNF Delete Package</displayName>
@@ -177,6 +180,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_NSD">
     <displayName>NS Onboard Package</displayName>
@@ -207,6 +211,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_NSD/Tasks</processPath>
       <displayName>Retrieve NS Descriptor ID</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Enable_NSD">
     <displayName>NS Enable Package</displayName>
@@ -229,6 +234,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Disable_NSD">
     <displayName>NS Disable Package</displayName>
@@ -251,6 +257,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Delete_NS_Package">
     <displayName>NS Delete Package</displayName>
@@ -277,6 +284,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Onboard_VNF/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <information>
     <icon/>
@@ -284,6 +292,7 @@
     <displayField>service_instance_name</displayField>
     <order>10000</order>
     <visibility>5</visibility>
+    <wfConstraintsPath/>
     <serviceTaskType>python</serviceTaskType>
     <processToAssociateToTrashIcon/>
     <name>VNF / NS Packages Management</name>

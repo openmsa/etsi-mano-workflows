@@ -45,7 +45,8 @@ if __name__ == "__main__":
             #Set variable as True to skip the next task 'Get VNF Operation State'.
             context.update(is_vnf_instance_exist=True)
         else:
-            status = 'FAILED'
+            #Force FAILED status to WARNING.
+            status = 'WARNING'
     
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True) 
     print(ret)

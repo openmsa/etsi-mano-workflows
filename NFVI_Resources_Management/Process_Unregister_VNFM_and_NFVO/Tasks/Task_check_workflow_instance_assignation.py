@@ -6,7 +6,11 @@ context = Variables.task_call(dev_var)
 
 
 if __name__ == "__main__":
-
+    
+    if not 'service_instance_assignment' in context:
+        #Skip the service instance assignment. the check is not applicable for old version this workflow service instance.
+        MSA_API.task_success('Task OK', context, True)
+        
     #Get workflow service assignment to a operation type (VIM registration/deletion or VNFM and NFVO un/subscription).
     service_assignment = context["service_instance_assignment"]
 

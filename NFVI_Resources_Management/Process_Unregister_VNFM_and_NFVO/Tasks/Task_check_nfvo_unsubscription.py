@@ -41,10 +41,7 @@ if __name__ == "__main__":
             vnfmSubscription.set_parameters(vnfm_username, vnfm_password, vnfm_auth_mode, nfvo_keycloak_server_url)
         else:
             vnfmSubscription.set_parameters(vnfm_username, vnfm_password)
-
-        #NFVO subscription id to the VNFM.
-        nfvo_subs_id_to_vnfm = context["nfvo_subs_id_to_vnfm"]
-        
+            
         #NFVO subscription id to the VNFM.
         if 'nfvo_subs_id_to_vnfm' in context:
             nfvo_subs_id_to_vnfm = context["nfvo_subs_id_to_vnfm"]

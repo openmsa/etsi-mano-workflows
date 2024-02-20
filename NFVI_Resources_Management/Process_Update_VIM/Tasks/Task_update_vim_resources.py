@@ -48,8 +48,11 @@ if __name__ == "__main__":
     sdn_endpoint = context["vim_sdn_endpoint"]
     
     #Get VIM registration id.
-    vim_registration_id = context['vim_registration_id']
-    
+    if 'vim_registration_id' in context:
+        vim_registration_id = context["vim_registration_id"]
+    else:
+        MSA_API.task_success("Task skipped: the vim registration id is empty for this workflow instance context.", context, True)
+        
     #InterfaceInfo dict.
     interfaceInfo = {"endpoint": endpoint}
     

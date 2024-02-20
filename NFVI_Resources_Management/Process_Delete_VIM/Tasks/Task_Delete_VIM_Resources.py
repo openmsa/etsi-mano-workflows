@@ -34,8 +34,11 @@ if __name__ == "__main__":
         nfviVim.set_parameters(nfvo_mano_user, nfvo_mano_pass)
         
     #Get VIM registration id.
-    vim_registration_id = context['vim_registration_id']
-    
+    if 'vim_registration_id' in context:
+        vim_registration_id = context["vim_registration_id"]
+    else:
+        MSA_API.task_success("Task skipped: the vim registration id is empty for this workflow instance context.", context, True)
+        
     #Delete registered VIM by id.
     r = nfviVim.nfvi_vim_delete(vim_registration_id)
     

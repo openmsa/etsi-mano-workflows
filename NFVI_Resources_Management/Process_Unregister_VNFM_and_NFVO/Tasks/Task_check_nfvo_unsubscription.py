@@ -46,7 +46,7 @@ if __name__ == "__main__":
         if 'nfvo_subs_id_to_vnfm' in context:
             nfvo_subs_id_to_vnfm = context["nfvo_subs_id_to_vnfm"]
         else:
-            ret = MSA_API.process_content('WARNING',"Task skipped: the server subscription is empty for this workflow instance context.", context, True)
+            ret = MSA_API.process_content('ENDED',"Task skipped: the server subscription is empty for this workflow instance context.", context, True)
             print(ret)
             sys.exit()
             

@@ -31,9 +31,13 @@ if __name__ == "__main__":
         nfvoSubscription.set_parameters(nfvo_mano_user, nfvo_mano_pass, nfvo_auth_mode, nfvo_keycloak_server_url)
     else:
         nfvoSubscription.set_parameters(nfvo_mano_user, nfvo_mano_pass)
-
+       
     #Get VNFM suscription id.
-    vnfm_subs_id_to_nfvo = context["vnfm_subs_id_to_nfvo"]
+    if 'vnfm_subs_id_to_nfvo' in context:
+        vnfm_subs_id_to_nfvo = context["vnfm_subs_id_to_nfvo"]
+    else:
+        MSA_API.task_success("Task skipped: the server subscription is empty for this workflow instance context.", context, True)
+        
     #Execute the unsubscription of the VNFM from the NFVO.
     r = nfvoSubscription.unsubscribe(vnfm_subs_id_to_nfvo)
     

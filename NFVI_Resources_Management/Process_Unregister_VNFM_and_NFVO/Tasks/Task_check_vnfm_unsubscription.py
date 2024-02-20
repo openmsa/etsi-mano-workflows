@@ -34,25 +34,29 @@ if __name__ == "__main__":
         vnfmSubscription.set_parameters(nfvo_username, nfvo_password, nfvo_auth_mode, nfvo_keycloak_server_url)
     else:
         vnfmSubscription.set_parameters(nfvo_username, nfvo_password)
-
+        
     #VNFM subscription id.
-    vnfm_subs_id_on_nfvo = context["vnfm_subs_id_to_nfvo"]
+    if 'vnfm_subs_id_to_nfvo' in context:
+        vnfm_subs_id_to_nfvo = context["vnfm_subs_id_to_nfvo"]
+    else:
+        MSA_API.task_success("Task skipped: the server subscription is empty for this workflow instance context.", context, True)
+        
     
-    r = vnfmSubscription.subscribe_get_status(vnfm_subs_id_on_nfvo)
+    r = vnfmSubscription.subscribe_get_status(vnfm_subs_id_to_nfvo)
     
     r_details = ''
     status = vnfmSubscription.state
     
     if isinstance(r, dict):
         if status == 'ENDED':
-            MSA_API.task_error('The VNFM subscription (id=' + vnfm_subs_id_on_nfvo +') was not deleted.', context, True)
+            MSA_API.task_error('The VNFM subscription (id=' + vnfm_subs_id_to_nfvo +') was not deleted.', context, True)
         else:
             r_dict = r.json()
             if isinstance(r_dict, dict):
                 r_details = str((r_dict).get('detail'))
         
     elif not r:
-            MSA_API.task_success('The VNFM subscription (id=' + vnfm_subs_id_on_nfvo +') is deleted.', context, True)
+            MSA_API.task_success('The VNFM subscription (id=' + vnfm_subs_id_to_nfvo +') is deleted.', context, True)
             
     ret = MSA_API.process_content(status, f'{r}' + ': ' + r_details, context, True)
     print(ret)

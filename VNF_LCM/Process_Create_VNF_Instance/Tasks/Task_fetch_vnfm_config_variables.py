@@ -53,6 +53,9 @@ if __name__ == "__main__":
     if vnfm_mano_base_url == '/vnfm-webapp/' or vnfm_mano_base_url == '/ubi-etsi-mano/':
         context["vnfm_mano_base_url"] = vnfm_mano_base_url + 'sol003/'
     
+    else:
+        context["vnfm_mano_base_url"] = vnfm_mano_base_url
+    
     if vnfm_mano_auth_mode == 'oauth_v2':
         #Get keycloak server URL. 
         keycloak_server_url  = _get_config_variable (vnfm_mano_me_id, "SIGNIN_REQ_PATH")

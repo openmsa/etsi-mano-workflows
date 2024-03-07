@@ -72,6 +72,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO">
     <displayName>Register VNFM and NFVO</displayName>
@@ -114,6 +115,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>Synchronize VNFM microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO">
     <displayName>Unregister VNFM and NFVO</displayName>
@@ -140,6 +142,10 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Check VNFM unsubscription</displayName>
     </task>
+    <task name="Task_ensure_vnf_package_mgmt_subscription_deleted.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Ensure vnf package mgmt subscription is deleted</displayName>
+    </task>
     <task name="Task_nfvo_unsubscription_from_vnfm.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>NFVO unsubscription from VNFM</displayName>
@@ -147,6 +153,14 @@
     <task name="Task_check_nfvo_unsubscription.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
       <displayName>Check NFVO unsubscription</displayName>
+    </task>
+    <task name="Task_ensure_vnf_indicator_subscriptions_deleted.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Ensure vnf indicator subscriptions is deleted</displayName>
+    </task>
+    <task name="Task_ensure_vnf_lcm_subscriptions_deleted.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO/Tasks</processPath>
+      <displayName>Ensure vnflcm subscriptions is deleted</displayName>
     </task>
     <task name="Task_Sync_to_NFVO.py">
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
@@ -156,6 +170,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>Synchronize VNFM microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM">
     <displayName>Update VIM Registration</displayName>
@@ -182,6 +197,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM">
     <displayName>Unregister VIM</displayName>
@@ -208,6 +224,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Trash">
     <displayName>Move to Trash</displayName>
@@ -218,6 +235,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Trash/Tasks</processPath>
       <displayName>Delete workflow instance</displayName>
     </task>
+    <processConstraintsPath/>
   </process>
   <information>
     <icon/>
@@ -225,6 +243,7 @@
     <displayField>service_instance_name</displayField>
     <order>10000</order>
     <visibility>5</visibility>
+    <wfConstraintsPath/>
     <serviceTaskType>python</serviceTaskType>
     <processToAssociateToTrashIcon/>
     <name>MANO &amp; NFVI Resources Management</name>

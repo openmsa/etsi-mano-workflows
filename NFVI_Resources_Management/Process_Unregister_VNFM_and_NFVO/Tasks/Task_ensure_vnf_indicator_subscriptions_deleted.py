@@ -26,16 +26,7 @@ def _delete_force_subscriptions_vnfind(subscription_ids, vnfindSubscription, con
         print(ret)
 
 if __name__ == "__main__":
-
-    #Get is_vnfm_register_only value.
-    is_vnfm_register_only = context.get('is_vnfm_register_only')
-    
-    
-    
-    #Skip task if NFVO was not subscribed to the VNFM.
-    if is_vnfm_register_only == True or is_vnfm_register_only == 'True' or is_vnfm_register_only == 'true':
-        MSA_API.task_success('Task skipped, N/A.', context)
-        
+     
     #Get VNFM ME connection informations.
     vnfm_me_ref = context["vnfm_device"]
     vnfm_me_id = context["vnfm_device"][3:]

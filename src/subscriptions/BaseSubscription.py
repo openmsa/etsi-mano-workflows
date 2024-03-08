@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2023  Ubiqube
+# Copyright (C) 2019-2024  UBiqube
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -13,20 +13,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import time
-import os
-import json
-import logging
-import requests
-from requests.exceptions import HTTPError
-from urllib3.exceptions import InsecureRequestWarning
 from custom.ETSI.BaseApi import BaseApi
-
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class BaseSubscription(BaseApi):
 
-    def __getSubscriptionById(self, subscription_id, _vnf_subscription_base_url):
+    def __get_subscription_by_id(self, subscription_id, _vnf_subscription_base_url):
         response = self.do_get(_vnf_subscription_base_url)
+
+        if self.state == 'FAIL':
+            return response.json()
         
         subscription = ''
         for index, item in enumerate(response.json()):
@@ -47,26 +42,20 @@ class BaseSubscription(BaseApi):
         return response
     
     def get_subscription_by_id(self, _subscription_id, _subscription_resource_url):
-        response = self.do_get(_subscription_resource_url)
-        
-        subscription = ''
-        for index, item in enumerate(response.json()):
-            if 'id' in item:
-                item_subscription_id = item['id']
-                if item_subscription_id == _subscription_id:
-                    subscription = item
-                    break
-        return subscription
+        return self.__get_subscription_by_id(_subscription_id, _subscription_resource_url)
     
     def delete_subscription(self, _subscription_id, _subscription_resource_url):
         return self.__delete_subscription(_subscription_id, _subscription_resource_url)
     
     def delete_subscription_force(self, _subscription_id, _subscription_resource_url, _time_out):
+        r = self.__delete_subscription(_subscription_id, _subscription_resource_url)
         while (_time_out > 0):
-            subscription = self.__getSubscriptionById(_subscription_id, _subscription_resource_url)
+            # Get subscription details from remote server.
+            subscription = self.__get_subscription_by_id(_subscription_id, _subscription_resource_url)
             # If subscription still exists, loop and atempt to remove it.
             if subscription and isinstance(subscription, dict):
-                response = self.__delete_subscription(_subscription_id, _subscription_resource_url)
+                # Delete subscription in the remote server.
+                self.__delete_subscription(_subscription_id, _subscription_resource_url)
                 _time_out -= 1
                 time.sleep(1)
             else:

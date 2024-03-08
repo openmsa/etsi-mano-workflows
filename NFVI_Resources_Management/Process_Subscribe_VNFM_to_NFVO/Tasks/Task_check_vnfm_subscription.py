@@ -54,6 +54,8 @@ if __name__ == "__main__":
         
         if serverStatus == 'SUCCESS':
             r_details = 'The server subscription status is ' + serverStatus + '!'
+            #Store in the context the VNFM to NFVO subscription object.
+            context['vnfm_to_nfvo_subscription'] = r_dict
             MSA_API.task_success(r_details, context, True)
 
         elif serverStatus == 'FAILED':

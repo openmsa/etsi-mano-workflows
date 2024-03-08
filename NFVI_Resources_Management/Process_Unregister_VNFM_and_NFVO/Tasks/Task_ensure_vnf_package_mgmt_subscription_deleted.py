@@ -57,9 +57,9 @@ if __name__ == "__main__":
     else:
         vnfpkgmSubscription.set_parameters(nfvo_username, nfvo_password)
     
-    # Get VNFM Subscription to NFVO (fetched via 'admin/server/{id}' API resource).
+    # Get remoteSubscriptions to VNFM (fetched via 'admin/server/{id}' API resource).
     if not 'nfvo_to_vnfm_subscription' in context:
-        MSA_API.task_success("Task skipped: empty nfvo subscription object in the context.", context, True)
+        MSA_API.task_success("Task skipped: empty 'remoteSubscriptions' object in the context.", context, True)
         
     if isinstance(context.get('nfvo_to_vnfm_subscription'), dict):
         vnfm_to_nfvo_subscription = context['nfvo_to_vnfm_subscription']

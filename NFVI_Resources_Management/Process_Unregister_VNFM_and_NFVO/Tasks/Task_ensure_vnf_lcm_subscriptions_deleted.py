@@ -58,7 +58,10 @@ if __name__ == "__main__":
         vnflcmSubscription.set_parameters(vnfm_username, vnfm_password)
 
     # Get remoteSubscriptions from NFVO get 'admin/server/{id}' API resource.
-    if 'vnfm_to_nfvo_subscription' in context and isinstance(context.get('vnfm_to_nfvo_subscription'), dict):
+    if not 'vnfm_to_nfvo_subscription' in context:
+        MSA_API.task_success("Task skipped: empty 'remoteSubscriptions' object in the context.", context, True)
+        
+    if isinstance(context.get('vnfm_to_nfvo_subscription'), dict):
         nfvo_to_vnfm_subscription = context['vnfm_to_nfvo_subscription']
 
     # Vnflcm subscription force delete.

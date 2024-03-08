@@ -58,7 +58,10 @@ if __name__ == "__main__":
         vnfpkgmSubscription.set_parameters(nfvo_username, nfvo_password)
     
     # Get VNFM Subscription to NFVO (fetched via 'admin/server/{id}' API resource).
-    if 'nfvo_to_vnfm_subscription' in context and isinstance(context.get('nfvo_to_vnfm_subscription'), dict):
+    if not 'nfvo_to_vnfm_subscription' in context:
+        MSA_API.task_success("Task skipped: empty nfvo subscription object in the context.", context, True)
+        
+    if isinstance(context.get('nfvo_to_vnfm_subscription'), dict):
         vnfm_to_nfvo_subscription = context['nfvo_to_vnfm_subscription']
     
     # Vnf indicator subscription force delete.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata>
+    <map>
+        <entry>
+            <key>DISPLAYNAME</key>
+            <value>Process_Refresh_Managed_Entities</value>
+        </entry>
+        <entry>
+            <key>REPOSITORY</key>
+            <value>Process</value>
+        </entry>
+        <entry>
+            <key>TAG</key>
+        </entry>
+        <entry>
+            <key>TYPE</key>
+            <value>DIRECTORY</value>
+        </entry>
+        <entry>
+            <key>COMMENT</key>
+        </entry>
+    </map>
+</metadata>

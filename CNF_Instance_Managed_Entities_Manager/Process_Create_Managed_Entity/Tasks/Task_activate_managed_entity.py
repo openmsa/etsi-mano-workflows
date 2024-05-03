@@ -14,11 +14,11 @@ def __get_managed_entity_external_reference_from(context):
     managed_entity_reference = context.get('managed_entity_external_reference')
     return managed_entity_reference
 
-def __delete_managed_entity_by(external_reference):
+def __do_initial_provision_to_managed_entity(external_reference):
     managed_entity_id = external_reference[3:]
     managed_entity = Device(device_id=managed_entity_id)
     try:
-        managed_entity.delete(external_reference)
+        managed_entity.initial_provisioning()
     except:
         pass
 
@@ -31,7 +31,7 @@ if __name__ == '__main__':
     managed_entity_reference = __get_managed_entity_external_reference_from(context)
     
     #Delete managed entity.
-    __delete_managed_entity_by(managed_entity_reference)
+    __do_initial_provision_to_managed_entity(managed_entity_reference)
     
     #Display task success message.
     MSA_API.task_success('Task OK', context, True)

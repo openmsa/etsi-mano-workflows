@@ -6,5 +6,5 @@ dev_var = Variables()
 
 context = Variables.task_call(dev_var)
 
-MSA_API.task_ssuccess('Task OK', context, True)
+MSA_API.task_success('Task OK', context, True)
 

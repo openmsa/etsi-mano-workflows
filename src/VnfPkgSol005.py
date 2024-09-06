@@ -66,9 +66,9 @@ class VnfPkgSol005(BaseApi):
     def vnf_packages_vnfpkgid_package_content_put(_vnfpkgid, _content):
         pass
     
-    def vnf_packages_vnfpkgid_package_file_put(self, _vnfpkgid, _filename):
+    def vnf_packages_vnfpkgid_package_file_put(self, _vnfpkgid, _filename, descriptor_id):
         _url     = self.VNF_PKG_URL + "/" + _vnfpkgid + "/package_content"
-        response = self.do_put(_url, _filename)
+        response = self.do_put(_url, _filename, descriptor_id)
         return response
     
     def set_operational_state(self, _vnfpkgid, _state):

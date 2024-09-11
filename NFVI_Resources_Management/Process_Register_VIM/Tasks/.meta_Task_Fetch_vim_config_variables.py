@@ -6,16 +6,8 @@
             <value>Task_Fetch_vim_config_variables.py</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1697636984602</value>
-        </entry>
-        <entry>
             <key>REPOSITORY</key>
             <value>Process</value>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1697636984598</value>
         </entry>
         <entry>
             <key>TAG</key>

@@ -6,16 +6,8 @@
             <value>Task_fetch_nfvo_config_variables.py</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1697623647467</value>
-        </entry>
-        <entry>
             <key>REPOSITORY</key>
             <value>Process</value>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1697623647463</value>
         </entry>
         <entry>
             <key>TAG</key>

@@ -38,6 +38,8 @@ if __name__ == "__main__":
     
     user_domain = _get_config_variable (vim_me_id, "USER_DOMAIN_ID")
     
+    region = _get_config_variable (vim_me_id, "REGION")
+    
     #Get SDN controller (e.g: Juniper contrail) endpoint if exists.
     sdn_endpoint = _get_config_variable (vim_me_id, "SDN_CONTROLLER_ENDPOINT", False)
     
@@ -62,6 +64,7 @@ if __name__ == "__main__":
     context["vim_project_id"] = project_id.strip()
     context["vim_project_domain"] = project_domain.strip()
     context["vim_user_domain"] = user_domain.strip()
+    context["vim_region"] = region.strip()
     context["vim_type"] = vim_type.strip()
     context["vim_auth_endpoint"] = vim_auth_endpoint.strip()
     context["vim_sdn_endpoint"] = sdn_endpoint.strip()

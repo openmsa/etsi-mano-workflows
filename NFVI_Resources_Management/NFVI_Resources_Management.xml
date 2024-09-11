@@ -245,7 +245,7 @@
     <visibility>5</visibility>
     <wfConstraintsPath></wfConstraintsPath>
     <serviceTaskType>python</serviceTaskType>
-    <processToAssociateToTrashIcon>Move to Trash</processToAssociateToTrashIcon>
+    <processToAssociateToTrashIcon/>
     <name>MANO &amp; NFVI Resources Management</name>
     <group>MANO|VNFM|VIM</group>
   </information>

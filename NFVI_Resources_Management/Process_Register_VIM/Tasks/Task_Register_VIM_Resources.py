@@ -45,6 +45,7 @@ if __name__ == "__main__":
     project_id = context["vim_project_id"]
     project_domain = context["vim_project_domain"]
     user_domain = context["vim_user_domain"]
+    region = context["vim_region"]
     vim_type = context["vim_type"]
     endpoint = context["vim_auth_endpoint"]
     sdn_endpoint = context["vim_sdn_endpoint"]
@@ -62,7 +63,8 @@ if __name__ == "__main__":
                    "projectId": project_id,
                    "projectDomain": project_domain,
                    "userDomain": user_domain,
-                   "vim_project": "cbamnso"
+                   "vim_project": "cbamnso",
+                   "region": region
                    },
                "geoloc": {
                    "lng": 45.75801,

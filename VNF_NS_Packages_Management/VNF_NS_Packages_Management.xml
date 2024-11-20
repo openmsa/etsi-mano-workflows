@@ -286,6 +286,17 @@
     </task>
     <processConstraintsPath/>
   </process>
+  <process name="Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Delete_Workflow_Instance">
+    <displayName>Delete Workflow Instance</displayName>
+    <type>DELETE</type>
+    <visibility>5</visibility>
+    <allowSchedule/>
+    <task name="Task_Delete_Instance.py">
+      <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/VNF_NS_Packages_Management/Process_Delete_Workflow_Instance/Tasks</processPath>
+      <displayName>Delete Instance</displayName>
+    </task>
+    <processConstraintsPath/>
+  </process>
   <information>
     <icon/>
     <description/>
@@ -294,7 +305,7 @@
     <visibility>5</visibility>
     <wfConstraintsPath/>
     <serviceTaskType>python</serviceTaskType>
-    <processToAssociateToTrashIcon/>
+    <processToAssociateToTrashIcon>Delete Workflow Instance</processToAssociateToTrashIcon>
     <name>VNF / NS Packages Management</name>
     <group>ETSI|Python|VNF|NS</group>
   </information>

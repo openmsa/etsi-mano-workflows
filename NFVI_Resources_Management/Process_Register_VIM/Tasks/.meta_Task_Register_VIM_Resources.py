@@ -6,16 +6,8 @@
             <value>Task_Register_VIM_Resources.py</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1688737593070</value>
-        </entry>
-        <entry>
             <key>REPOSITORY</key>
             <value>Process</value>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1688737593066</value>
         </entry>
         <entry>
             <key>TAG</key>

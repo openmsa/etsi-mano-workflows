@@ -6,16 +6,8 @@
             <value>Task_Onboard_VNF.py</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1691584886091</value>
-        </entry>
-        <entry>
             <key>REPOSITORY</key>
             <value>Process</value>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1691584886088</value>
         </entry>
         <entry>
             <key>TAG</key>

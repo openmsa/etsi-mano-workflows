@@ -75,9 +75,12 @@ class BaseApi():
                                         data=_payload, verify=False)
         return self.r_check(response)
 
-    def do_put(self, _url, _filename):
+    def do_put(self, _url, _filename, descriptor_id):
         _url               = self.base_url + _url
-        _headers           = self.headers
+        if descriptor_id is not None:
+            _headers           = {**self.headers, 'X-Descriptor-Id': descriptor_id}
+        else:
+            _headers = self.headers
         del _headers['Content-Type']
         _headers['Accept'] = 'application/json'
         _name              = _filename.split('/')[-1] 

@@ -6,19 +6,23 @@
             <value>VNF_NS_Packages_Management.xml</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1694158434165</value>
-        </entry>
-        <entry>
             <key>REPOSITORY</key>
             <value>Process</value>
         </entry>
         <entry>
-            <key>DATE_CREATION</key>
-            <value>1694158434165</value>
+            <key>MODEL</key>
+            <value>0</value>
         </entry>
         <entry>
             <key>TAG</key>
+        </entry>
+        <entry>
+            <key>FILE_TYPE</key>
+            <value>unknown</value>
+        </entry>
+        <entry>
+            <key>MANUFACTURER</key>
+            <value>0</value>
         </entry>
         <entry>
             <key>TYPE</key>

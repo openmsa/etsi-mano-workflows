@@ -392,7 +392,7 @@
     <displayField>vnf_instance_name</displayField>
     <order>10000</order>
     <visibility>5</visibility>
-    <wfConstraintsPath/>
+    <wfConstraintsPath></wfConstraintsPath>
     <serviceTaskType>python</serviceTaskType>
     <processToAssociateToTrashIcon/>
     <name>VNF LifeCycle Management</name>

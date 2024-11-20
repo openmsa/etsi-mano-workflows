@@ -72,7 +72,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Register_VIM/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
-    <processConstraintsPath/>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO">
     <displayName>Register VNFM and NFVO</displayName>
@@ -115,7 +115,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>Synchronize VNFM microservices</displayName>
     </task>
-    <processConstraintsPath/>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Unregister_VNFM_and_NFVO">
     <displayName>Unregister VNFM and NFVO</displayName>
@@ -170,7 +170,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Subscribe_VNFM_to_NFVO/Tasks</processPath>
       <displayName>Synchronize VNFM microservices</displayName>
     </task>
-    <processConstraintsPath/>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Update_VIM">
     <displayName>Update VIM Registration</displayName>
@@ -197,7 +197,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
-    <processConstraintsPath/>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM">
     <displayName>Unregister VIM</displayName>
@@ -224,7 +224,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Delete_VIM/Tasks</processPath>
       <displayName>Synchronize NFVO microservices</displayName>
     </task>
-    <processConstraintsPath/>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <process name="Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Trash">
     <displayName>Move to Trash</displayName>
@@ -235,7 +235,7 @@
       <processPath>/opt/fmc_repository/Process/etsi-mano-workflows/NFVI_Resources_Management/Process_Trash/Tasks</processPath>
       <displayName>Delete workflow instance</displayName>
     </task>
-    <processConstraintsPath/>
+    <processConstraintsPath></processConstraintsPath>
   </process>
   <information>
     <icon/>
@@ -243,9 +243,9 @@
     <displayField>service_instance_name</displayField>
     <order>10000</order>
     <visibility>5</visibility>
-    <wfConstraintsPath/>
+    <wfConstraintsPath></wfConstraintsPath>
     <serviceTaskType>python</serviceTaskType>
-    <processToAssociateToTrashIcon/>
+    <processToAssociateToTrashIcon>Move to Trash</processToAssociateToTrashIcon>
     <name>MANO &amp; NFVI Resources Management</name>
     <group>MANO|VNFM|VIM</group>
   </information>

@@ -18,6 +18,7 @@ from requests.exceptions import HTTPError
 from urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from custom.ETSI.BaseApi import BaseApi
+from custom.ETSI.ManoProtocolsVersion import ManoProtocolsVersion    
 
 
 class VnfLcmSol003(BaseApi):

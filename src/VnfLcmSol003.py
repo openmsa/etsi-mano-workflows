@@ -44,8 +44,9 @@ class VnfLcmSol003(BaseApi):
        #update request header object by adding the header_version.
        self.headers.update(version=self.header_version)
 
-       self.VNF_LCM_URL = self.NFV_RESOURCE_FRAGMENT + "/v" + self.fragment_version + "/vnf_instances"
-
+       #self.VNF_LCM_URL = self.NFV_RESOURCE_FRAGMENT + "/v" + self.fragment_version + "/vnf_instances"
+       self.VNF_LCM_URL = self.NFV_RESOURCE_FRAGMENT + "/v2/vnf_instances"
+       
     def vnf_lcm_create_instance(self, _payload):
         response = self.do_post(self.VNF_LCM_URL, _payload)
         return response

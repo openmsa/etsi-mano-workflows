@@ -42,9 +42,12 @@ class VnfLcmSol003(BaseApi):
            self.header_version = data.get('header_version')
 
        #update request header object by adding the header_version.
-       self.headers.update(version=self.header_version)
+       #self.headers.update(version=self.header_version)
+       # harcoded value below for test with Tacker
+       self.headers.update(version="2.0.0")
 
        #self.VNF_LCM_URL = self.NFV_RESOURCE_FRAGMENT + "/v" + self.fragment_version + "/vnf_instances"
+       # harcoded value below for test with Tacker
        self.VNF_LCM_URL = self.NFV_RESOURCE_FRAGMENT + "/v2/vnf_instances"
        
     def vnf_lcm_create_instance(self, _payload):

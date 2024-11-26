@@ -36,6 +36,11 @@
         <sections>VNF Inputs</sections>
       </sections>
     </variable>
+    <variable displayName="VNF Instantiation Payload" name="params.vnf_instantiation_payload" startIncrement="0" type="Code" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="33" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="{'flavourId': 'simple'}" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>VNF Inputs</sections>
+      </sections>
+    </variable>
     <variable displayName="VNF Management Network Name" name="params.vnf_mgmt_network_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="Fill out the VNF management network name (fully or partially). It will be used by the MSActivator to get access to the VNF going with VDU instances." groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="32" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>VNF Inputs</sections>

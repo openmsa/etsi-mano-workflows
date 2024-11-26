@@ -6,16 +6,8 @@
             <value>Task_Create_VNF_Instance_Resource.py</value>
         </entry>
         <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1692612144476</value>
-        </entry>
-        <entry>
             <key>REPOSITORY</key>
             <value>Process</value>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1692612144472</value>
         </entry>
         <entry>
             <key>TAG</key>

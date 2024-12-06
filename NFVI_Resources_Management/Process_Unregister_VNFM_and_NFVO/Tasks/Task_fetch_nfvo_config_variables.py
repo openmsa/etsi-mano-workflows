@@ -23,6 +23,18 @@ if __name__ == "__main__":
 
     dev_var = Variables()
     dev_var.add('nfvo_device', var_type='Device')
+    dev_var.add('cnf', var_type='Boolean')
+    dev_var.add('cnf_keypair', var_type='Composite')
+    dev_var.add('cnf_extNetworkId', var_type='String')
+    dev_var.add('cnf_k8sVersion', var_type='String')
+    dev_var.add('cnf_flavorId', var_type='String')
+    dev_var.add('cnf_image', var_type='String')
+    dev_var.add('cni_module', var_type='String')
+    dev_var.add('cni_version', var_type='String')
+    dev_var.add('csi_module', var_type='String')
+    dev_var.add('csi_version', var_type='String')
+    dev_var.add('ccm_module', var_type='String')
+    dev_var.add('ccm_version', var_type='String')
     context = Variables.task_call(dev_var)
     
     #Get config variables values from NFVO ME.

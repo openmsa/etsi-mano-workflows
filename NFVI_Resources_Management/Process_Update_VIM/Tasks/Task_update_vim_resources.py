@@ -8,6 +8,18 @@ from custom.ETSI.NfviVim import NfviVim
 if __name__ == "__main__":
     dev_var = Variables()
     dev_var.add('vim_device', var_type='Device')
+    dev_var.add('cnf', var_type='Boolean')
+    dev_var.add('cnf_keypair', var_type='Composite')
+    dev_var.add('cnf_extNetworkId', var_type='String')
+    dev_var.add('cnf_k8sVersion', var_type='String')
+    dev_var.add('cnf_flavorId', var_type='String')
+    dev_var.add('cnf_image', var_type='String')
+    dev_var.add('cni_module', var_type='String')
+    dev_var.add('cni_version', var_type='String')
+    dev_var.add('csi_module', var_type='String')
+    dev_var.add('csi_version', var_type='String')
+    dev_var.add('ccm_module', var_type='String')
+    dev_var.add('ccm_version', var_type='String')
     context = Variables.task_call(dev_var)
     
     #Lock the workflow instance to be dedicated to the VIM registration management.
@@ -19,6 +31,7 @@ if __name__ == "__main__":
     nfvo_mano_port  = context["nfvo_mano_port"]
     nfvo_mano_user  = context["nfvo_mano_user"]
     nfvo_mano_pass  = context["nfvo_mano_pass"]
+    
     #Get keycloak server URL.
     nfvo_keycloak_server_url  = context["nfvo_mano_keycloak_server_url"]
     #Get Authentication mode ('basic' or 'oauth2').
@@ -45,7 +58,19 @@ if __name__ == "__main__":
     user_domain = context["vim_user_domain"]
     vim_type = context["vim_type"]
     endpoint = context["vim_auth_endpoint"]
+    region = context["vim_region"]
     sdn_endpoint = context["vim_sdn_endpoint"]
+    keyPair = context["cnf_keypair"]
+    extNetworkId = context["cnf_extNetworkId"]
+    k8sVersion = context["cnf_k8sVersion"]
+    flavorId = context["cnf_flavorId"]
+    cnf_image = context["cnf_image"]
+    cni_module = context["cni_module"]
+    cni_version = context["cni_version"]
+    csi_module = context["csi_module"]
+    csi_version = context["csi_version"]
+    ccm_module = context["ccm_module"]
+    ccm_version = context["ccm_version"]
     
     #Get VIM registration id.
     if 'vim_registration_id' in context:
@@ -57,18 +82,79 @@ if __name__ == "__main__":
     interfaceInfo = {"endpoint": endpoint}
     
     #Main content
-    content = {
-               "vimId": vim_registration_id,
-               "vimType": vim_type,
-               "accessInfo": {
-                   "username": vim_username,
-                   "password": vim_password,
-                   "projectId": project_id,
-                   "projectDomain": project_domain,
-                   "userDomain": user_domain,
-                   "vim_project": "cbamnso"
+    if context["cnf"] == True:
+        content = {
+                   "vimId": str(uuid.uuid4()),
+                   "vimType": vim_type,
+                   "interfaceInfo": {
+                       "endpoint": "http://10.31.1.108:5000/v3",
+                       "connection-timeout": 5,
+                       "read-timeout": 5,
+                       "retry": 4
+                   },
+                   "accessInfo": {
+                       "username": vim_username,
+                       "password": vim_password,
+                       "projectId": project_id,
+                       "projectDomain": project_domain,
+                       "userDomain": user_domain,
+                       "vim_project": "cbamnso",
+                       "region": region
+                       },
+                   "cnfInfo": {
+                       "dnsServer": "8.8.4.4",
+                       "keyPair": keyPair,
+                       "extNetworkId": extNetworkId,
+                       "k8sVersion": k8sVersion,
+                       "master": {
+                           "flavorId": flavorId,
+                           "flavor": "k8s",
+                           "minNumberInstance": 1,
+                           "image": cnf_image
+                           },
+                       "worker": {
+                           "flavorId": flavorId,
+                           "flavor": "k8s",
+                           "minNumberInstance": 1,
+                           "image": cnf_image
+                           },
+                       "cni": {
+                           "module": cni_module,
+                           "version": cni_version
+                           },
+                       "csi": {
+                           "module": csi_module,
+                           "version": csi_version
+                           },
+                       "ccm": {
+                           "module": ccm_module,
+                           "version": ccm_version
+                           }
+                   },
+                   "geoloc": {
+                       "lng": 45.75801,
+                       "lat": 4.8001016
+                       }
                    }
-               }
+    else:
+        content = {
+                   "vimId": str(uuid.uuid4()),
+                   "vimType": vim_type,
+                   "accessInfo": {
+                       "username": vim_username,
+                       "password": vim_password,
+                       "projectId": project_id,
+                       "projectDomain": project_domain,
+                       "userDomain": user_domain,
+                       "vim_project": "cbamnso",
+                       "region": region
+                       },
+                   "geoloc": {
+                       "lng": 45.75801,
+                       "lat": 4.8001016
+                       }
+                   }
+    
     #Add the sdn controller endpoint.
     if sdn_endpoint:
         interfaceInfo['sdn-endpoint'] = sdn_endpoint

@@ -61,6 +61,7 @@ if __name__ == "__main__":
     region = context["vim_region"]
     sdn_endpoint = context["vim_sdn_endpoint"]
     keyPair = context["cnf_keypair"]
+    cnf_endpoint = context["cnf_endpoint"]
     extNetworkId = context["cnf_extNetworkId"]
     k8sVersion = context["cnf_k8sVersion"]
     flavorId = context["cnf_flavorId"]
@@ -87,7 +88,7 @@ if __name__ == "__main__":
                    "vimId": str(uuid.uuid4()),
                    "vimType": vim_type,
                    "interfaceInfo": {
-                       "endpoint": "http://10.31.1.108:5000/v3",
+                       "endpoint": cnf_endpoint,
                        "connection-timeout": 5,
                        "read-timeout": 5,
                        "retry": 4

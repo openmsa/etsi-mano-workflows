@@ -49,12 +49,15 @@ if __name__ == "__main__":
     vim_type = context["vim_type"]
     endpoint = context["vim_auth_endpoint"]
     sdn_endpoint = context["vim_sdn_endpoint"]
+    cnf_dnsServer = context["cnf_dnsServer"]
     keyPair = context["cnf_keypair"]
     cnf_endpoint = context["cnf_endpoint"]
     extNetworkId = context["cnf_extNetworkId"]
     k8sVersion = context["cnf_k8sVersion"]
     flavorId = context["cnf_flavorId"]
     cnf_image = context["cnf_image"]
+    cnf_flavor = context["cnf_flavor"]
+    cnf_minNumberInstance = context["cnf_minNumberInstance"]
     cni_module = context["cni_module"]
     cni_version = context["cni_version"]
     csi_module = context["csi_module"]
@@ -82,24 +85,23 @@ if __name__ == "__main__":
                        "projectId": project_id,
                        "projectDomain": project_domain,
                        "userDomain": user_domain,
-                       "vim_project": "cbamnso",
                        "region": region
                        },
                    "cnfInfo": {
-                       "dnsServer": "8.8.4.4",
+                       "dnsServer": cnf_dnsServer,
                        "keyPair": keyPair,
                        "extNetworkId": extNetworkId,
                        "k8sVersion": k8sVersion,
                        "master": {
                            "flavorId": flavorId,
-                           "flavor": "k8s",
-                           "minNumberInstance": 1,
+                           "flavor": cnf_flavor,
+                           "minNumberInstance": cnf_minNumberInstance,
                            "image": cnf_image
                            },
                        "worker": {
                            "flavorId": flavorId,
-                           "flavor": "k8s",
-                           "minNumberInstance": 1,
+                           "flavor": cnf_flavor,
+                           "minNumberInstance": cnf_minNumberInstance,
                            "image": cnf_image
                            },
                        "cni": {
@@ -130,7 +132,6 @@ if __name__ == "__main__":
                        "projectId": project_id,
                        "projectDomain": project_domain,
                        "userDomain": user_domain,
-                       "vim_project": "cbamnso",
                        "region": region
                        },
                    "geoloc": {

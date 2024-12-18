@@ -99,24 +99,23 @@ if __name__ == "__main__":
                        "projectId": project_id,
                        "projectDomain": project_domain,
                        "userDomain": user_domain,
-                       "vim_project": "cbamnso",
                        "region": region
                        },
                    "cnfInfo": {
-                       "dnsServer": "8.8.4.4",
+                       "dnsServer": cnf_dnsServer,
                        "keyPair": keyPair,
                        "extNetworkId": extNetworkId,
                        "k8sVersion": k8sVersion,
                        "master": {
                            "flavorId": flavorId,
-                           "flavor": "k8s",
-                           "minNumberInstance": 1,
+                           "flavor": cnf_flavor,
+                           "minNumberInstance": cnf_minNumberInstance,
                            "image": cnf_image
                            },
                        "worker": {
                            "flavorId": flavorId,
-                           "flavor": "k8s",
-                           "minNumberInstance": 1,
+                           "flavor": cnf_flavor,
+                           "minNumberInstance": cnf_minNumberInstance,
                            "image": cnf_image
                            },
                        "cni": {
@@ -147,7 +146,6 @@ if __name__ == "__main__":
                        "projectId": project_id,
                        "projectDomain": project_domain,
                        "userDomain": user_domain,
-                       "vim_project": "cbamnso",
                        "region": region
                        },
                    "geoloc": {

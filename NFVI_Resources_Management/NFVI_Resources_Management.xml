@@ -26,6 +26,110 @@
         <sections>CNF</sections>
       </sections>
     </variable>
+    <variable displayName="cnf_endpoint" name="params.cnf_endpoint" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.cnf" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="cnf_endpoint" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_endpoint" selectorValue="true" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <sections>
+            <sections>CNF</sections>
+          </sections>
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="cnf_endpoint" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_endpoint" selectorValue="false" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+      <sections>
+        <sections>CNF</sections>
+      </sections>
+    </variable>
+    <variable displayName="cnf_dnsServer" name="params.cnf_dnsServer" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.cnf" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="cnf_dnsServer" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_dnsServer" selectorValue="true" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <sections>
+            <sections>CNF</sections>
+          </sections>
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="cnf_dnsServer" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_dnsServer" selectorValue="false" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+      <sections>
+        <sections>CNF</sections>
+      </sections>
+    </variable>
     <variable displayName="keyPair" name="params.cnf_keypair" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.cnf" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="keyPair" displayOrder="8" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_keypair" selectorValue="true" startIncrement="0" type="OBMFRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
@@ -278,6 +382,110 @@
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
           <refDeviceIdVar></refDeviceIdVar>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+      <sections>
+        <sections>CNF</sections>
+      </sections>
+    </variable>
+    <variable displayName="cnf_flavor" name="params.cnf_flavor" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.cnf" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="cnf_flavor" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_flavor" selectorValue="true" startIncrement="0" type="String" default="k8s" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <sections>
+            <sections>CNF</sections>
+          </sections>
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="cnf_flavor" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_flavor" selectorValue="false" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector>params.cnf</selector>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+      </behaviors>
+      <sections>
+        <sections>CNF</sections>
+      </sections>
+    </variable>
+    <variable displayName="cnf_minNumberInstance" name="params.cnf_minNumberInstance" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.cnf" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="cnf_minNumberInstance" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_minNumberInstance" selectorValue="true" startIncrement="0" type="String" default="1" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <sections>
+            <sections>CNF</sections>
+          </sections>
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
+          <refServiceURI></refServiceURI>
+          <isSearchable>false</isSearchable>
+          <selector/>
+          <isUniqueGlobal>false</isUniqueGlobal>
+        </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="cnf_minNumberInstance" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.cnf_minNumberInstance" selectorValue="false" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
+          <compositeKey>false</compositeKey>
+          <codeLanguage/>
+          <defaultValueLong/>
+          <description></description>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
+          <groupDisplayName></groupDisplayName>
+          <groupSeparator></groupSeparator>
+          <isGrouped>false</isGrouped>
+          <increment>0</increment>
+          <isCompositeKey>false</isCompositeKey>
+          <keepOnImport>false</keepOnImport>
+          <mandatoryArray>false</mandatoryArray>
+          <onlyDetailView>false</onlyDetailView>
+          <refDeviceIdVar/>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
           <selector>params.cnf</selector>

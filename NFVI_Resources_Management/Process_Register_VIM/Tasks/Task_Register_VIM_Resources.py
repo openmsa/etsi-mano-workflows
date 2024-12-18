@@ -49,28 +49,98 @@ if __name__ == "__main__":
     vim_type = context["vim_type"]
     endpoint = context["vim_auth_endpoint"]
     sdn_endpoint = context["vim_sdn_endpoint"]
+    cnf_dnsServer = context["cnf_dnsServer"]
+    keyPair = context["cnf_keypair"]
+    cnf_endpoint = context["cnf_endpoint"]
+    extNetworkId = context["cnf_extNetworkId"]
+    k8sVersion = context["cnf_k8sVersion"]
+    flavorId = context["cnf_flavorId"]
+    cnf_image = context["cnf_image"]
+    cnf_flavor = context["cnf_flavor"]
+    cnf_minNumberInstance = context["cnf_minNumberInstance"]
+    cni_module = context["cni_module"]
+    cni_version = context["cni_version"]
+    csi_module = context["csi_module"]
+    csi_version = context["csi_version"]
+    ccm_module = context["ccm_module"]
+    ccm_version = context["ccm_version"]
     
     #InterfaceInfo dict.
     interfaceInfo = {"endpoint": endpoint, "non-strict-ssl": "true"}
     
     #Main content
-    content = {
-               "vimId": str(uuid.uuid4()),
-               "vimType": vim_type,
-               "accessInfo": {
-                   "username": vim_username,
-                   "password": vim_password,
-                   "projectId": project_id,
-                   "projectDomain": project_domain,
-                   "userDomain": user_domain,
-                   "vim_project": "cbamnso",
-                   "region": region
+    if context["cnf"] == True:
+        content = {
+                   "vimId": str(uuid.uuid4()),
+                   "vimType": vim_type,
+                   "interfaceInfo": {
+                       "endpoint": cnf_endpoint,
+                       "connection-timeout": 5,
+                       "read-timeout": 5,
+                       "retry": 4
                    },
-               "geoloc": {
-                   "lng": 45.75801,
-                   "lat": 4.8001016
+                   "accessInfo": {
+                       "username": vim_username,
+                       "password": vim_password,
+                       "projectId": project_id,
+                       "projectDomain": project_domain,
+                       "userDomain": user_domain,
+                       "region": region
+                       },
+                   "cnfInfo": {
+                       "dnsServer": cnf_dnsServer,
+                       "keyPair": keyPair,
+                       "extNetworkId": extNetworkId,
+                       "k8sVersion": k8sVersion,
+                       "master": {
+                           "flavorId": flavorId,
+                           "flavor": cnf_flavor,
+                           "minNumberInstance": cnf_minNumberInstance,
+                           "image": cnf_image
+                           },
+                       "worker": {
+                           "flavorId": flavorId,
+                           "flavor": cnf_flavor,
+                           "minNumberInstance": cnf_minNumberInstance,
+                           "image": cnf_image
+                           },
+                       "cni": {
+                           "module": cni_module,
+                           "version": cni_version
+                           },
+                       "csi": {
+                           "module": csi_module,
+                           "version": csi_version
+                           },
+                       "ccm": {
+                           "module": ccm_module,
+                           "version": ccm_version
+                           }
+                   },
+                   "geoloc": {
+                       "lng": 45.75801,
+                       "lat": 4.8001016
+                       }
                    }
-               }
+    else:
+        content = {
+                   "vimId": str(uuid.uuid4()),
+                   "vimType": vim_type,
+                   "accessInfo": {
+                       "username": vim_username,
+                       "password": vim_password,
+                       "projectId": project_id,
+                       "projectDomain": project_domain,
+                       "userDomain": user_domain,
+                       "region": region
+                       },
+                   "geoloc": {
+                       "lng": 45.75801,
+                       "lat": 4.8001016
+                       }
+                   }
+    
+    
     #Add the sdn controller endpoint.
     if sdn_endpoint:
         interfaceInfo['sdn-endpoint'] = sdn_endpoint

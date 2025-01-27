@@ -9,12 +9,13 @@ from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 if __name__ == "__main__":
 
     dev_var = Variables()
-    dev_var.add('vnf_pkg_id', var_type='OBMFRef')
-    dev_var.add('vnf_instance_name', var_type='String')
-    dev_var.add('vnf_instance_description', var_type='String')
-    dev_var.add('is_vnf_instance_exist', var_type='Boolean')
-    dev_var.add('vnf_instance_id', var_type='String')
-    dev_var.add('ns_service_instance_ref', var_type='String')
+    dev_var.add('vnf_pkg_id')
+    dev_var.add('vnf_instance_name')
+    dev_var.add('vnf_instance_description')
+    dev_var.add('vnf_instantiation_payload')
+    dev_var.add('is_vnf_instance_exist')
+    dev_var.add('vnf_instance_id')
+    dev_var.add('ns_service_instance_ref')
     context = Variables.task_call(dev_var)
     
     #Get VNFM config variables values from context.
@@ -45,19 +46,6 @@ if __name__ == "__main__":
     #--------------------- 3rd party S-VFNM ---------------
     metadata = {"onboardedVnfPkgInfoId": context["vnf_pkg_id"]}
     
-    if "is_third_party_vnfm" in context:
-        is_third_party_vnfm = context.get('is_third_party_vnfm')
-        if is_third_party_vnfm == 'true':
-            
-            #Set default root base URL as '/' if empty and 3rd party VNFM.
-            if not context["mano_base_url"]:
-                context["mano_base_url"] = '/'
-            
-            #-------------------- RIBBON S-VNFM 3rd Party CUSTOM------------#
-            vnfd_id = context["vnf_pkg_id"]
-            #---------------------------------------------------------------#
-    #---------------------------------------------
-        
     #Get VNF Descriptor id from the context.    
     vnfd_id = context["vnfd_id"]
         

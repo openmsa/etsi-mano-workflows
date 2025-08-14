@@ -213,7 +213,7 @@ if __name__ == "__main__":
             management_port='22'
             name = vnf_service_instance_ref + '_VNFC_' + vnfResourceId
             #Create Device
-            device = Device(customer_id=customer_id, name=name, manufacturer_id=manufacturer_id, model_id=model_id, login='ipcore', password=password, password_admin=password, management_address=management_address, management_port=management_port, device_external="", log_enabled=True, log_more_enabled=True, mail_alerting=False, reporting=True, snmp_community='ubiqube', device_id="")
+            device = Device(customer_id=customer_id, name=name, manufacturer_id=manufacturer_id, model_id=model_id, login='ipcore', password=password, password_admin=password, management_address=management_address, management_port=management_port, device_external="", log_enabled=True, log_more_enabled=True, reporting=True, snmp_community='ubiqube', device_id="")
             response = device.create()
             context.update(device=response)
             #get device external reference
@@ -240,3 +240,4 @@ if __name__ == "__main__":
     context.update(vnf_me_list=vnf_me_list)
     
     MSA_API.task_success('The VNF managed entities are created.', context)
+

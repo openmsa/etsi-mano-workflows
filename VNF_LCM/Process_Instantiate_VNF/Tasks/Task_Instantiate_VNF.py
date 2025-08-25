@@ -3,6 +3,7 @@ import json
 from msa_sdk import constants
 from msa_sdk.variables import Variables
 from msa_sdk.msa_api import MSA_API
+from msa_sdk import util
 
 from custom.ETSI.VnfLcmSol003 import VnfLcmSol003
 from custom.ETSI.VnfLcmOpOccsSol003 import VnfLcmOpOccsSol003
@@ -15,10 +16,12 @@ if __name__ == "__main__":
     context = Variables.task_call(dev_var)
     #Get authentication type.
     auth_mode = context["vnfm_mano_auth_mode"]
-    
+    process_id = context['SERVICEINSTANCEID']
+
     if context.get('is_vnf_instance_exist') != True:
         vnfPkg = VnfPkgSol005(context["nfvo_mano_ip"], context["nfvo_mano_port"], context['nfvo_mano_base_url'])
         vnfLcm = VnfLcmSol003(context["vnfm_mano_ip"], context["vnfm_mano_port"], context['vnfm_mano_base_url'])
+        util.log_to_process_file(process_id, '**** auth_mode: '+auth_mode)
         
         if auth_mode == 'oauth2' or auth_mode == 'oauth_v2':
             vnfLcm.set_parameters(context['vnfm_mano_ip'], context['vnfm_mano_pass'], auth_mode, context['vnfm_mano_keycloak_server_url'])
@@ -33,16 +36,11 @@ if __name__ == "__main__":
         if var_check != 'ENABLED':
             MSA_API.task_error('VNF package is '+var_check, context)
         
-        content = {'flavourId': 'simple'}
-        
-        #-------- RIBBON 3rd Party S-VNFM custom -----------#
-        '''
-        if "is_third_party_vnfm" in context:
-            is_third_party_vnfm = context.get('is_third_party_vnfm')
-            if is_third_party_vnfm == 'true':
-                content = {"flavourId":"default","vimConnectionInfo":{"0":{"id":"VIM-regionOne-Zone-A","vimId":"0551a37b-7130-498a-9667-84a6b0f503cf","vimType":"ETSINFV.OPENSTACK_KEYSTONE.V_3","interfaceInfo":{"endpoint":"https://keystone.tmtc.pujlab.tmone.my:5000/v3"},"accessInfo":{"project":"admin","domainName":"admin_domain","username":"admin","password":"aish4Eivai4monei"}}},"extVirtualLinks":[{"id":"mgt0_ext_network","vimConnectionId":"VIM-regionOne-Zone-A","resourceId":"8fb7008f-76e4-42d3-ba42-a0f37c387941","extCps":[{"cpdId":"mgt0","cpConfig":{"cpConfigKey":{"cpInstanceId":"mgt0_ext_network","cpProtocolData":[{"layerProtocol":"IP_OVER_ETHERNET","ipOverEthernet":{"ipAddresses":[{"type":"IPV4","numDynamicAddresses":1,"subnetId":"6d3290a8-de22-424f-a45d-bc982d3cdf10"}]}}]}}}]},{"id":"pkt0_ext_network","vimConnectionId":"VIM-regionOne-Zone-A","resourceId":"8fb7008f-76e4-42d3-ba42-a0f37c387941","extCps":[{"cpdId":"pkt0","cpConfig":{"cpConfigKey":{"cpInstanceId":"pkt0_ext_network","cpProtocolData":[{"layerProtocol":"IP_OVER_ETHERNET","ipOverEthernet":{"ipAddresses":[{"type":"IPV4","numDynamicAddresses":1,"subnetId":"6d3290a8-de22-424f-a45d-bc982d3cdf10"}]}}]}}}]},{"id":"pkt1_ext_network","vimConnectionId":"VIM-regionOne-Zone-A","resourceId":"8fb7008f-76e4-42d3-ba42-a0f37c387941","extCps":[{"cpdId":"pkt1","cpConfig":{"cpConfigKey":{"cpInstanceId":"pkt1_ext_network","cpProtocolData":[{"layerProtocol":"IP_OVER_ETHERNET","ipOverEthernet":{"ipAddresses":[{"type":"IPV4","numDynamicAddresses":1,"subnetId":"6d3290a8-de22-424f-a45d-bc982d3cdf10"}]}}]}}}]},{"id":"oam_mgt0_ext_network","vimConnectionId":"VIM-regionOne-Zone-A","resourceId":"8fb7008f-76e4-42d3-ba42-a0f37c387941","extCps":[{"cpdId":"oam_mgt0","cpConfig":{"cpConfigKey":{"cpInstanceId":"oam_mgt0_ext_network","cpProtocolData":[{"layerProtocol":"IP_OVER_ETHERNET","ipOverEthernet":{"ipAddresses":[{"type":"IPV4","numDynamicAddresses":1,"subnetId":"6d3290a8-de22-424f-a45d-bc982d3cdf10"}]}}]}}}]}]}
-        '''
-        #---------------------------------------------------#
+        vnf_instance_id = context["vnf_instance_id"]
+        util.log_to_process_file(process_id, '**** vnf_instance_id: '+vnf_instance_id)
+
+        #content = {'flavourId': 'simple'}
+        content = context["vnf_instantiation_payload"]
         r = vnfLcm.vnf_lcm_instantiate_vnf(context["vnf_instance_id"], content)
         
         r_details = ''

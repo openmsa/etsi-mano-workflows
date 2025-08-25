@@ -26,7 +26,7 @@ class VnfPkgSol005(BaseApi):
 
     NFV_API_PROTOCOL = "sol005"
     NFV_RESOURCE_FRAGMENT = "vnfpkgm"
-    VNF_PKG_URL = NFV_API_PROTOCOL + "/" + NFV_RESOURCE_FRAGMENT + "/v1/vnf_packages"
+    VNF_PKG_URL = ""
 
 
     def __init__(self, hostname, port, base_url, sol_version='2.6.1'):

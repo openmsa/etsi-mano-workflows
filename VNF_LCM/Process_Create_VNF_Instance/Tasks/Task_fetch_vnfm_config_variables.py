@@ -60,9 +60,5 @@ if __name__ == "__main__":
         #Get keycloak server URL. 
         keycloak_server_url  = _get_config_variable (vnfm_mano_me_id, "SIGNIN_REQ_PATH")
         context["vnfm_mano_keycloak_server_url"] = keycloak_server_url
-        
-    ##Get 3rd party S-VFNM boolean config variable (optional).
-    is_third_party_vnfm  = _get_config_variable (vnfm_mano_me_id, "IS_THIRD_PARTY_VNFM", True)
-    context["is_third_party_vnfm"] = is_third_party_vnfm
-    
+
     MSA_API.task_success('VNFM config variables are stored into the context!', context, True) 
